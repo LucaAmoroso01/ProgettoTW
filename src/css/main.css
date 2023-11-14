@@ -3,6 +3,14 @@ body {
   font-family: "Titillium Web" !important;
 }
 
+.dropdown-menu {
+  display: none;
+}
+
+.nav-item:hover .dropdown-menu {
+  display: block;
+}
+
 .login-buttons {
   display: flex;
   flex-direction: row;

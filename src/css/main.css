@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web");
+body {
+  font-family: "Titillium Web" !important;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: white !important;
+}
+.nav-link:hover {
+  background-color: black;
+}
+
+.btn {
+  text-transform: uppercase;
+}
+
+.btn-login-subscribe:hover {
+  background-color: rgba(31, 41, 55, 1) !important;
+  border-color: rgba(31, 41, 55, 1) !important;
+}
+
+.row {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h5 {
+  font-weight: 900 !important;
+}
+
+.card-img-top {
+  height: 10rem !important;
+  width: 10rem !important;
+  align-self: center;
+  object-fit: cover;
+}

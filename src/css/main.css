@@ -22,14 +22,19 @@ body {
   text-transform: uppercase;
 }
 
+.read-more {
+  position: absolute;
+  bottom: 0.9rem;
+}
+
 .btn-login-subscribe:hover {
   background-color: rgba(31, 41, 55, 1) !important;
   border-color: rgba(31, 41, 55, 1) !important;
 }
 
 .row {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 0.625rem;
+  margin-bottom: 2rem;
 }
 
 h5 {
@@ -37,8 +42,30 @@ h5 {
 }
 
 .card-img-top {
-  height: 10rem !important;
-  width: 10rem !important;
+  height: 17rem !important;
+  width: 19.5rem !important;
   align-self: center;
   object-fit: cover;
 }
+
+.card-body {
+  height: 20rem;
+}
+
+footer {
+  background-color: #2a2929;
+  color: white;
+}
+
+.srl {
+  padding-top: 0.7rem;
+  margin-left: 0.5rem;
+}
+
+.copy {
+  text-align: right;
+  margin-right: 0.8rem;
+  padding-bottom: 0.4rem;
+}
+
+

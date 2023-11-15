@@ -55,6 +55,18 @@ body {
   width: 101vw !important;
 }
 
+.custom-dropdown-item {
+  background-color: transparent !important;
+}
+
+.custom-dropdown-item:hover {
+  background-color: transparent !important;
+}
+
+.custom-dropdown-item:focus {
+  background-color: transparent !important;
+}
+
 .dropdown-list-layout {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -83,10 +95,6 @@ body {
 }
 
 .dropdown-item:hover {
-  background-color: inherit !important;
-}
-
-.dropdown-item:active {
   background-color: inherit !important;
 }
 

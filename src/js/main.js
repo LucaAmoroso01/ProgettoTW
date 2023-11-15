@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .replace(/\b\w/g, (char) => char.toUpperCase());
 
     const formattedName = `<div class="team-name">
-                              <img alt="${team}-logo" src="../images/${team}-logo.png" class="teams-logo" style="width: ${
+                              <img alt="${team}-logo" src="images/${team}-logo.png" class="teams-logo" style="width: ${
       team === "red-bull"
         ? "10rem"
         : team === "alfa-romeo"

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>F1 Universe</title>
+    <link rel="icon" href="images/logo.ico" />
     <link rel="stylesheet" href="css/main.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -21,11 +22,12 @@
   </head>
   <body>
     <nav
-      class="navbar navbar-expand-md"
+      class="navbar navbar-expand-lg fixed-top"
       style="
         background-color: red !important;
         max-height: 5rem !important;
         padding-right: 1rem;
+        width: 100%;
       "
     >
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -34,58 +36,37 @@
         </a>
         <ul class="navbar-nav" style="gap: 2rem">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">Schedule
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">Results
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">Drivers
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Charles Leclerc</a>
-              <a class="dropdown-item" href="#">Carlos Sainz</a>
-              <a class="dropdown-item" href="#">Max Verstappen</a>
-              <a class="dropdown-item" href="#">Sergio Perez</a>
-              <a class="dropdown-item" href="#">Lewis Hamilton</a>
-              <a class="dropdown-item" href="#">George Russell</a>
-              <a class="dropdown-item" href="#">Lando Norris</a>
-              <a class="dropdown-item" href="#">Oscar Piastri</a>
-              <a class="dropdown-item" href="#">Fernando Alonso</a>
-              <a class="dropdown-item" href="#">Lance Stroll</a>
-              <a class="dropdown-item" href="#">Esteban Ocon</a>
-              <a class="dropdown-item" href="#">Pierre Gasly</a>
-              <a class="dropdown-item" href="#">Yuki Tsunoda</a>
-              <a class="dropdown-item" href="#">Daniel Ricciardo</a>
-              <a class="dropdown-item" href="#">Valtteri Bottas</a>
-              <a class="dropdown-item" href="#">Guanyu Zhou</a>
-              <a class="dropdown-item" href="#">Kevin Magnussen</a>
-              <a class="dropdown-item" href="#">Nico Hulkenberg</a>
-              <a class="dropdown-item" href="#">Alexander Albon</a>
-              <a class="dropdown-item" href="#">Logan Sargeant</a>
+            <button
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Drivers
+            </button>
+            <div class="dropdown-menu custom-dropdown-menu bg-black">
+              <div class="dropdown-list-layout"></div>
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">Teams
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Ferrari</a>
-              <a class="dropdown-item" href="#">Red Bull</a>
-              <a class="dropdown-item" href="#">Mercedes</a>
-              <a class="dropdown-item" href="#">Mclaren</a>
-              <a class="dropdown-item" href="#">Aston Martin</a>
-              <a class="dropdown-item" href="#">Alpine</a>
-              <a class="dropdown-item" href="#">Alpha Tauri</a>
-              <a class="dropdown-item" href="#">Alfa Romeo</a>
-              <a class="dropdown-item" href="#">Haas</a>
-              <a class="dropdown-item" href="#">Williams</a>
+            <button
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Teams
+            </button>
+            <div
+              class="dropdown-menu custom-dropdown-menu bg-black"
+              style="margin-left: -24rem !important"
+            >
+              <div id="teams" class="dropdown-list-layout"></div>
             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" role="button"> Schedule </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" role="button"> Results </a>
           </li>
         </ul>
       </div>
@@ -116,176 +97,161 @@
     </nav>
 
     <!-- news section -->
-    <div class="container-fluid container" style="padding: 2rem 0rem 2rem 0rem">
-      <div class="row">
-        <div class="col">
-          <div class="card border-0">
-            <img
-              src="https://images.radiox.co.uk/images/59032?width=1548&crop=1_1&signature=x4sJxlWxwadyYPBdXGBEjiy2UmY="
-              class="card-img-top"
-              alt="Kings of Leon"
-            />
-            <div class="card-body border-bottom border-end rounded-bottom">
-              <h5 class="card-title">
-                Kings of Leon to headline the 2024 British Grand Prix's opening concert
-              </h5>
-              <p class="card-text">
-                Silverstone has announced that Kings of Leon will headline
-                the 2024 British Grand Prix’s iconic Opening Concert on Thursday, July 4, 2024.
-              </p>
-              <a href="#" class="btn btn-primary read-more">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card border-0">
-            <img
-              src="https://i.redd.it/0bsjmkvaoxyb1.jpg"
-              class="card-img-top"
-              alt="Devastated Leclerc"
-            />
-            <div class="card-body border-bottom border-end rounded-bottom">
-              <h5 class="card-title">
-                ‘Why am I so unlucky?’ –
-                Leclerc left devastated by formation lap failure in Brazil
-              </h5>
-              <p class="card-text">
-                It wasn’t to be for Charles Leclerc in Brazil,
-                the Ferrari driver suffering a mechanical failure on the formation lap
-                that ultimately took him out of the race.
-              </p>
-              <a href="#" class="btn btn-primary read-more">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card border-0">
-            <img
-              src="https://saltwire.imgix.net/2023/11/5/motor-racing-verstappen-wins-in-sao-paulo-for-17th-win-of-th_uMeMDQ7.jpg?cs=srgb&fit=crop&h=568&w=847&dpr=1&auto=format%2Cenhance%2Ccompress"
-              class="card-img-top"
-              alt="Verstappen's Red Bull on track"
-            />
-            <div class="card-body border-bottom border-end rounded-bottom">
-              <h5 class="card-title">
-                Winners and Losers from Sao Paulo –
-                Who left Interlagos the happiest in the final Sprint weekend of the season?
-              </h5>
-              <p class="card-text">
-                Max Verstappen extended his record of most wins in a season to 17.
-                But while there was joy for the Dutchman, there was frustration for others,
-                not least those caught up in the opening lap melee.
-              </p>
-              <a href="#" class="btn btn-primary read-more">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card border-0">
-            <img
-              src="https://www.f1sport.it/wp-content/uploads/2023/11/c.webp"
-              class="card-img-top"
-              alt="Perez and Alonso's battle"
-            />
-            <div class="card-body border-bottom border-end rounded-bottom">
-              <h5 class="card-title">
-                Perez found ‘intense’ battle with Alonso ‘super enjoyable’
-                despite missing out on the podium
-              </h5>
-              <p class="card-text">
-                Sergio Perez missed out on a top three finish in Sao Paulo by just 0.053s,
-                as Fernando Alonso pipped him in a drag race across the finishing line.
-                It was the perfect end to an epic battle that had been going on for many laps
-                between the Red Bull and the Aston Martin.
-              </p>
-              <a href="#" class="btn btn-primary read-more">Read More</a>
-            </div>
-          </div>
+    <div
+      class="container-fluid container grid-news"
+      style="padding-bottom: 5rem"
+    >
+      <div class="card border-0 position-relative">
+        <img
+          src="https://images.radiox.co.uk/images/59032?width=1548&crop=1_1&signature=x4sJxlWxwadyYPBdXGBEjiy2UmY="
+          class="card-img-top"
+          alt="Kings of Leon"
+        />
+        <div class="card-body border-bottom border-end">
+          <h5 class="card-title">
+            Kings of Leon to headline the 2024 British Grand Prix's opening
+            concert
+          </h5>
+          <p class="card-text">
+            Silverstone has announced that Kings of Leon will headline the 2024
+            British Grand Prix’s iconic Opening Concert on Thursday, July 4,
+            2024.
+          </p>
+          <button class="btn btn-primary read-more">Read More</button>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <div class="card border-0">
-            <img
-              src="https://www.f1sport.it/wp-content/uploads/2020/06/F1-Wolff-Mercedes-Fotocattagni-o3pth4z8o1rrgi5n3fnlk8gzbi8iqj8oqpgrmlmhog-1200x799-1.jpg"
-              class="card-img-top"
-              alt="Toto Wolff"
-            />
-            <div class="card-body border-bottom border-end rounded-bottom">
-              <h5 class="card-title">
-                ‘Inexcusable performance’ – Wolff brands Mercedes’ W14
-                ‘miserable’ as car ‘doesn’t deserve a win’
-              </h5>
-              <p class="card-text">
-                Toto Wolff has labelled Mercedes’ W14 “miserable”
-                following an “inexcusable performance” at the Sao Paulo Grand Prix.
-              </p>
-              <a href="#" class="btn btn-primary read-more">Read More</a>
-            </div>
-          </div>
+      <div class="card border-0">
+        <img
+          src="https://i.redd.it/0bsjmkvaoxyb1.jpg"
+          class="card-img-top"
+          alt="Devastated Leclerc"
+        />
+        <div class="card-body border-bottom border-end w-100">
+          <h5 class="card-title">
+            ‘Why am I so unlucky?’ – Leclerc left devastated by formation lap
+            failure in Brazil
+          </h5>
+          <p class="card-text">
+            It wasn’t to be for Charles Leclerc in Brazil, the Ferrari driver
+            suffering a mechanical failure on the formation lap that ultimately
+            took him out of the race.
+          </p>
+          <button class="btn btn-primary read-more">Read More</button>
         </div>
-        <div class="col">
-          <div class="card border-0">
-            <img
-              src="https://preview.redd.it/lando-norris-mclaren-lift-his-2nd-place-trophy-race-2023-v0-3582q5fhrryb1.jpg?auto=webp&s=b7701b91af8aaf5bc46f7343ff78653f68625d20"
-              class="card-img-top"
-              alt="Lando Norris lift his 2nd place trophy "
-            />
-            <div class="card-body border-bottom border-end rounded-bottom">
-              <h5 class="card-title">
-                ‘Close to perfect weekend’ for Norris as he grabs
-                fifth podium in six races
-              </h5>
-              <p class="card-text">
-                Lando Norris shot off the line to launch himself
-                past both Aston Martins into second at the first corner,
-                and from there, never looked back.
-              </p>
-              <a href="#" class="btn btn-primary read-more">Read More</a>
-            </div>
-          </div>
+      </div>
+      <div class="card border-0">
+        <img
+          src="https://saltwire.imgix.net/2023/11/5/motor-racing-verstappen-wins-in-sao-paulo-for-17th-win-of-th_uMeMDQ7.jpg?cs=srgb&fit=crop&h=568&w=847&dpr=1&auto=format%2Cenhance%2Ccompress"
+          class="card-img-top"
+          alt="Verstappen's Red Bull on track"
+        />
+        <div class="card-body border-bottom border-end">
+          <h5 class="card-title">
+            Winners and Losers from Sao Paulo – Who left Interlagos the happiest
+            in the final Sprint weekend of the season?
+          </h5>
+          <p class="card-text">
+            Max Verstappen extended his record of most wins in a season to 17.
+            But while there was joy for the Dutchman, there was frustration for
+            others, not least those caught up in the opening lap melee.
+          </p>
+          <button class="btn btn-primary read-more">Read More</button>
         </div>
-        <div class="col">
-          <div class="card border-0">
-            <img
-              src="https://cdn.racingnews365.com/2023/Hulkenberg/_1125x633_crop_center-center_85_none/XPB_1246392_HiRes.jpg?v=1699120887"
-              class="card-img-top"
-              alt="Haas' car on track"
-            />
-            <div class="card-body border-bottom border-end rounded-bottom">
-              <h5 class="card-title">
-                Stewards to consider Haas ‘Right of Review’
-                request over US Grand Prix result
-              </h5>
-              <p class="card-text">
-                United States Grand Prix stewards are to consider a request
-                from the Haas team for a Right of Review of the Austin race results
-                in relation to track limit infringements,
-                including those by Williams’ Alex Albon.
-              </p>
-              <a href="#" class="btn btn-primary read-more">Read More</a>
-            </div>
-          </div>
+      </div>
+      <div class="card border-0">
+        <img
+          src="https://www.f1sport.it/wp-content/uploads/2023/11/c.webp"
+          class="card-img-top"
+          alt="Perez and Alonso's battle"
+        />
+        <div class="card-body border-bottom border-end">
+          <h5 class="card-title">
+            Perez found ‘intense’ battle with Alonso ‘super enjoyable’ despite
+            missing out on the podium
+          </h5>
+          <p class="card-text">
+            Sergio Perez missed out on a top three finish in Sao Paulo by just
+            0.053s, as Fernando Alonso pipped him in a drag race across the
+            finishing line. It was the perfect end to an epic battle that had
+            been going on for many laps between the Red Bull and the Aston
+            Martin.
+          </p>
+          <button class="btn btn-primary read-more">Read More</button>
         </div>
-        <div class="col">
-          <div class="card border-0">
-            <img
-              src="https://sportsbase.io/images/gpfans/copy_1200x800/4af3b21d901c5f4085ae8fb4c04695b68a724ca1.jpg"
-              class="card-img-top"
-              alt="Gianpiero Lambiase"
-            />
-            <div class="card-body border-bottom border-end rounded-bottom">
-              <h5 class="card-title">
-                Lambiase reveals his ‘biggest fear’
-                about Verstappen relationship going forward
-              </h5>
-              <p class="card-text">
-                Max Verstappen and his race engineer Gianpiero Lambiase
-                have forged a formidable partnership during their time together at Red Bull –
-                but the journey to title-winning glory has not been without some bumps in the road.
-              </p>
-              <a href="#" class="btn btn-primary read-more">Read More</a>
-            </div>
-          </div>
+      </div>
+      <div class="card border-0">
+        <img
+          src="https://www.f1sport.it/wp-content/uploads/2020/06/F1-Wolff-Mercedes-Fotocattagni-o3pth4z8o1rrgi5n3fnlk8gzbi8iqj8oqpgrmlmhog-1200x799-1.jpg"
+          class="card-img-top"
+          alt="Toto Wolff"
+        />
+        <div class="card-body border-bottom border-end">
+          <h5 class="card-title">
+            ‘Inexcusable performance’ – Wolff brands Mercedes’ W14 ‘miserable’
+            as car ‘doesn’t deserve a win’
+          </h5>
+          <p class="card-text">
+            Toto Wolff has labelled Mercedes’ W14 “miserable” following an
+            “inexcusable performance” at the Sao Paulo Grand Prix.
+          </p>
+          <button class="btn btn-primary read-more">Read More</button>
+        </div>
+      </div>
+      <div class="card border-0">
+        <img
+          src="https://preview.redd.it/lando-norris-mclaren-lift-his-2nd-place-trophy-race-2023-v0-3582q5fhrryb1.jpg?auto=webp&s=b7701b91af8aaf5bc46f7343ff78653f68625d20"
+          class="card-img-top"
+          alt="Lando Norris lift his 2nd place trophy "
+        />
+        <div class="card-body border-bottom border-end">
+          <h5 class="card-title">
+            ‘Close to perfect weekend’ for Norris as he grabs fifth podium in
+            six races
+          </h5>
+          <p class="card-text">
+            Lando Norris shot off the line to launch himself past both Aston
+            Martins into second at the first corner, and from there, never
+            looked back.
+          </p>
+          <a href="#" class="btn btn-primary read-more">Read More</a>
+        </div>
+      </div>
+      <div class="card border-0">
+        <img
+          src="https://cdn.racingnews365.com/2023/Hulkenberg/_1125x633_crop_center-center_85_none/XPB_1246392_HiRes.jpg?v=1699120887"
+          class="card-img-top"
+          alt="Haas' car on track"
+        />
+        <div class="card-body border-bottom border-end">
+          <h5 class="card-title">
+            Stewards to consider Haas ‘Right of Review’ request over US Grand
+            Prix result
+          </h5>
+          <p class="card-text">
+            United States Grand Prix stewards are to consider a request from the
+            Haas team for a Right of Review of the Austin race results in
+            relation to track limit infringements, including those by Williams’
+            Alex Albon.
+          </p>
+          <button class="btn btn-primary read-more">Read More</button>
+        </div>
+      </div>
+      <div class="card border-0">
+        <img
+          src="https://sportsbase.io/images/gpfans/copy_1200x800/4af3b21d901c5f4085ae8fb4c04695b68a724ca1.jpg"
+          class="card-img-top"
+          alt="Gianpiero Lambiase"
+        />
+        <div class="card-body border-bottom border-end">
+          <h5 class="card-title">
+            Lambiase reveals his ‘biggest fear’ about Verstappen relationship
+            going forward
+          </h5>
+          <p class="card-text">
+            Max Verstappen and his race engineer Gianpiero Lambiase have forged
+            a formidable partnership during their time together at Red Bull...
+          </p>
+          <button class="btn btn-primary read-more">Read More</button>
         </div>
       </div>
     </div>

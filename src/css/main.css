@@ -86,6 +86,10 @@ body {
   background-color: inherit !important;
 }
 
+.dropdown-item:active {
+  background-color: inherit !important;
+}
+
 /* ----- Driver and teams colors ----- */
 .dropdown-item-ferrari:hover {
   border-color: var(--ferrari-color) !important;

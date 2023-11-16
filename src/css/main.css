@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
 @font-face {
   font-family: "F1 Regular";
   src: url("../fonts/Formula1-Regular.otf");
@@ -45,9 +47,13 @@ body {
 }
 
 .nav-link {
-  font-size: large;
+  font-size: large !important;
   padding: 1.5rem !important;
   transition: all 0.4s ease-in-out !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
 }
 
 .custom-dropdown-menu {
@@ -55,7 +61,7 @@ body {
   width: 101vw !important;
   position: absolute;
   top: 4.7rem !important;
-  left: -25rem !important;
+  left: -26rem !important;
 }
 
 .custom-dropdown-item {
@@ -84,6 +90,10 @@ body {
   align-items: end;
   gap: 0.3rem;
   padding: 0rem 2rem 0rem 0rem;
+}
+
+.dropdown {
+  position: relative !important;
 }
 
 .dropdown-item {

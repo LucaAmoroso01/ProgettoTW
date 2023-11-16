@@ -52,8 +52,10 @@ body {
 
 .custom-dropdown-menu {
   padding: 3rem 4rem 3rem 4rem !important;
-  margin-left: -14rem !important;
   width: 101vw !important;
+  position: absolute;
+  top: 4.7rem !important;
+  left: -25rem !important;
 }
 
 .custom-dropdown-item {
@@ -171,9 +173,13 @@ body {
 .read-more {
   align-self: flex-end;
   margin-top: 1rem;
+  background-color: black !important;
+  border-color: black !important;
+  color: white !important;
 }
 
-.btn-login-subscribe:hover {
+.btn-login-subscribe:hover,
+.read-more:hover {
   background-color: rgba(31, 41, 55, 1) !important;
   border-color: rgba(31, 41, 55, 1) !important;
 }
@@ -321,7 +327,6 @@ footer {
   height: 6rem;
 }
 
-
 .card-img-news {
   height: 50rem;
   width: 80%;
@@ -331,8 +336,6 @@ footer {
   margin: auto;
   object-fit: contain;
 }
-
-
 
 .card-text-news {
   flex-grow: 1;

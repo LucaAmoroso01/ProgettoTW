@@ -21,11 +21,12 @@
 
 :root {
   --border-size: 1px;
+  --box-shadow-sizes: 7px 2px;
 }
 
 body {
   font-family: "F1 Regular", sans-serif !important;
-  background-color: #f6f4f0;
+  background-color: #f6f4f0 !important;
 }
 
 .navbar {
@@ -70,7 +71,7 @@ hr {
 
 .form-select:focus {
   outline: none !important;
-  box-shadow: none !important;
+  box-shadow: 0px 0px var(--box-shadow-sizes) red !important;
   border: var(--border-size) solid black !important;
 }
 
@@ -79,8 +80,8 @@ hr {
 }
 
 .form-control:focus {
-  box-shadow: none !important;
   outline: none !important;
+  box-shadow: 0px 0px var(--box-shadow-sizes) red !important;
 }
 
 .btn-custom {

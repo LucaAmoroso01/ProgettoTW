@@ -1,23 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const select = document.getElementById("floatingSelectCountry");
-
-  /**
-   * Load select with all countries
-   */
-  fetch("https://restcountries.com/v3.1/all")
-    .then((response) => response.json())
-    .then((countries) => {
-      countries
-        .sort((a, b) => a.name.common.localeCompare(b.name.common))
-        .forEach((country) => {
-          const option = document.createElement("option");
-          option.text = country.name.common;
-          select.add(option);
-        });
-    })
-    .catch((error) => console.error("Error fetching countries:", error));
-});
-
 /**
  * function to load a page
  * @param pageUrl page to load
@@ -28,6 +8,24 @@ function loadPageContent(pageUrl, containerId) {
     .then((response) => response.text())
     .then((html) => {
       document.getElementById(containerId).innerHTML = html;
+
+      const select = document.getElementById("country");
+      /**
+       * Load select with all countries
+       */
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((countries) => {
+          countries
+            .sort((a, b) => a.name.common.localeCompare(b.name.common))
+            .forEach((country) => {
+              const option = document.createElement("option");
+              option.value = country.name.common;
+              option.text = country.name.common;
+              select.add(option);
+            });
+        })
+        .catch((error) => console.error("Error fetching countries:", error));
     })
     .catch((error) => console.error("Error loading page content:", error));
 }

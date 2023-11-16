@@ -1,0 +1,101 @@
+@font-face {
+  font-family: "F1 Regular";
+  src: url("../../fonts/Formula1-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "F1 Bold";
+  src: url("../../fonts/Formula1-Bold.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "F1 Wide";
+  src: url("../../fonts/Formula1-Wide.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --border-size: 1px;
+}
+
+body {
+  font-family: "F1 Regular", sans-serif !important;
+  background-color: #f6f4f0;
+}
+
+.navbar {
+  background-color: #38383f;
+  color: white;
+  height: 4rem !important;
+}
+
+.btn-tab {
+  border: none !important;
+  border-bottom: 2px solid transparent !important;
+  transition: border-bottom 0.3s ease-in-out !important;
+  border-radius: 0% !important;
+  color: white !important;
+}
+
+.btn-tab.active-tab {
+  border-bottom: 4px solid red !important;
+  border-radius: 0% !important;
+  font-family: "F1 Bold";
+  font-weight: bolder;
+}
+
+.form {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 30px !important;
+  border: var(--border-size) solid black;
+  border-radius: 10px;
+  padding: 3rem;
+  min-width: 40vw !important;
+}
+
+hr {
+  color: gray;
+}
+
+.form-select {
+  border: var(--border-size) solid black !important;
+}
+
+.form-select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: var(--border-size) solid black !important;
+}
+
+.form-control {
+  border: var(--border-size) solid black !important;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.btn-custom {
+  background-color: red !important;
+  border: var(--border-size) solid red !important;
+  color: white !important;
+  font-family: "F1 Bold";
+  font-weight: bolder;
+}
+
+.btn-custom:hover {
+  background-color: whitesmoke !important;
+  color: red !important;
+}
+
+select {
+  cursor: pointer;
+}

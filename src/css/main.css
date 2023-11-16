@@ -320,3 +320,34 @@ footer {
   width: 7rem;
   height: 6rem;
 }
+
+
+.card-img-news {
+  height: 50rem;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  object-fit: contain;
+}
+
+
+
+.card-text-news {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-title-news {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

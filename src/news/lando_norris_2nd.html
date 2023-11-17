@@ -6,6 +6,7 @@
     <title>F1 Universe</title>
     <link rel="icon" href="/src/images/logo.ico" />
     <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -31,7 +32,7 @@
       "
     >
       <div class="collapse navbar-collapse" id="navbarNav">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="../index.html">
           <img src="/src/images/logo-removebg.png" />
         </a>
         <ul class="navbar-nav" style="gap: 2rem">
@@ -66,6 +67,7 @@
         <button
           class="btn btn-primary btn-login-subscribe"
           style="background-color: black; border-color: black"
+          onclick="window.location.href = '../signin-registration-page/index.html?param=signin'"
         >
           <div
             style="
@@ -76,99 +78,100 @@
             "
           >
             <i class="fa-regular fa-user"></i>
-            Sign in
+            sign in
           </div>
         </button>
         <button
           class="btn btn-primary btn-login-subscribe"
           style="background-color: black; border-color: black"
+          onclick="window.location.href = '../signin-registration-page/index.html?param=register'"
         >
           registration
         </button>
       </div>
     </nav>
-
-    <h5 class="card-title-news">
-      ‘Close to perfect weekend’ for Norris as he grabs fifth podium in six
-      races
-    </h5>
-
-    <div class="card-img-news">
-      <img
-        src="https://preview.redd.it/lando-norris-mclaren-lift-his-2nd-place-trophy-race-2023-v0-3582q5fhrryb1.jpg?auto=webp&s=b7701b91af8aaf5bc46f7343ff78653f68625d20"
-        class="card-img-news"
-        alt="Lando Norris lift his 2nd place trophy"
-      />
+    <div class="news-container">
+      <div class="news">
+        <h5 class="news-title">
+          ‘Close to perfect weekend’ for Norris as he grabs fifth podium in six
+          races
+        </h5>
+        <div class="img-container">
+          <img
+            src="https://preview.redd.it/lando-norris-mclaren-lift-his-2nd-place-trophy-race-2023-v0-3582q5fhrryb1.jpg?auto=webp&s=b7701b91af8aaf5bc46f7343ff78653f68625d20"
+            class="img-news"
+            alt="Lando Norris lift his 2nd place trophy"
+          />
+        </div>
+        <div class="card-text-news-container">
+          <p class="card-subtitle-news">
+            Lando Norris shot off the line to launch himself past both Aston
+            Martins into second at the first corner, and from there, never
+            looked back.
+          </p>
+          <p class="card-text-news">
+            While he didn’t manage to put too much pressure on Max Verstappen
+            for the race lead, Norris kept the Dutchman honest throughout and
+            snatched his fifth podium from the last six races, or his seventh
+            top-three if you include the Sprints.
+          </p>
+          <p class="card-text-news">
+            There have been occasional errors during those events which Norris
+            has been up front about, which is why it was good to see the smiling
+            Briton concede that on balance, this weekend was pretty good.
+          </p>
+          <p class="card-text-news">
+            “This has been a close to perfect weekend, close, not quite, but as
+            close as it gets,” he said afterwards. “I just got a very good
+            start, I did the opposite of yesterday. I mean that saved me, I
+            don’t know what happened to [Leclerc], I saw he had an issue which
+            was a shame as it would have been good to try and race everyone a
+            little bit.
+          </p>
+          <p class="card-text-news">
+            “But at the same time, the less people I can race the better. Yeah,
+            to start and get into P2 I was like ‘ohhh we can have a tasty one
+            here with Max’. I tried on my first opportunity, but I only had one
+            and I couldn’t make it count. Again, like I said yesterday, it’s
+            very positive to be up there, fighting in these positions, to have
+            such a big gap to everyone behind us.”
+          </p>
+          <p class="card-text-news">
+            After the second big raft of upgrades bolted onto Norris’ car in
+            Singapore jumped McLaren up the order, with the team delivering
+            strong showings in Japan, Qatar and Austin, the last two races in
+            Mexico City and Sao Paulo were expected to reshuffle the order
+            somewhat.
+          </p>
+          <p class="card-text-news">
+            “The pace has been very strong, yeah, to be coming into a race
+            weekend where we weren’t expecting to be performing quite at this
+            level, I think is a very good surprise for us,” continued Norris.
+          </p>
+          <p class="card-text-news">
+            “Here and Mexico are the two tracks we said we were going to
+            struggle, and we’ve come out of them a lot better than we were
+            expecting so I think it’s a big positive for the whole team and for
+            myself to know this. It doesn’t seem like there are any bad tracks
+            for us at the minute.”
+          </p>
+          <p class="card-text-news">
+            With Norris just three points behind Fernando Alonso in the fightfor
+            fourth in the drivers’ championship, there’s still plenty to play
+            for in the last two races of the season – as he continues to hunt
+            that elusive first Grand Prix victory. But he remained well aware
+            that the next race in Las Vegas could either be a huge opportunity
+            or a huge bump back down to earth, calling it a “question mark” for
+            everyone.
+          </p>
+          <p class="card-text-news">
+            He's knocking down the door of a win, but as he said himself when he
+            crossed the line in Sao Paulo, there’s “always that one car in the
+            way.”
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="card-text-news-container">
-      <p class="card-subtitle-news">
-        Lando Norris shot off the line to launch himself past both Aston Martins
-        into second at the first corner, and from there, never looked back.
-      </p>
-      <p class="card-text-news">
-        While he didn’t manage to put too much pressure on Max Verstappen for
-        the race lead, Norris kept the Dutchman honest throughout and snatched
-        his fifth podium from the last six races, or his seventh top-three if
-        you include the Sprints.
-      </p>
-      <p class="card-text-news">
-        There have been occasional errors during those events which Norris has
-        been up front about, which is why it was good to see the smiling Briton
-        concede that on balance, this weekend was pretty good.
-      </p>
-      <p class="card-text-news">
-        “This has been a close to perfect weekend, close, not quite, but as
-        close as it gets,” he said afterwards. “I just got a very good start, I
-        did the opposite of yesterday. I mean that saved me, I don’t know what
-        happened to [Leclerc], I saw he had an issue which was a shame as it
-        would have been good to try and race everyone a little bit.
-      </p>
-      <p class="card-text-news">
-        “But at the same time, the less people I can race the better. Yeah, to
-        start and get into P2 I was like ‘ohhh we can have a tasty one here with
-        Max’. I tried on my first opportunity, but I only had one and I couldn’t
-        make it count. Again, like I said yesterday, it’s very positive to be up
-        there, fighting in these positions, to have such a big gap to everyone
-        behind us.”
-      </p>
-      <p class="card-text-news">
-        After the second big raft of upgrades bolted onto Norris’ car in
-        Singapore jumped McLaren up the order, with the team delivering strong
-        showings in Japan, Qatar and Austin, the last two races in Mexico City
-        and Sao Paulo were expected to reshuffle the order somewhat.
-      </p>
-      <p class="card-text-news">
-        “The pace has been very strong, yeah, to be coming into a race weekend
-        where we weren’t expecting to be performing quite at this level, I think
-        is a very good surprise for us,” continued Norris.
-      </p>
-      <p class="card-text-news">
-        “Here and Mexico are the two tracks we said we were going to struggle,
-        and we’ve come out of them a lot better than we were expecting so I
-        think it’s a big positive for the whole team and for myself to know
-        this. It doesn’t seem like there are any bad tracks for us at the
-        minute.”
-      </p>
-      <p class="card-text-news">
-        With Norris just three points behind Fernando Alonso in the fightfor
-        fourth in the drivers’ championship, there’s still plenty to play for in
-        the last two races of the season – as he continues to hunt that elusive
-        first Grand Prix victory. But he remained well aware that the next race
-        in Las Vegas could either be a huge opportunity or a huge bump back down
-        to earth, calling it a “question mark” for everyone.
-      </p>
-      <p class="card-text-news">
-        He's knocking down the door of a win, but as he said himself when he
-        crossed the line in Sao Paulo, there’s “always that one car in the way.”
-      </p>
-    </div>
-    <a
-      href="../index.html"
-      class="btn btn-primary back-home"
-      style="margin-left: auto"
-      >Back Home</a
-    >
-
     <footer>
       <p>F1Universe S.r.l</p>
       <div class="copy">

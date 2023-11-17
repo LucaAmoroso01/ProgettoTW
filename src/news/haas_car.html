@@ -6,6 +6,7 @@
     <title>F1 Universe</title>
     <link rel="icon" href="/src/images/logo.ico" />
     <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -31,7 +32,7 @@
       "
     >
       <div class="collapse navbar-collapse" id="navbarNav">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="../index.html">
           <img src="/src/images/logo-removebg.png" />
         </a>
         <ul class="navbar-nav" style="gap: 2rem">
@@ -66,6 +67,7 @@
         <button
           class="btn btn-primary btn-login-subscribe"
           style="background-color: black; border-color: black"
+          onclick="window.location.href = '../signin-registration-page/index.html?param=signin'"
         >
           <div
             style="
@@ -82,74 +84,72 @@
         <button
           class="btn btn-primary btn-login-subscribe"
           style="background-color: black; border-color: black"
+          onclick="window.location.href = '../signin-registration-page/index.html?param=register'"
         >
           registration
         </button>
       </div>
     </nav>
-
-    <h5 class="card-title-news">
-      Stewards to consider Haas ‘Right of Review’ request over US Grand Prix
-      result
-    </h5>
-
-    <div class="card-img-news">
-      <img
-        src="https://cdn.racingnews365.com/2023/Hulkenberg/_1125x633_crop_center-center_85_none/XPB_1246392_HiRes.jpg?v=1699120887"
-        class="card-img-news"
-        alt="Haas' car on track"
-      />
+    <div class="news-container">
+      <div class="news">
+        <h5 class="news-title">
+          Stewards to consider Haas ‘Right of Review’ request over US Grand Prix
+          result
+        </h5>
+        <div class="img-container">
+          <img
+            src="https://cdn.racingnews365.com/2023/Hulkenberg/_1125x633_crop_center-center_85_none/XPB_1246392_HiRes.jpg?v=1699120887"
+            class="img-news"
+            alt="Haas' car on track"
+          />
+        </div>
+        <div class="card-text-news-container">
+          <p class="card-subtitle-news">
+            United States Grand Prix stewards are to consider a request from the
+            Haas team for a Right of Review of the Austin race results in
+            relation to track limit infringements, including those by Williams’
+            Alex Albon.
+          </p>
+          <p class="card-text-news">
+            Albon, who finished in ninth place at the Circuit of The Americas,
+            was reported to the stewards during the race for allegedly leaving
+            the track without a justifiable reason multiple times in Turn 6.
+            However, no further action was taken as it was deemed there was
+            insufficient proof.
+          </p>
+          <p class="card-text-news">
+            “Based on the video footage available (which did not include CCTV),
+            the Stewards determine, whilst there might be some indication for
+            possible track limit infringements in Turn 6, the evidence at hand
+            is not sufficient to accurately and consistently conclude that any
+            breaches occurred, ” read the stewards’ document at the time.
+          </p>
+          <p class="card-text-news">
+            Now, a two-part hearing will commence on Wednesday, with the first
+            part to hear evidence as to whether there is a “significant and
+            relevant new element which was unavailable to the party seeking the
+            Review at the time of the Decision concerned.”
+          </p>
+          <p class="card-text-news">
+            Should the stewards determine that such an element exists, a second
+            part of the hearing will be convened at a later date. As well as
+            Haas and Williams, Red Bull and Aston Martin have also been called
+            to attend the hearing.
+          </p>
+          <p class="card-text-news">
+            Haas driver Nico Hulkenberg narrowly missed out on the points in
+            Austin. After the disqualifications of Charles Leclerc and Lewis
+            Hamilton, the German was classified 11th, having taken the flag less
+            than two seconds behind the second Williams of Logan Sargeant.
+          </p>
+          <p class="card-text-news">
+            With two rounds of the season remaining, Haas lie 10th and last in
+            the constructors’ championship on 12 points, four behind
+            ninth-placed Alfa Romeo.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="card-text-news-container">
-      <p class="card-subtitle-news">
-        United States Grand Prix stewards are to consider a request from the
-        Haas team for a Right of Review of the Austin race results in relation
-        to track limit infringements, including those by Williams’ Alex Albon.
-      </p>
-      <p class="card-text-news">
-        Albon, who finished in ninth place at the Circuit of The Americas, was
-        reported to the stewards during the race for allegedly leaving the track
-        without a justifiable reason multiple times in Turn 6. However, no
-        further action was taken as it was deemed there was insufficient proof.
-      </p>
-      <p class="card-text-news">
-        “Based on the video footage available (which did not include CCTV), the
-        Stewards determine, whilst there might be some indication for possible
-        track limit infringements in Turn 6, the evidence at hand is not
-        sufficient to accurately and consistently conclude that any breaches
-        occurred, ” read the stewards’ document at the time.
-      </p>
-      <p class="card-text-news">
-        Now, a two-part hearing will commence on Wednesday, with the first part
-        to hear evidence as to whether there is a “significant and relevant new
-        element which was unavailable to the party seeking the Review at the
-        time of the Decision concerned.”
-      </p>
-      <p class="card-text-news">
-        Should the stewards determine that such an element exists, a second part
-        of the hearing will be convened at a later date. As well as Haas and
-        Williams, Red Bull and Aston Martin have also been called to attend the
-        hearing.
-      </p>
-      <p class="card-text-news">
-        Haas driver Nico Hulkenberg narrowly missed out on the points in Austin.
-        After the disqualifications of Charles Leclerc and Lewis Hamilton, the
-        German was classified 11th, having taken the flag less than two seconds
-        behind the second Williams of Logan Sargeant.
-      </p>
-      <p class="card-text-news">
-        With two rounds of the season remaining, Haas lie 10th and last in the
-        constructors’ championship on 12 points, four behind ninth-placed Alfa
-        Romeo.
-      </p>
-    </div>
-    <a
-      href="../index.html"
-      class="btn btn-primary back-home"
-      style="margin-left: auto"
-      >Back Home</a
-    >
-
     <footer>
       <p>F1Universe S.r.l</p>
       <div class="copy">

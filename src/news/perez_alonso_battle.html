@@ -6,6 +6,7 @@
     <title>F1 Universe</title>
     <link rel="icon" href="/src/images/logo.ico" />
     <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -31,7 +32,7 @@
       "
     >
       <div class="collapse navbar-collapse" id="navbarNav">
-        <a class="navbar-brand">
+        <a class="navbar-brand" href="../index.html">
           <img src="/src/images/logo-removebg.png" />
         </a>
         <ul class="navbar-nav" style="gap: 2rem">
@@ -66,6 +67,7 @@
         <button
           class="btn btn-primary btn-login-subscribe"
           style="background-color: black; border-color: black"
+          onclick="window.location.href = '../signin-registration-page/index.html?param=signin'"
         >
           <div
             style="
@@ -76,107 +78,105 @@
             "
           >
             <i class="fa-regular fa-user"></i>
-            Sign in
+            sign in
           </div>
         </button>
         <button
           class="btn btn-primary btn-login-subscribe"
           style="background-color: black; border-color: black"
+          onclick="window.location.href = '../signin-registration-page/index.html?param=register'"
         >
           registration
         </button>
       </div>
     </nav>
-
-    <h5 class="card-title-news">
-      Perez found ‘intense’ battle with Alonso ‘super enjoyable’ despite missing
-      out on the podium
-    </h5>
-
-    <div class="card-img-news">
-      <img
-        src="https://www.f1sport.it/wp-content/uploads/2023/11/c.webp"
-        class="card-img-news"
-        alt="Perez and Alonso's battle"
-      />
+    <div class="news-container">
+      <div class="news">
+        <h5 class="news-title">
+          Perez found ‘intense’ battle with Alonso ‘super enjoyable’ despite
+          missing out on the podium
+        </h5>
+        <div class="img-container">
+          <img
+            src="https://www.f1sport.it/wp-content/uploads/2023/11/c.webp"
+            class="img-news"
+            alt="Perez and Alonso's battle"
+          />
+        </div>
+        <div class="card-text-news-container">
+          <p class="card-subtitle-news">
+            Sergio Perez missed out on a top three finish in Sao Paulo by just
+            0.053s, as Fernando Alonso pipped him in a drag race across the
+            finishing line. It was the perfect end to an epic battle that had
+            been going on for many laps between the Red Bull and the Aston
+            Martin.
+          </p>
+          <p class="card-text-news">
+            Lap 48 was when Perez first found himself directly behind the Aston
+            Martin on track, but it took a few laps for the Mexican to close the
+            gap with both drivers on soft tyres for their final stint. Alonso
+            had the advantage of having pitted one lap later for fresh rubber,
+            Perez having bolted on three-lap old softs at his final stop.
+          </p>
+          <p class="card-text-news">
+            It took until Lap 54 for Perez to get into DRS range of Alonso
+            ahead, and the Mexican soon went for a move into Turn 1. But Alonso
+            knew he was coming and took a wider line to cut back across the
+            apex, preventing his rival from squeezing down the inside. That was
+            the status quo for lap after lap, Perez harrying and Alonso
+            defending for all he was worth.
+          </p>
+          <p class="card-text-news">
+            But on the penultimate lap, the Mexican finally found a way past
+            into Turn 1, and managed to almost break the DRS to ensure Alonso
+            couldn’t return the favour into Turn 4. The Spaniard admitted that
+            he thought his chance of a podium had gone, only for Perez to brake
+            a fraction too late into Turn 1 on the final lap, giving Alonso a
+            run into Turn 4 where he retook the position.
+          </p>
+          <p class="card-text-news">
+            The two then had a drag race across the line, Alonso shading it by
+            the barest of margins.
+          </p>
+          <p class="card-text-news">
+            “I mean it was a great fight with Fernando, I don’t think with a lot
+            of drivers you can do these kinds of manoeuvers,” Perez said
+            afterwards. “It was really tight from beginning to end, it was super
+            enjoyable to be honest, I did have a lot of fun. In the end he ended
+            up getting the podium, but it is how the sport is.
+          </p>
+          <p class="card-text-news">
+            “I think we had a great fight, very fair and to the limit. I think
+            this is something a lot of drivers can learn from, what we did, the
+            way we fight today, I think it’s something – it’s how it should be
+            done. I’m in the wrong side, I ended up losing but it’s fine because
+            it was a great fight.”
+          </p>
+          <p class="card-text-news">
+            Perez’s wait for a first podium since Monza continues, but he did
+            finish in the top three in Saturday’s Sprint and was able to fully
+            extract the pace from the RB19 in what was a fairly successful
+            weekend for the Mexican – which gave him plenty to be pleased with.
+          </p>
+          <p class="card-text-news">
+            “We’ve seen in the last couple of races that the pace has been
+            there, that we’ve been really strong but for some reason or another,
+            we haven’t been able to get the end result. But I just knew it was a
+            matter of time.”
+          </p>
+          <p class="card-text-news">
+            Team boss Christian Horner called it “a big drive” when he radioed
+            his congratulations after Perez took the flag, saying his driver
+            “gave it everything.”
+          </p>
+          <p class="card-text-news">
+            With Lewis Hamilton struggling, Perez has increased his advantage in
+            the fight for second in the drivers’ championship, with Red Bull
+            never having managed a 1-2 finish in their history.
+          </p>
+        </div>
+      </div>
     </div>
-    <div class="card-text-news-container">
-      <p class="card-subtitle-news">
-        Sergio Perez missed out on a top three finish in Sao Paulo by just
-        0.053s, as Fernando Alonso pipped him in a drag race across the
-        finishing line. It was the perfect end to an epic battle that had been
-        going on for many laps between the Red Bull and the Aston Martin.
-      </p>
-      <p class="card-text-news">
-        Lap 48 was when Perez first found himself directly behind the Aston
-        Martin on track, but it took a few laps for the Mexican to close the gap
-        with both drivers on soft tyres for their final stint. Alonso had the
-        advantage of having pitted one lap later for fresh rubber, Perez having
-        bolted on three-lap old softs at his final stop.
-      </p>
-      <p class="card-text-news">
-        It took until Lap 54 for Perez to get into DRS range of Alonso ahead,
-        and the Mexican soon went for a move into Turn 1. But Alonso knew he was
-        coming and took a wider line to cut back across the apex, preventing his
-        rival from squeezing down the inside. That was the status quo for lap
-        after lap, Perez harrying and Alonso defending for all he was worth.
-      </p>
-      <p class="card-text-news">
-        But on the penultimate lap, the Mexican finally found a way past into
-        Turn 1, and managed to almost break the DRS to ensure Alonso couldn’t
-        return the favour into Turn 4. The Spaniard admitted that he thought his
-        chance of a podium had gone, only for Perez to brake a fraction too late
-        into Turn 1 on the final lap, giving Alonso a run into Turn 4 where he
-        retook the position.
-      </p>
-      <p class="card-text-news">
-        The two then had a drag race across the line, Alonso shading it by the
-        barest of margins.
-      </p>
-      <p class="card-text-news">
-        “I mean it was a great fight with Fernando, I don’t think with a lot of
-        drivers you can do these kinds of manoeuvers,” Perez said afterwards.
-        “It was really tight from beginning to end, it was super enjoyable to be
-        honest, I did have a lot of fun. In the end he ended up getting the
-        podium, but it is how the sport is.
-      </p>
-      <p class="card-text-news">
-        “I think we had a great fight, very fair and to the limit. I think this
-        is something a lot of drivers can learn from, what we did, the way we
-        fight today, I think it’s something – it’s how it should be done. I’m in
-        the wrong side, I ended up losing but it’s fine because it was a great
-        fight.”
-      </p>
-      <p class="card-text-news">
-        Perez’s wait for a first podium since Monza continues, but he did finish
-        in the top three in Saturday’s Sprint and was able to fully extract the
-        pace from the RB19 in what was a fairly successful weekend for the
-        Mexican – which gave him plenty to be pleased with.
-      </p>
-      <p class="card-text-news">
-        “We’ve seen in the last couple of races that the pace has been there,
-        that we’ve been really strong but for some reason or another, we haven’t
-        been able to get the end result. But I just knew it was a matter of
-        time.”
-      </p>
-      <p class="card-text-news">
-        Team boss Christian Horner called it “a big drive” when he radioed his
-        congratulations after Perez took the flag, saying his driver “gave it
-        everything.”
-      </p>
-      <p class="card-text-news">
-        With Lewis Hamilton struggling, Perez has increased his advantage in the
-        fight for second in the drivers’ championship, with Red Bull never
-        having managed a 1-2 finish in their history.
-      </p>
-    </div>
-    <a
-      href="../index.html"
-      class="btn btn-primary back-home"
-      style="margin-left: auto"
-      >Back Home</a
-    >
-
     <footer>
       <p>F1Universe S.r.l</p>
       <div class="copy">

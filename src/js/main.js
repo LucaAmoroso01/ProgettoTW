@@ -45,17 +45,17 @@ document.addEventListener("DOMContentLoaded", function () {
       `dropdown-item-${driver.team}`
     );
 
-    const formattedName = `<div class="driver">
-                            <i class="fa-sharp fa-light fa-rectangle-wide driver-${
-                              driver.team
-                            }-color"></i>
+    const formattedName = `<button class="btn-driver-name">
+                              <i class="fa-sharp fa-light fa-rectangle-wide driver-${
+                                driver.team
+                              }-color"></i>
                               <div class="driver-name">
                                 <p style="font-family: F1 Regular">
                                   ${driver.firstName}
                                 </p>
                                 <p>${driver.lastName.toUpperCase()}</p>
                               </div>
-                            </div>`;
+                            </button>`;
 
     listItem.innerHTML = formattedName;
     return listItem;

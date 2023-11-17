@@ -87,8 +87,8 @@ body {
 .driver-name {
   display: flex;
   flex-direction: row;
-  align-items: end;
-  gap: 0.3rem;
+  align-content: center;
+  gap: 6px;
   padding: 0rem 2rem 0rem 0rem;
 }
 
@@ -225,17 +225,13 @@ h5 {
 footer {
   background-color: #2a2929;
   color: white;
-}
-
-.srl {
-  padding-top: 0.7rem;
-  margin-left: 0.5rem;
+  height: 15rem;
+  padding: 4rem 2rem 4rem 2rem;
 }
 
 .copy {
   text-align: right;
-  margin-right: 0.8rem;
-  padding-bottom: 0.4rem;
+  font-size: 12px;
 }
 
 .grid-news {
@@ -248,13 +244,6 @@ footer {
 .card-news {
   display: flex;
   flex-direction: column;
-}
-
-.driver {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  gap: 1rem;
 }
 
 .driver-ferrari-color {
@@ -382,4 +371,14 @@ footer {
   justify-content: start;
   gap: 0.7rem;
   padding: 0rem 3rem 0rem 3rem;
+}
+
+.btn-driver-name {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  background-color: transparent;
+  color: white;
+  border: none;
+  gap: 12px;
 }

@@ -42,22 +42,22 @@ document.addEventListener("DOMContentLoaded", function () {
     listItem.classList.add(
       "dropdown-item",
       "custom-dropdown-item",
-      `dropdown-item-${driver.team}`
+      `dropdown-item-${driver.team}`,
+      "btn-driver-name"
+    );
+    listItem.addEventListener("click", () =>
+      openDriver(driver.lastName.toLowerCase())
     );
 
-    const formattedName =
-                            `<button class="btn-driver-name"
-                            onclick="window.location.href='drivers/${driver.lastName.toLowerCase()}.html'">
-                              <i class="fa-sharp fa-light fa-rectangle-wide driver-${
-                                driver.team
-                              }-color"></i>
-                              <div class="driver-name">
-                                <p style="font-family: F1 Regular">
-                                  ${driver.firstName}
-                                </p>
-                                <p>${driver.lastName.toUpperCase()}</p>
-                              </div>
-                            </button>`;
+    const formattedName = `<i class="fa-sharp fa-light fa-rectangle-wide driver-${
+      driver.team
+    }-color"></i>
+                            <div class="driver-name">
+                              <p style="font-family: F1 Regular">
+                                ${driver.firstName}
+                              </p>
+                              <p>${driver.lastName.toUpperCase()}</p>
+                            </div>`;
 
     listItem.innerHTML = formattedName;
     return listItem;
@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "custom-dropdown-item",
       `dropdown-item-${team}`
     );
+    listItem.addEventListener("click", () => console.log(team)); // TODO: set window location to single page team
 
     const formattedTeamName = team
       .replace("-", " ")
@@ -116,3 +117,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function openDriver(driverToOpen) {
+  const url = document.location.pathname.split("/");
+
+  if (!url.includes("drivers")) {
+    window.location.href = `drivers/${driverToOpen}.html`;
+  } else {
+    window.location.href = `${driverToOpen}.html`;
+  }
+}

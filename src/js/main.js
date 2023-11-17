@@ -1,3 +1,5 @@
+const root = '/ProgettoTW/src'
+
 document.addEventListener("DOMContentLoaded", function () {
   var cardTextElements = document.querySelectorAll(".card-text");
 
@@ -132,8 +134,9 @@ document.addEventListener("DOMContentLoaded", function () {
     <i class="fa-regular fa-user"></i>
     sign in
   </div>`;
-  signinButton.addEventListener("click", () =>
-    openSignInOrRegistration("signin")
+  signinButton.addEventListener("click", () => {
+        openSignInOrRegistration(`${root}/signin-registration-page/index.html?param=signin`)
+      }
   );
 
   const registrationButton = document.createElement("button");
@@ -142,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
   registrationButton.style.borderColor = "black";
   registrationButton.innerHTML = `registration`;
   registrationButton.addEventListener("click", () =>
-    openSignInOrRegistration("register")
+      openSignInOrRegistration(`${root}/signin-registration-page/index.html?param=register`)
   );
 
   const loginButtonsContainer = document.querySelector(".login-buttons");
@@ -150,16 +153,10 @@ document.addEventListener("DOMContentLoaded", function () {
   loginButtonsContainer.appendChild(registrationButton);
 });
 
-function openSignInOrRegistration(pageToOpen) {
-  window.location.href = `/src/signin-registration-page/index.html?param=${pageToOpen}`;
+function openSignInOrRegistration(path) {
+  window.location.href = path;
 }
 
 function openDriver(driverToOpen) {
-  const url = document.location.pathname.split("/");
-
-  if (!url.includes("drivers")) {
-    window.location.href = `/src/drivers/${driverToOpen}.html`;
-  } else {
-    window.location.href = `${driverToOpen}.html`;
-  }
+  window.location.href = `${root}/drivers/${driverToOpen}.html`;
 }

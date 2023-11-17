@@ -116,7 +116,43 @@ document.addEventListener("DOMContentLoaded", function () {
       addedTeams.push(team);
     }
   });
+
+  const signinButton = document.createElement("button");
+  signinButton.classList.add("btn", "btn-primary", "btn-login-subscribe");
+  signinButton.style.backgroundColor = "black";
+  signinButton.style.borderColor = "black";
+  signinButton.innerHTML = `<div
+    style="
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      gap: 10px;
+    "
+  >
+    <i class="fa-regular fa-user"></i>
+    sign in
+  </div>`;
+  signinButton.addEventListener("click", () =>
+    openSignInOrRegistration("signin")
+  );
+
+  const registrationButton = document.createElement("button");
+  registrationButton.classList.add("btn", "btn-primary", "btn-login-subscribe");
+  registrationButton.style.backgroundColor = "black";
+  registrationButton.style.borderColor = "black";
+  registrationButton.innerHTML = `registration`;
+  registrationButton.addEventListener("click", () =>
+    openSignInOrRegistration("register")
+  );
+
+  const loginButtonsContainer = document.querySelector(".login-buttons");
+  loginButtonsContainer.appendChild(signinButton);
+  loginButtonsContainer.appendChild(registrationButton);
 });
+
+function openSignInOrRegistration(pageToOpen) {
+  window.location.href = `/src/signin-registration-page/index.html?param=${pageToOpen}`;
+}
 
 function openDriver(driverToOpen) {
   const url = document.location.pathname.split("/");

@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { firstName: "Guanyu", lastName: "Zhou", team: "alfa-romeo" },
     { firstName: "Alexander", lastName: "Albon", team: "williams" },
     { firstName: "Kevin", lastName: "Magnussen", team: "haas" },
-    { firstName: "Niko", lastName: "Hulkenberg", team: "haas" },
+    { firstName: "Nico", lastName: "Hulkenberg", team: "haas" },
     { firstName: "Logan", lastName: "Sargeant", team: "williams" },
   ].sort((a, b) => a.lastName.localeCompare(b.lastName));
 
@@ -45,7 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
       `dropdown-item-${driver.team}`
     );
 
-    const formattedName = `<button class="btn-driver-name">
+    const formattedName =
+                            `<button class="btn-driver-name"
+                            onclick="window.location.href='drivers/${driver.lastName.toLowerCase()}.html'">
                               <i class="fa-sharp fa-light fa-rectangle-wide driver-${
                                 driver.team
                               }-color"></i>

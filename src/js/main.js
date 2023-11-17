@@ -122,7 +122,7 @@ function openDriver(driverToOpen) {
   const url = document.location.pathname.split("/");
 
   if (!url.includes("drivers")) {
-    window.location.href = `drivers/${driverToOpen}.html`;
+    window.location.href = `/src/drivers/${driverToOpen}.html`;
   } else {
     window.location.href = `${driverToOpen}.html`;
   }

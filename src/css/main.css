@@ -46,6 +46,10 @@ body {
   padding-top: 8rem;
 }
 
+.navbar-nav {
+  margin-left: 2rem !important;
+}
+
 .nav-link {
   font-size: large !important;
   padding: 1.5rem !important;
@@ -61,7 +65,7 @@ body {
   width: 101vw !important;
   position: absolute;
   top: 4.7rem !important;
-  left: -26rem !important;
+  left: -15rem !important;
 }
 
 .custom-dropdown-item {

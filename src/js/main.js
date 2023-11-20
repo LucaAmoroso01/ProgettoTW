@@ -1,4 +1,4 @@
-const root = '/ProgettoTW/src'
+const root = "/ProgettoTW/src";
 
 document.addEventListener("DOMContentLoaded", function () {
   var cardTextElements = document.querySelectorAll(".card-text");
@@ -135,9 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
     sign in
   </div>`;
   signinButton.addEventListener("click", () => {
-        openSignInOrRegistration(`${root}/signin-registration-page/index.html?param=signin`)
-      }
-  );
+    openSignInOrRegistration(
+      `${root}/signin-registration-page/index.html?param=signin`
+    );
+  });
 
   const registrationButton = document.createElement("button");
   registrationButton.classList.add("btn", "btn-primary", "btn-login-subscribe");
@@ -145,12 +146,20 @@ document.addEventListener("DOMContentLoaded", function () {
   registrationButton.style.borderColor = "black";
   registrationButton.innerHTML = `registration`;
   registrationButton.addEventListener("click", () =>
-      openSignInOrRegistration(`${root}/signin-registration-page/index.html?param=register`)
+    openSignInOrRegistration(
+      `${root}/signin-registration-page/index.html?param=register`
+    )
   );
 
   const loginButtonsContainer = document.querySelector(".login-buttons");
   loginButtonsContainer.appendChild(signinButton);
   loginButtonsContainer.appendChild(registrationButton);
+
+  const homeButton = document.getElementById("homeButton");
+  homeButton.addEventListener(
+    "click",
+    () => (window.location.href = `${root}/index.html`)
+  );
 });
 
 function openSignInOrRegistration(path) {

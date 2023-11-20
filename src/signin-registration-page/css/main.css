@@ -100,3 +100,18 @@ hr {
 select {
   cursor: pointer;
 }
+
+.btn {
+  color: white !important;
+  border-radius: 0% !important;
+}
+
+.btn:hover {
+  background-color: red !important;
+  border-color: red !important;
+}
+
+.btn:active {
+  background-color: #991b1b !important;
+  border-color: #991b1b !important;
+}

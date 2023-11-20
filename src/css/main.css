@@ -1,25 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
-
-@font-face {
-  font-family: "F1 Regular";
-  src: url("../fonts/Formula1-Regular.otf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "F1 Bold";
-  src: url("../fonts/Formula1-Bold.otf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "F1 Wide";
-  src: url("../fonts/Formula1-Wide.otf");
-  font-weight: normal;
-  font-style: normal;
-}
+@import url("/ProgettoTW/src/fonts/fonts.css");
 
 :root {
   /* teams colors */

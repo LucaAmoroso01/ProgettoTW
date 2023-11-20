@@ -1,0 +1,92 @@
+@import url("/ProgettoTW/src/css/main.css");
+@import url("/ProgettoTW/src/fonts/fonts.css");
+
+body {
+  background-color: #f6f4f0 !important;
+  padding-bottom: 4rem !important;
+}
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-items: start;
+}
+
+.team-img-container {
+  width: 30rem;
+}
+
+.team-img {
+  width: 100%;
+  height: 100%;
+}
+
+.team-title-text {
+  font-size: 40px;
+}
+
+.team-stats {
+  margin-left: 2rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  font-family: "F1 Bold";
+  width: 50%;
+}
+
+td {
+  padding: 4px 0 4px 4rem !important;
+}
+
+.driver-button {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  border: none;
+  background-color: transparent;
+  padding: 0% !important;
+  margin: 0% !important;
+  border-left: 4px solid #f6f4f0;
+}
+
+.driver-button:hover {
+  background-color: black;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.1);
+  border: none;
+}
+
+.driver-img {
+  width: 100%;
+  height: 100%;
+  padding: 0rem !important;
+}
+
+.driver-number {
+  font-family: "F1 Bold";
+  font-size: 2rem;
+}
+
+.driver-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: start;
+  padding-left: 2rem;
+}
+
+.button-group {
+  display: flex;
+  align-items: start;
+  gap: 4px;
+  height: 100%;
+  border-bottom: 4px solid #f6f4f0;
+}

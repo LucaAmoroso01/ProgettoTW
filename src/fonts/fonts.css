@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "F1 Regular";
+  src: url("./Formula1-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "F1 Bold";
+  src: url("./Formula1-Bold.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "F1 Wide";
+  src: url("./Formula1-Wide.otf");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "custom-dropdown-item",
       `dropdown-item-${team}`
     );
-    listItem.addEventListener("click", () => console.log(team)); // TODO: set window location to single page team
+    listItem.addEventListener("click", () => openTeam(team)); // TODO: set window location to single page team
 
     const formattedTeamName = team
       .replace("-", " ")
@@ -168,4 +168,8 @@ function openSignInOrRegistration(path) {
 
 function openDriver(driverToOpen) {
   window.location.href = `${root}/drivers/${driverToOpen}.html`;
+}
+
+function openTeam(teamToOpen) {
+  window.location.href = `${root}/teams/${teamToOpen}.html`;
 }

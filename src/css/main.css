@@ -106,40 +106,100 @@ body {
   border-color: var(--ferrari-color) !important;
 }
 
+.dropdown-item-ferrari-active {
+  border: 4px solid var(--ferrari-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
 .dropdown-item-mercedes:hover {
   border-color: var(--mercedes-color) !important;
+}
+
+.dropdown-item-mercedes-active {
+  border: 4px solid var(--mercedes-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
 }
 
 .dropdown-item-red-bull:hover {
   border-color: var(--red-bull-color) !important;
 }
 
+.dropdown-item-red-bull-active {
+  border: 4px solid var(--red-bull-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
 .dropdown-item-mclaren:hover {
   border-color: var(--mclaren-color) !important;
+}
+
+.dropdown-item-mclaren-active {
+  border: 4px solid var(--mclaren-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
 }
 
 .dropdown-item-alfa-romeo:hover {
   border-color: var(--alfa-romeo-color) !important;
 }
 
+.dropdown-item-alfa-romeo-active {
+  border: 4px solid var(--alfa-romeo-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
 .dropdown-item-alphaTauri:hover {
   border-color: var(--alphaTauri-color) !important;
+}
+
+.dropdown-item-alphaTauri-active {
+  border: 4px solid var(--alphaTauri-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
 }
 
 .dropdown-item-alpine:hover {
   border-color: var(--alpine-color) !important;
 }
 
+.dropdown-item-alpine-active {
+  border: 4px solid var(--alpine-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
 .dropdown-item-aston-martin:hover {
   border-color: var(--aston-martin-color) !important;
+}
+
+.dropdown-item-aston-martin-active {
+  border: 4px solid var(--aston-martin-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
 }
 
 .dropdown-item-williams:hover {
   border-color: var(--williams-color) !important;
 }
 
+.dropdown-item-williams-active {
+  border: 4px solid var(--williams-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
 .dropdown-item-haas:hover {
   border-color: var(--haas-color) !important;
+}
+
+.dropdown-item-haas-active {
+  border: 4px solid var(--haas-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
 }
 /*------------------------------------*/
 

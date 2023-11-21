@@ -64,15 +64,16 @@ document.addEventListener("DOMContentLoaded", function () {
     listItem.innerHTML = formattedName;
     return listItem;
   }
-
   function createTeamListItem(team) {
     const listItem = document.createElement("button");
     listItem.classList.add(
       "dropdown-item",
       "custom-dropdown-item",
-      `dropdown-item-${team}`
+      `dropdown-item-${team}`,
+      window.location.href.split("/").pop().replace(".html", "") === team &&
+        `dropdown-item-${team}-active`
     );
-    listItem.addEventListener("click", () => openTeam(team)); // TODO: set window location to single page team
+    listItem.addEventListener("click", () => openTeam(team));
 
     const formattedTeamName = team
       .replace("-", " ")

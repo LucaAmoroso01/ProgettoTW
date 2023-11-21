@@ -1,0 +1,62 @@
+@import url("/ProgettoTW/src/css/main.css");
+
+.driver-img-table-container {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  gap: 10px;
+}
+
+.driver-img {
+  width: 48rem;
+  height: 45rem;
+  padding: 0rem 2.5rem 2.5rem 2.5rem;
+}
+
+.driver-strong {
+  font-size: 30px;
+}
+
+.number-flag-container {
+  display: flex;
+  gap: 10px;
+}
+
+.flag-img {
+  width: 5rem;
+  height: 3rem;
+  place-self: start start;
+}
+
+.number-table-container {
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  width: 60%;
+  padding-right: 2rem;
+}
+
+th p {
+  font-family: "F1 Bold";
+}
+
+th p,
+td p {
+  width: max-content !important;
+}
+
+td a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease-in-out;
+}
+
+td a:hover {
+  border-bottom: 4px solid red;
+}

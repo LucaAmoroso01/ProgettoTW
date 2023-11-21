@@ -44,7 +44,7 @@ td {
 
 td p,
 th p {
-  min-width: max-content !important;
+  width: max-content !important;
 }
 
 .driver-button {

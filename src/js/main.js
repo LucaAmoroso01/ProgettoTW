@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "dropdown-item",
       "custom-dropdown-item",
       `dropdown-item-${driver.team}`,
+      window.location.href.split("/").pop().replace(".html", "") ===
+        driver.lastName.toLowerCase() && `dropdown-item-${driver.team}-active`,
       "btn-driver-name"
     );
     listItem.addEventListener("click", () =>

@@ -427,25 +427,3 @@ footer {
   gap: 0.7rem;
   padding: 0rem 3rem 0rem 3rem;
 }
-
-.driver-img {
-  width: 48rem;
-  height: 45rem;
-  padding: 0rem 2.5rem 2.5rem 2.5rem;
-}
-
-.driver-strong {
-  font-size: 30px;
-}
-
-.flag {
-  margin-top: -0.9rem;
-  width: 15%;
-  height: 15%;
-}
-
-.number-flag-container {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}

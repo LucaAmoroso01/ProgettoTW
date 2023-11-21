@@ -32,16 +32,19 @@ body {
 
 table {
   border-collapse: collapse;
-  width: 100%;
 }
 
 th {
   font-family: "F1 Bold";
-  width: 50%;
 }
 
 td {
   padding: 4px 0 4px 4rem !important;
+}
+
+td p,
+th p {
+  min-width: max-content !important;
 }
 
 .driver-button {

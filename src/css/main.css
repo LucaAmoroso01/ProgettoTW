@@ -275,9 +275,9 @@ h5 {
 footer {
   background-color: #2a2929;
   color: white;
-  padding: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
+  min-height: 20rem;
 }
 
 .copy {
@@ -286,7 +286,13 @@ footer {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  height: 20rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
 }
 
 .grid-news {

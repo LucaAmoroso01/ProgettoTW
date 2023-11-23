@@ -1,204 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Haas</title>
     <link rel="icon" href="/ProgettoTW/src/images/logo.ico" />
     <link rel="stylesheet" href="css/main.css" />
     <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
     />
     <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-</head>
-<body>
-<nav
-        class="navbar navbar-expand-lg fixed-top"
-        style="
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg fixed-top"
+      style="
         background-color: red !important;
         max-height: 5rem !important;
         padding-right: 1rem;
         width: 100%;
       "
->
-    <div class="collapse navbar-collapse" id="navbarNav">
+    >
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" style="gap: 2rem">
-            <li class="nav-item dropdown" id="homeButton">
-                <button class="nav-link" data-bs-toggle="dropdown">Home</button>
-            </li>
-            <li class="nav-item dropdown">
-                <button class="nav-link" data-bs-toggle="dropdown">
-                    Drivers <i class="bi bi-chevron-down"></i>
-                </button>
-                <div
-                        class="dropdown-menu custom-dropdown-menu bg-black"
-                        style="left: -11rem !important"
-                >
-                    <div class="dropdown-list-layout"></div>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <button class="nav-link" data-bs-toggle="dropdown">
-                    Teams <i class="bi bi-chevron-down"></i>
-                </button>
-                <div
-                        class="dropdown-menu custom-dropdown-menu bg-black"
-                        style="left: -23.5rem !important"
-                >
-                    <div id="teams" class="dropdown-list-layout"></div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" role="button"> Schedule </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" role="button"> Results </a>
-            </li>
+          <li class="nav-item dropdown" id="homeButton">
+            <button class="nav-link" data-bs-toggle="dropdown">Home</button>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link" data-bs-toggle="dropdown">
+              Drivers <i class="bi bi-chevron-down"></i>
+            </button>
+            <div
+              class="dropdown-menu custom-dropdown-menu bg-black"
+              style="left: -11rem !important"
+            >
+              <div class="dropdown-list-layout"></div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link" data-bs-toggle="dropdown">
+              Teams <i class="bi bi-chevron-down"></i>
+            </button>
+            <div
+              class="dropdown-menu custom-dropdown-menu bg-black"
+              style="left: -23.5rem !important"
+            >
+              <div id="teams" class="dropdown-list-layout"></div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" role="button"> Schedule </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" role="button"> Results </a>
+          </li>
         </ul>
-    </div>
-    <div class="login-buttons"></div>
-</nav>
-<div
-        class="container-fluid"
-        style="padding: 0rem 3rem 0rem 3rem !important"
->
-    <p class="team-title-text">Haas</p>
-    <div class="d-flex gap-5 bg-white">
+      </div>
+      <div class="login-buttons"></div>
+    </nav>
+    <div
+      class="container-fluid"
+      style="padding: 0rem 3rem 0rem 3rem !important"
+    >
+      <p class="team-title-text">Haas</p>
+      <div class="team-table-drivers-container">
         <div class="team-container">
-            <div class="team-img-container">
-                <img src="images/haas.avif" class="team-img" />
-            </div>
-            <div class="team-stats">
-                <table>
-                    <tr>
-                        <th>
-                            <p>Full Team Name</p>
-                        </th>
-                        <td>
-                            <p>MoneyGram Haas F1 Team</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>Base</p>
-                        </th>
-                        <td>
-                            <p>Kannapolis, United States</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>Team Chief</p>
-                        </th>
-                        <td>
-                            <p>Guenther Steiner</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>Technical Chief</p>
-                        </th>
-                        <td>
-                            <p>Simone Resta</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>Chassis</p>
-                        </th>
-                        <td>
-                            <p>VF-23</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>Power Unit</p>
-                        </th>
-                        <td>
-                            <p>Ferrari</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>First Team Entry</p>
-                        </th>
-                        <td>
-                            <p>2016</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>World Championships</p>
-                        </th>
-                        <td>
-                            <p>N/A</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>Highest Race Finish</p>
-                        </th>
-                        <td>
-                            <p>4 (x1)</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>Pole Positions</p>
-                        </th>
-                        <td>
-                            <p>1</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <p>Fastest Laps</p>
-                        </th>
-                        <td>
-                            <p>2</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+          <div class="team-img-container">
+            <img src="images/haas.avif" class="team-img" />
+          </div>
+          <div class="team-stats">
+            <table>
+              <tr>
+                <th>
+                  <p>Full Team Name</p>
+                </th>
+                <td>
+                  <p>MoneyGram Haas F1 Team</p>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>Base</p>
+                </th>
+                <td>
+                  <p>Kannapolis, United States</p>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>Team Chief</p>
+                </th>
+                <td>
+                  <p>Guenther Steiner</p>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>Technical Chief</p>
+                </th>
+                <td>
+                  <p>Simone Resta</p>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>Chassis</p>
+                </th>
+                <td>
+                  <p>VF-23</p>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>Power Unit</p>
+                </th>
+                <td>
+                  <p>Ferrari</p>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>First Team Entry</p>
+                </th>
+                <td>
+                  <p>2016</p>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>World Championships</p>
+                </th>
+                <td>
+                  <p>N/A</p>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>Highest Race Finish</p>
+                </th>
+                <td>
+                  <p>4 (x1)</p>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>Pole Positions</p>
+                </th>
+                <td>
+                  <p>1</p>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <p>Fastest Laps</p>
+                </th>
+                <td>
+                  <p>2</p>
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
         <div class="button-group">
-            <button
-                    class="driver-button"
-                    onclick="window.location.href = '/ProgettoTW/src/drivers/magnussen.html'"
-            >
-                <img src="images/magnussen.avif" class="driver-img" />
-                <div class="driver-info">
-                    <p class="button-text driver-number">20</p>
-                    <p class="button-text">Kevin Magnussen</p>
-                </div>
-            </button>
-            <button
-                    class="driver-button"
-                    onclick="window.location.href = '/ProgettoTW/src/drivers/hulkenberg.html'"
-            >
-                <img src="images/hulkenberg.avif" class="driver-img" />
-                <div class="driver-info">
-                    <p class="button-text driver-number">27</p>
-                    <p class="button-text">Nico Hulkenberg</p>
-                </div>
-            </button>
+          <button
+            class="driver-button"
+            onclick="window.location.href = '/ProgettoTW/src/drivers/magnussen.html'"
+          >
+            <div class="driver-img-container">
+              <img src="images/magnussen.avif" class="driver-img" />
+            </div>
+            <div class="driver-info">
+              <p class="button-text driver-number">20</p>
+              <p class="button-text">Kevin Magnussen</p>
+            </div>
+          </button>
+          <button
+            class="driver-button"
+            onclick="window.location.href = '/ProgettoTW/src/drivers/hulkenberg.html'"
+          >
+            <div class="driver-img-container">
+              <img src="images/hulkenberg.avif" class="driver-img" />
+            </div>
+            <div class="driver-info">
+              <p class="button-text driver-number">27</p>
+              <p class="button-text">Nico Hulkenberg</p>
+            </div>
+          </button>
         </div>
+      </div>
     </div>
-</div>
-</body>
-<script src="/ProgettoTW/src/js/main.js"></script>
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"
-></script>
+  </body>
+  <script src="/ProgettoTW/src/js/main.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
 </html>

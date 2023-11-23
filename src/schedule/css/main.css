@@ -18,7 +18,7 @@
 
 .container-fluid {
   padding: 2em;
-  padding-right: 1rem;
+  padding-right: 2rem;
 }
 
 .schedule-section {
@@ -30,7 +30,7 @@
   align-items: start;
   gap: 1.5rem;
   padding-bottom: 2rem;
-  padding-right: 10rem;
+  padding-right: 2rem;
   padding-left: 0rem;
   padding-top: 0rem;
 }
@@ -45,9 +45,9 @@
 .schedule-list-layout {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  padding-left: 2rem;
   column-gap: 2rem;
   row-gap: 4rem;
-  margin-left: 1rem;
 }
 
 .schedule-list {
@@ -63,7 +63,7 @@
 }
 
 .schedule-list:hover {
-  cursor: pointer;
+  cursor: default;
   border-color: red;
   transform: scale(1.1);
 }
@@ -131,7 +131,7 @@
   font-family: "F1 Bold";
   font-weight: bolder;
   padding-left: 1rem;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .circuit-full-name {

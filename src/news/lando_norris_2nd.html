@@ -22,57 +22,7 @@
     />
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-lg fixed-top"
-      style="
-        background-color: red !important;
-        max-height: 5rem !important;
-        padding-right: 1rem;
-        width: 100%;
-      "
-    >
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav" style="gap: 2rem">
-          <li class="nav-item dropdown" id="homeButton">
-            <button class="nav-link" data-bs-toggle="dropdown">Home</button>
-          </li>
-          <li class="nav-item dropdown">
-            <button class="nav-link" data-bs-toggle="dropdown">
-              Drivers <i class="bi bi-chevron-down"></i>
-            </button>
-            <div
-              class="dropdown-menu custom-dropdown-menu bg-black"
-              style="left: -11rem !important"
-            >
-              <div class="dropdown-list-layout"></div>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <button class="nav-link" data-bs-toggle="dropdown">
-              Teams <i class="bi bi-chevron-down"></i>
-            </button>
-            <div
-              class="dropdown-menu custom-dropdown-menu bg-black"
-              style="left: -23.5rem !important"
-            >
-              <div id="teams" class="dropdown-list-layout"></div>
-            </div>
-          </li>
-          <li class="nav-item">
-            <button
-              class="nav-link"
-              onclick="window.location.href = '/ProgettoTW/src/schedule/index.html'"
-            >
-              Schedule
-            </button>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" role="button"> Results </a>
-          </li>
-        </ul>
-      </div>
-      <div class="login-buttons"></div>
-    </nav>
+    <nav id="navbar"></nav>
     <div class="news-container">
       <div class="news">
         <h5 class="news-title">
@@ -175,4 +125,9 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"
   ></script>
+  <script type="module">
+    import { loadPageContent } from "/src/navbar/js/main.js";
+
+    loadPageContent("/ProgettoTW/src/navbar/index.html", "navbar");
+  </script>
 </html>

@@ -1,21 +1,5 @@
 @import url("/ProgettoTW/src/css/main.css");
 
-.nav-link-active {
-  background-color: red;
-  color: white;
-  border-bottom: 2px solid white;
-  border-right: 2px solid white;
-  border-bottom-right-radius: 10px;
-  padding: 1rem !important;
-}
-
-.nav-link-hover {
-  background-color: black;
-  padding: 1.5rem !important;
-  border: none !important;
-  border-bottom-right-radius: 0px !important;
-}
-
 .container-fluid {
   padding: 2em;
   padding-right: 2rem;

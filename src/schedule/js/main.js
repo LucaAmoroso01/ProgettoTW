@@ -279,16 +279,6 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  const scheduleButton = document.getElementById("schedule");
-
-  scheduleButton.addEventListener("mouseenter", () => {
-    scheduleButton.classList.add("nav-link-hover");
-  });
-
-  scheduleButton.addEventListener("mouseleave", () => {
-    scheduleButton.classList.remove("nav-link-hover");
-  });
-
   const scheduleListContainer = document.getElementById("schedule-card");
 
   circuits.forEach((circuit) => {

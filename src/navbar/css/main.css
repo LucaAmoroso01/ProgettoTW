@@ -1,0 +1,225 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css");
+@import url("/ProgettoTW/src/fonts/fonts.css");
+
+:root {
+  /* teams colors */
+  --ferrari-color: red;
+  --mercedes-color: #00a19b;
+  --red-bull-color: #000b8d;
+  --alfa-romeo-color: #981e32;
+  --mclaren-color: #ff8000;
+  --alphaTauri-color: #20394c;
+  --alpine-color: #2173b8;
+  --aston-martin-color: #006f62;
+  --williams-color: #00a0de;
+  --haas-color: #aeaeae;
+  /* ------------ */
+
+  /* width and height shape near drivers names */
+  --width-shape: 0.4rem;
+  --height-shape: 1.5rem;
+  /* ---------------------------------------- */
+}
+.navbar-nav {
+  margin-left: 2rem !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+.nav-link {
+  font-size: large !important;
+  padding: 1.5rem !important;
+  transition: all 0.4s ease-in-out !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+}
+
+.custom-dropdown-menu {
+  padding: 3rem 4rem 3rem 4rem !important;
+  width: 101vw !important;
+  position: absolute;
+  top: 4.7rem !important;
+}
+
+.custom-dropdown-item {
+  background-color: transparent !important;
+}
+
+.custom-dropdown-item:hover {
+  background-color: transparent !important;
+}
+
+.custom-dropdown-item:focus {
+  background-color: transparent !important;
+}
+
+.dropdown-list-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 3rem;
+  column-gap: 2.5rem;
+  width: 100%;
+}
+
+.driver-name {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  gap: 6px;
+  padding: 0rem 2rem 0rem 0rem;
+}
+
+.dropdown {
+  position: relative !important;
+}
+
+.dropdown-item {
+  color: white !important;
+  border-bottom: 1px solid white !important;
+  border-right: 1px solid white !important;
+  border-bottom-right-radius: 10px !important;
+  font-size: large;
+  font-weight: bolder;
+  font-family: "F1 Bold";
+  transition: all 0.3s ease-in-out;
+  display: flex !important;
+  flex-direction: row !important;
+  align-content: center !important;
+  background-color: transparent !important;
+  color: white !important;
+  gap: 12px !important;
+}
+
+.dropdown-item:hover {
+  background-color: inherit !important;
+}
+
+/* ----- Driver and teams colors ----- */
+.dropdown-item-ferrari:hover {
+  border-color: var(--ferrari-color) !important;
+}
+
+.dropdown-item-ferrari-active {
+  border: 4px solid var(--ferrari-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
+.dropdown-item-mercedes:hover {
+  border-color: var(--mercedes-color) !important;
+}
+
+.dropdown-item-mercedes-active {
+  border: 4px solid var(--mercedes-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
+.dropdown-item-red-bull:hover {
+  border-color: var(--red-bull-color) !important;
+}
+
+.dropdown-item-red-bull-active {
+  border: 4px solid var(--red-bull-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
+.dropdown-item-mclaren:hover {
+  border-color: var(--mclaren-color) !important;
+}
+
+.dropdown-item-mclaren-active {
+  border: 4px solid var(--mclaren-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
+.dropdown-item-alfa-romeo:hover {
+  border-color: var(--alfa-romeo-color) !important;
+}
+
+.dropdown-item-alfa-romeo-active {
+  border: 4px solid var(--alfa-romeo-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
+.dropdown-item-alphaTauri:hover {
+  border-color: var(--alphaTauri-color) !important;
+}
+
+.dropdown-item-alphaTauri-active {
+  border: 4px solid var(--alphaTauri-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
+.dropdown-item-alpine:hover {
+  border-color: var(--alpine-color) !important;
+}
+
+.dropdown-item-alpine-active {
+  border: 4px solid var(--alpine-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
+.dropdown-item-aston-martin:hover {
+  border-color: var(--aston-martin-color) !important;
+}
+
+.dropdown-item-aston-martin-active {
+  border: 4px solid var(--aston-martin-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
+.dropdown-item-williams:hover {
+  border-color: var(--williams-color) !important;
+}
+
+.dropdown-item-williams-active {
+  border: 4px solid var(--williams-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+
+.dropdown-item-haas:hover {
+  border-color: var(--haas-color) !important;
+}
+
+.dropdown-item-haas-active {
+  border: 4px solid var(--haas-color) !important;
+  border-top: 0px !important;
+  border-left: 0px !important;
+}
+/*------------------------------------*/
+
+.dropdown-menu {
+  display: none;
+}
+
+.nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: white !important;
+}
+.nav-link:hover {
+  background-color: black;
+}

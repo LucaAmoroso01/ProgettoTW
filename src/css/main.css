@@ -438,3 +438,31 @@ footer {
   gap: 0.7rem;
   padding: 0rem 3rem 0rem 3rem;
 }
+
+@media (max-width: 900px) {
+  .grid-news {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 901px) {
+  .grid-news {
+    grid-template-columns: 1fr 1fr;
+    padding-left: 2rem;
+  }
+}
+
+@media (min-width: 1298px) {
+  .grid-news {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1710px) {
+  .grid-news {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       round: "round 3",
       circuitName: "Australia",
-      circuitFullName: "FORMULA 1 STC SAUDI ARABIAN GRAND PRIX 2023",
+      circuitFullName: "FORMULA 1 ROLEX AUSTRALIAN GRAND PRIX 2023",
       dates: "31-02",
       month: "mar-apr",
       flag: { src: "images/australia.avif", alt: "Australia flag" },
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       round: "round 11",
       circuitName: "Great Britain",
-      circuitFullName: "FORMULA 1 ARAMCO BRITISH GRAND PRIX 20233",
+      circuitFullName: "FORMULA 1 ARAMCO BRITISH GRAND PRIX 2023",
       dates: "07-09",
       month: "jul",
       flag: { src: "images/uk.avif", alt: "UK flag" },
@@ -207,8 +207,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       round: "round 18",
-      circuitName: "Japan",
-      circuitFullName: "FORMULA 1 LENOVO JAPANESE GRAND PRIX 2023",
+      circuitName: "Qatar",
+      circuitFullName: "FORMULA 1 QATAR AIRWAYS QATAR GRAND PRIX 2023",
       dates: "06-08",
       month: "oct",
       flag: { src: "images/qatar.avif", alt: "Qatar flag" },
@@ -291,10 +291,6 @@ document.addEventListener("DOMContentLoaded", () => {
     round.textContent = circuit.round;
     round.classList.add("schedule-list-title");
 
-    if (round.textContent.length > 7) {
-      round.style.width = "calc(29% + 2px)";
-    }
-
     const monthDayContainer = document.createElement("div");
     monthDayContainer.classList.add("month-days-schedule");
 
@@ -322,8 +318,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const firstDivider = document.createElement("div");
     firstDivider.classList.add("section-divider");
+
     const secondDivider = document.createElement("div");
     secondDivider.classList.add("section-divider");
+    secondDivider.style.cssText = "margin-top: -12px";
 
     const circuitContainer = document.createElement("div");
     circuitContainer.classList.add("circuit-container");
@@ -336,11 +334,23 @@ document.addEventListener("DOMContentLoaded", () => {
     circuitFullName.textContent = circuit.circuitFullName;
     circuitFullName.classList.add("circuit-full-name");
 
-    circuitContainer.appendChild(circuitName);
-    circuitContainer.appendChild(circuitFullName);
+    const circuitNameContainer = document.createElement("div");
+    circuitNameContainer.classList.add("circuit-name-container");
+
+    circuitNameContainer.appendChild(circuitName);
+    circuitNameContainer.appendChild(circuitFullName);
+
+    circuitContainer.appendChild(firstDivider);
+    circuitContainer.appendChild(circuitNameContainer);
+    circuitContainer.appendChild(secondDivider);
+
+    const scheduleCircuitContainer = document.createElement("div");
+    scheduleCircuitContainer.classList.add("schedule-circuit-container");
+
+    scheduleCircuitContainer.appendChild(scheduleInfoContainer);
+    scheduleCircuitContainer.appendChild(circuitContainer);
 
     const circuitImgContainer = document.createElement("div");
-    circuitImgContainer.classList.add("circuit-img-container");
     const circuitImg = document.createElement("img");
     circuitImg.classList.add("circuit-img");
     circuitImg.src = circuit.circuitImg.src;
@@ -348,12 +358,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     circuitImgContainer.appendChild(circuitImg);
 
+    circuitContainer.appendChild(circuitImgContainer);
+
     circuitLayout.appendChild(round);
     circuitLayout.appendChild(scheduleInfoContainer);
-    circuitLayout.appendChild(firstDivider);
     circuitLayout.appendChild(circuitContainer);
-    circuitLayout.appendChild(secondDivider);
-    circuitLayout.appendChild(circuitImgContainer);
 
     circuitLayout.addEventListener("mouseenter", () => {
       round.style.color = "red";

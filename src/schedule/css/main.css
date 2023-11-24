@@ -29,9 +29,9 @@
 .schedule-list-layout {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding-left: 2rem;
   column-gap: 2rem;
   row-gap: 4rem;
+  justify-content: center;
 }
 
 .schedule-list {
@@ -40,8 +40,9 @@
   border-top-right-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 5px;
   min-width: 23rem;
+  height: 100%;
   transition: all 0.3s ease-in-out;
   position: relative;
 }
@@ -55,7 +56,7 @@
 .schedule-list-title {
   position: absolute;
   top: -12px;
-  width: calc(26% + 2px);
+  width: 7rem;
   background-color: white;
   text-transform: uppercase;
 }
@@ -65,14 +66,16 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 5rem;
   padding: 1rem;
+  padding-inline: 1.5rem;
 }
 
 .month-days-schedule {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0rem;
+  padding-left: 10px;
 }
 
 .month-schedule {
@@ -89,6 +92,7 @@
 
 .flag-img {
   margin-top: -1rem;
+  margin-right: 10px;
   width: 45px;
   height: 28px;
   border: 1px solid lightgrey;
@@ -96,42 +100,80 @@
 }
 
 .section-divider {
-  place-self: center;
-  width: 90%;
+  width: 100%;
   background-color: rgb(178, 178, 178);
-  margin-top: -5px;
-  padding: 1.5px;
-  margin-bottom: 12px;
+  height: 4px;
+  place-self: center;
 }
 
 .circuit-container {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 0px;
+  height: 100%;
+  row-gap: 6px;
+  padding-inline: 2rem;
+  margin-top: -1rem;
+}
+
+.circuit-name-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding-inline: 10px;
 }
 
 .circuit-name {
   font-size: 18px;
   font-family: "F1 Bold";
   font-weight: bolder;
-  padding-left: 1rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2px;
 }
 
 .circuit-full-name {
   font-size: 14px;
-  padding-inline: 1rem;
   text-transform: uppercase;
-}
-
-.circuit-img-container {
-  padding-inline: 1rem;
 }
 
 .circuit-img {
   width: 100%;
   height: 10rem;
+  object-fit: cover;
   place-self: center;
   border: 1px solid lightgrey;
   border-radius: 10px;
+}
+
+.schedule-circuit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0px;
+}
+
+@media (max-width: 900px) {
+  .schedule-list-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 901px) {
+  .schedule-list-layout {
+    grid-template-columns: 1fr 1fr;
+    padding-left: 2rem;
+  }
+}
+
+@media (min-width: 1298px) {
+  .schedule-list-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1710px) {
+  .schedule-list-layout {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

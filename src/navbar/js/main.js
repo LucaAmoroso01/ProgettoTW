@@ -135,7 +135,7 @@ export function loadPageContent(pageUrl, containerId) {
         sign in
       </div>`;
       loginButton.addEventListener("click", () => {
-        openLoginOrRegistration(`/login-registration?param=login`);
+        openLoginOrRegistration(`/auth/login-registration?param=login`);
       });
 
       const registrationButton = document.createElement("button");
@@ -148,7 +148,7 @@ export function loadPageContent(pageUrl, containerId) {
       registrationButton.style.borderColor = "black";
       registrationButton.innerHTML = `registration`;
       registrationButton.addEventListener("click", () =>
-        openLoginOrRegistration(`/login-registration?param=registration`)
+        openLoginOrRegistration(`/auth/login-registration?param=registration`)
       );
 
       const loginButtonsContainer = document.querySelector(".login-buttons");

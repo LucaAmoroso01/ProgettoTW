@@ -22,7 +22,6 @@ function loadPageContent(pageUrl, containerId) {
               const option = document.createElement("option");
               option.value = country.name.common.toLowerCase();
               option.text = country.name.common;
-              console.log(option.value);
               select.add(option);
             });
         })
@@ -34,7 +33,7 @@ function loadPageContent(pageUrl, containerId) {
 /**
  * submit form handler
  */
-function handleSignInFormSubmit() {
+function handleLoginFormSubmit() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
 

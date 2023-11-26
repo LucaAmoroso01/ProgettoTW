@@ -20,8 +20,9 @@ function loadPageContent(pageUrl, containerId) {
             .sort((a, b) => a.name.common.localeCompare(b.name.common))
             .forEach((country) => {
               const option = document.createElement("option");
-              option.value = country.name.common;
+              option.value = country.name.common.toLowerCase();
               option.text = country.name.common;
+              console.log(option.value);
               select.add(option);
             });
         })

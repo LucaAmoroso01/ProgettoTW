@@ -1,8 +1,6 @@
-@import url("/ProgettoTW/src/css/main.css");
-
 .container-fluid {
-  padding: 2em;
-  padding-right: 2rem;
+  padding: 2em !important;
+  padding-right: 2rem !important;
 }
 
 .schedule-section {

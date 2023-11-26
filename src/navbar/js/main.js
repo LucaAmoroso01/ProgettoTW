@@ -1,4 +1,4 @@
-const root = "/ProgettoTW/src";
+const root = "/";
 
 export function loadPageContent(pageUrl, containerId) {
   fetch(pageUrl)
@@ -119,11 +119,11 @@ export function loadPageContent(pageUrl, containerId) {
         }
       });
 
-      const signinButton = document.createElement("button");
-      signinButton.classList.add("btn", "btn-primary", "btn-login-subscribe");
-      signinButton.style.backgroundColor = "black";
-      signinButton.style.borderColor = "black";
-      signinButton.innerHTML = `<div
+      const loginButton = document.createElement("button");
+      loginButton.classList.add("btn", "btn-primary", "btn-login-subscribe");
+      loginButton.style.backgroundColor = "black";
+      loginButton.style.borderColor = "black";
+      loginButton.innerHTML = `<div
         style="
           display: flex;
           align-items: center;
@@ -134,10 +134,8 @@ export function loadPageContent(pageUrl, containerId) {
         <i class="fa-regular fa-user"></i>
         sign in
       </div>`;
-      signinButton.addEventListener("click", () => {
-        openSignInOrRegistration(
-          `${root}/signin-registration-page/index.html?param=signin`
-        );
+      loginButton.addEventListener("click", () => {
+        openLoginOrRegistration(`/login-registration?param=login`);
       });
 
       const registrationButton = document.createElement("button");
@@ -150,13 +148,11 @@ export function loadPageContent(pageUrl, containerId) {
       registrationButton.style.borderColor = "black";
       registrationButton.innerHTML = `registration`;
       registrationButton.addEventListener("click", () =>
-        openSignInOrRegistration(
-          `${root}/signin-registration-page/index.html?param=register`
-        )
+        openLoginOrRegistration(`/login-registration?param=registration`)
       );
 
       const loginButtonsContainer = document.querySelector(".login-buttons");
-      loginButtonsContainer.appendChild(signinButton);
+      loginButtonsContainer.appendChild(loginButton);
       loginButtonsContainer.appendChild(registrationButton);
 
       const driversDropdownContainer = document.getElementById(
@@ -166,7 +162,7 @@ export function loadPageContent(pageUrl, containerId) {
         "teams-dropdown-container"
       );
 
-      if (window.location.pathname !== "/ProgettoTW/src/index.html") {
+      if (window.location.pathname !== root) {
         const navbarContainer = document.getElementById("navbar-links");
 
         const homeListContainer = document.createElement("li");
@@ -180,7 +176,7 @@ export function loadPageContent(pageUrl, containerId) {
         homeButton.innerText = "Home";
 
         homeButton.addEventListener("click", () => {
-          window.location.href = `${root}/index.html`;
+          window.location.href = `/`;
         });
 
         homeListContainer.appendChild(homeButton);
@@ -196,19 +192,19 @@ export function loadPageContent(pageUrl, containerId) {
         driversDropdownContainer.style.cssText = "left: -2.8rem !important";
       }
 
-      function openSignInOrRegistration(path) {
+      function openLoginOrRegistration(path) {
         window.location.href = path;
       }
 
       function openDriver(driverToOpen) {
-        window.location.href = `${root}/drivers/${driverToOpen}.html`;
+        window.location.href = `/drivers/${driverToOpen}`;
       }
 
       function openTeam(teamToOpen) {
-        window.location.href = `${root}/teams/${teamToOpen}.html`;
+        window.location.href = `/teams/${teamToOpen}`;
       }
 
-      if (window.location.pathname === "/ProgettoTW/src/schedule/index.html") {
+      if (window.location.pathname === "/schedule") {
         const scheduleButton = document.getElementById("schedule");
         scheduleButton.classList.add("nav-link-active");
 

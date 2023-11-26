@@ -4,8 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>F1 Schedule</title>
-    <link rel="icon" href="/ProgettoTW/src/images/logo.ico" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='schedule/css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
   </head>
   <body>
     <nav id="navbar"></nav>
@@ -28,11 +38,11 @@
       </div>
     </div>
   </body>
-  <script src="/ProgettoTW/src/js/main.js"></script>
-  <script src="js/main.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='schedule/js/main.js') }}"></script>
   <script type="module">
-    import { loadPageContent } from "/src/navbar/js/main.js";
+    import { loadPageContent } from "{{ url_for('static', filename='navbar/js/main.js') }}";
 
-    loadPageContent("/ProgettoTW/src/navbar/index.html", "navbar");
+    loadPageContent("/navbar", "navbar");
   </script>
 </html>

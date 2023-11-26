@@ -4,17 +4,17 @@
     href="{{ url_for('static', filename='login-registration-page/css/main.css') }}"
   />
 </head>
-<form id="registerForm" onsubmit="handleRegisterFormSubmit(); return false;">
+<form id="registration-form" method="post" action="registration" onsubmit="">
   <div class="form" id="register">
     <h2>Create account</h2>
     <div style="background-color: gray; height: 1px; width: 100%"></div>
     <div class="form-floating">
       <select class="form-select" id="title" name="title" required>
         <option selected>Select</option>
-        <option value="1">Mr</option>
-        <option value="2">Mrs</option>
-        <option value="3">Miss</option>
-        <option value="4">Ms</option>
+        <option value="Mr">Mr</option>
+        <option value="Mrs">Mrs</option>
+        <option value="Miss">Miss</option>
+        <option value="Ms">Ms</option>
       </select>
       <label for="title">Title</label>
     </div>
@@ -59,6 +59,17 @@
       </div>
       <div class="form-floating">
         <input
+          type="text"
+          class="form-control"
+          id="username"
+          name="username"
+          placeholder="Username"
+          required
+        />
+        <label for="email">Username</label>
+      </div>
+      <div class="form-floating">
+        <input
           type="email"
           class="form-control"
           id="email"
@@ -79,11 +90,27 @@
         />
         <label for="password">Password</label>
       </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="Password"
+          required
+        />
+        <label for="password">Confirm password</label>
+      </div>
       <div class="d-flex flex-row-reverse align-items-center">
-        <button type="submit" class="btn btn-primary btn-custom">
+        <button
+          type="submit"
+          class="btn btn-primary btn-custom"
+          id="submit-button"
+        >
           Register
         </button>
       </div>
     </div>
   </div>
 </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

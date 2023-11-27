@@ -3,8 +3,19 @@
     rel="stylesheet"
     href="{{ url_for('static', filename='login-registration-page/css/main.css') }}"
   />
+
+  <style>
+    .password-mismatch .form-floating {
+      border-color: red;
+    }
+
+    .password-mismatch #password-error {
+      color: red;
+      font-size: 13px;
+    }
+  </style>
 </head>
-<form id="registration-form" method="post" action="registration" onsubmit="">
+<form id="registration-form">
   <div class="form" id="register">
     <h2>Create account</h2>
     <div style="background-color: gray; height: 1px; width: 100%"></div>
@@ -101,11 +112,12 @@
         />
         <label for="password">Confirm password</label>
       </div>
+      <div id="password-error"></div>
       <div class="d-flex flex-row-reverse align-items-center">
         <button
           type="submit"
           class="btn btn-primary btn-custom"
-          id="submit-button"
+          id="registration-button"
         >
           Register
         </button>
@@ -113,4 +125,3 @@
     </div>
   </div>
 </form>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

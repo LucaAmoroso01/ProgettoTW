@@ -1,6 +1,6 @@
 import sqlite3
 from flask import Blueprint, jsonify, make_response, render_template, request, g
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
 auth = Blueprint('auth', __name__)
@@ -18,7 +18,28 @@ def loginRegistration():
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
-  # TODO: do login
+  if request.method == 'POST':
+    payload = request.get_json()
+    
+    email = payload.get('email')
+    password = payload.get('password')
+
+    connection = connect_db()
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * FROM users WHERE email=?', (email,))
+    user = cursor.fetchone()
+    
+    PASSWORD = 7      # password index in the user tuple
+    
+    if user:
+      if check_password_hash(user[PASSWORD], password):
+        return make_response(jsonify({'message': 'User logged in successfully', 'status': 200}))
+      else:
+        return make_response(jsonify({'message': 'Wrong password', 'status': 401}))
+    else:
+      return make_response(jsonify({'message': 'User does not exist', 'status': 404}))
+  
   return render_template('login-registration-page/login.html')
 
 @auth.route('/registration', methods=['GET', 'POST'])
@@ -42,10 +63,7 @@ def registration():
     existing_user = cursor.fetchone()
 
     if existing_user:
-      error = 'already exists'
-      response = make_response(jsonify({'message': error}), 409)
-
-      return response
+      return make_response(jsonify({'message': 'User already exists', 'status': 409}))
     else:
       hashed_password = generate_password_hash(password=password, method='pbkdf2:sha256')
       journalist = 't' if email.endswith('@F1universe.com') else 'f'
@@ -55,9 +73,8 @@ def registration():
                     )
       connection.commit()
       connection.close()
-
-      response = make_response(jsonify({'message': 'User added successfully'}), 201)  # 201 Created
-      return response
+      
+      return make_response(jsonify({'message': 'User added successfully', 'status': 201}))
 
   return render_template('login-registration-page/registration.html')
 

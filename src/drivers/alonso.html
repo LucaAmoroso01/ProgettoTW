@@ -4,8 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fernando Alonso - F1 driver</title>
-    <link rel="icon" href="/ProgettoTW/src/images/logo.ico" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='drivers/css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,14 +35,18 @@
     <div class="container-fluid">
       <div class="driver-img-table-container">
         <img
-          src="images/alonso.avif"
+          src="{{ url_for('static', filename='drivers/images/alonso.avif') }}"
           alt="Fernando Alonso"
           class="driver-img"
         />
         <div class="number-table-container">
           <div class="number-flag-container">
             <p class="driver-strong">14</p>
-            <img src="images/spain.avif" alt="Spain flag" class="flag-img" />
+            <img
+              src="{{ url_for('static', filename='drivers/images/spain.avif') }}"
+              alt="Spain flag"
+              class="flag-img"
+            />
           </div>
           <p class="driver-strong">Fernando Alonso</p>
           <table>
@@ -41,9 +55,7 @@
                 <p>Team</p>
               </th>
               <td>
-                <a href="/ProgettoTW/src/teams/aston-martin.html">
-                  Aston Martin
-                </a>
+                <a href="/teams/aston-martin"> Aston Martin </a>
               </td>
             </tr>
             <tr>
@@ -126,7 +138,7 @@
       <div class="footer-brand">
         <p>F1Universe S.r.l</p>
         <img
-          src="/ProgettoTW/src/images/logo-removebg.png"
+          src="{{ url_for('static', filename='images/logo-removebg.png') }}"
           alt="logo"
           style="width: 20rem; height: 20rem"
         />
@@ -136,15 +148,15 @@
       </div>
     </footer>
   </body>
-  <script src="/src/js/main.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"
   ></script>
   <script type="module">
-    import { loadPageContent } from "/src/navbar/js/main.js";
+    import { loadPageContent } from "{{ url_for('static', filename='navbar/js/main.js') }}";
 
-    loadPageContent("/ProgettoTW/src/navbar/index.html", "navbar");
+    loadPageContent("/navbar", "navbar");
   </script>
 </html>

@@ -1,7 +1,27 @@
+import secrets
+import time
 from flask import Flask
 from server.auth import auth
 from server.homepage import homepage
 import os
+
+SECRET_KEY_REGENERATION_INTERVAL = 3600
+
+def generate_secret_key(length=32):
+  """
+  Generate a secure random key for use in Flask sessions.
+  
+  Parameters:
+  - length: The length of the key (default is 32).
+  
+  Returns:
+  A securely generated key.
+  """
+  return secrets.token_hex(length // 2)
+
+def regenerate_secret_key(app):
+  app.secret_key = generate_secret_key()
+  print("Secret key regenerated.")
 
 def create_app():
   src = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -12,5 +32,7 @@ def create_app():
 
   app.register_blueprint(auth, url_prefix='/auth')
   app.register_blueprint(homepage)
+
+  app.secret_key = generate_secret_key()
 
   return app

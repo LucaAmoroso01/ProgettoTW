@@ -1,9 +1,27 @@
+import datetime
 import sqlite3
-from flask import Blueprint, jsonify, make_response, render_template, request, g
+from flask import Blueprint, app, jsonify, make_response, render_template, request, g, session
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 
 auth = Blueprint('auth', __name__)
+
+# user tuple indexes
+TITLE = 0         # title index in the user tuple
+FIRST_NAME = 1    # first name index in the user tuple
+LAST_NAME = 2     # last name index in the user tuple
+COUNTRY = 3       # country index in the user tuple
+BIRTH_DATE = 4    # birth date index in the user tuple
+USERNAME = 5      # username index in the user tuple
+EMAIL = 6         # email index in the user tuple
+PASSWORD = 7      # password index in the user tuple
+DATE_INS = 8      # date inserted index in the user tuple
+JOURNALIST = 9    # journalist index in the user tuple
+
+@auth.before_request
+def before_request():
+  if 'user' in g:
+    g.pop('user', None)
 
 def connect_db():
     if 'db' not in g:
@@ -30,10 +48,9 @@ def login():
     cursor.execute('SELECT * FROM users WHERE email=?', (email,))
     user = cursor.fetchone()
     
-    PASSWORD = 7      # password index in the user tuple
-    
     if user:
       if check_password_hash(user[PASSWORD], password):
+        session['user'] = user
         return make_response(jsonify({'message': 'User logged in successfully', 'status': 200}))
       else:
         return make_response(jsonify({'message': 'Wrong password', 'status': 401}))
@@ -78,8 +95,38 @@ def registration():
 
   return render_template('login-registration-page/registration.html')
 
+@auth.route('/user', methods=['GET'])
+def user():
+  if 'user' not in session:
+    return make_response(jsonify({'message': 'User not logged in', 'status': 401}))
+
+  user = session['user']
+  
+  user_data = {
+    'title': user[TITLE],
+    'firstName': user[FIRST_NAME],
+    'lastName': user[LAST_NAME],
+    'country': user[COUNTRY],
+    'birthDate': user[BIRTH_DATE],
+    'username': user[USERNAME],
+    'email': user[EMAIL],
+    'dateIns': user[DATE_INS], 
+    'journalist': user[JOURNALIST]
+  }
+
+  return make_response(jsonify({'user': user_data, 'status': 200}))
+
+
+@auth.route('/logout', methods=['POST'])
+def logout():
+  if 'user' in session:
+    session.pop('user', None)
+    return make_response(jsonify({'message': 'User logged out successfully', 'status': 200}))
+  else:
+    return make_response(jsonify({'message': 'User not logged in', 'status': 401}))
+
 @auth.teardown_request
 def close_db(error):
-    db = g.pop('db', None)
-    if db is not None:
-        db.close()
+  db = g.pop('db', None)
+  if db is not None:
+    db.close()

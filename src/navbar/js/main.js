@@ -3,121 +3,10 @@ const root = "/";
 export function loadPageContent(pageUrl, containerId) {
   fetch(pageUrl)
     .then((response) => response.text())
-    .then((html) => {
+    .then(async (html) => {
       document.getElementById(containerId).innerHTML = html;
 
-      const drivers = [
-        { firstName: "Charles", lastName: "Leclerc", team: "ferrari" },
-        { firstName: "Carlos", lastName: "Sainz", team: "ferrari" },
-        { firstName: "Lewis", lastName: "Hamilton", team: "mercedes" },
-        { firstName: "Valtteri", lastName: "Bottas", team: "alfa-romeo" },
-        { firstName: "Max", lastName: "Verstappen", team: "red-bull" },
-        { firstName: "Sergio", lastName: "Perez", team: "red-bull" },
-        { firstName: "Lando", lastName: "Norris", team: "mclaren" },
-        { firstName: "Oscar", lastName: "Piastri", team: "mclaren" },
-        { firstName: "Daniel", lastName: "Ricciardo", team: "alphaTauri" },
-        { firstName: "Pierre", lastName: "Gasly", team: "alpine" },
-        { firstName: "Esteban", lastName: "Ocon", team: "alpine" },
-        { firstName: "Lance", lastName: "Stroll", team: "aston-martin" },
-        { firstName: "Fernando", lastName: "Alonso", team: "aston-martin" },
-        { firstName: "George", lastName: "Russell", team: "mercedes" },
-        { firstName: "Yuki", lastName: "Tsunoda", team: "alphaTauri" },
-        { firstName: "Guanyu", lastName: "Zhou", team: "alfa-romeo" },
-        { firstName: "Alexander", lastName: "Albon", team: "williams" },
-        { firstName: "Kevin", lastName: "Magnussen", team: "haas" },
-        { firstName: "Nico", lastName: "Hulkenberg", team: "haas" },
-        { firstName: "Logan", lastName: "Sargeant", team: "williams" },
-      ].sort((a, b) => a.lastName.localeCompare(b.lastName));
-
-      const teamsArray = drivers
-        .map((driver) => driver.team)
-        .sort((a, b) => a.localeCompare(b));
-
-      function createDriverListItem(driver) {
-        const listItem = document.createElement("button");
-
-        listItem.classList.add(
-          "dropdown-item",
-          "custom-dropdown-item",
-          `dropdown-item-${driver.team}`,
-          window.location.href.split("/").pop().replace(".html", "") ===
-            driver.lastName.toLowerCase() &&
-            `dropdown-item-${driver.team}-active`,
-          "btn-driver-name"
-        );
-        listItem.addEventListener("click", () =>
-          openDriver(driver.lastName.toLowerCase())
-        );
-
-        const formattedName = `<i class="fa-sharp fa-light fa-rectangle-wide driver-${
-          driver.team
-        }-color"></i>
-                                <div class="driver-name">
-                                  <p style="font-family: F1 Regular">
-                                    ${driver.firstName}
-                                  </p>
-                                  <p>${driver.lastName.toUpperCase()}</p>
-                                </div>`;
-
-        listItem.innerHTML = formattedName;
-        return listItem;
-      }
-      function createTeamListItem(team) {
-        const listItem = document.createElement("button");
-        listItem.classList.add(
-          "dropdown-item",
-          "custom-dropdown-item",
-          `dropdown-item-${team}`,
-          window.location.href.split("/").pop().replace(".html", "") === team &&
-            `dropdown-item-${team}-active`
-        );
-        listItem.addEventListener("click", () => openTeam(team));
-
-        const formattedTeamName = team
-          .replace("-", " ")
-          .replace(/\b\w/g, (char) => char.toUpperCase());
-
-        const formattedName = `<div class="team-name">
-                                  <img alt="${team}-logo" src="/src/images/${team}-logo.png" class="teams-logo" style="width: ${
-          team === "red-bull"
-            ? "10rem"
-            : team === "alfa-romeo"
-            ? "10rem"
-            : team === "mercedes"
-            ? "6rem"
-            : team === "alphaTauri"
-            ? "10rem"
-            : team === "haas"
-            ? "9rem"
-            : "7rem"
-        }" />
-                                  <p style="font-family: F1 Regular; margin-top: 1rem">
-                                    ${formattedTeamName}
-                                  </p>
-                                </div>`;
-
-        listItem.innerHTML = formattedName;
-
-        return listItem;
-      }
-
-      const driverListContainer = document.getElementById("drivers-dropdown");
-
-      drivers.forEach((driver) => {
-        const listItem = createDriverListItem(driver);
-        driverListContainer.appendChild(listItem);
-      });
-
-      const teamsListContainer = document.getElementById("teams");
-      const addedTeams = [];
-
-      teamsArray.forEach((team) => {
-        if (!addedTeams.includes(team)) {
-          const listItemTeam = createTeamListItem(team);
-          teamsListContainer.appendChild(listItemTeam);
-          addedTeams.push(team);
-        }
-      });
+      loadTeamsAndDrivers();
 
       const loginButton = document.createElement("button");
       loginButton.classList.add("btn", "btn-primary", "btn-login-subscribe");
@@ -192,30 +81,208 @@ export function loadPageContent(pageUrl, containerId) {
         driversDropdownContainer.style.cssText = "left: -2.8rem !important";
       }
 
-      function openLoginOrRegistration(path) {
-        window.location.href = path;
-      }
+      openSchedule();
 
-      function openDriver(driverToOpen) {
-        window.location.href = `/drivers/${driverToOpen}`;
-      }
+      const userCard = document.getElementById("user-card");
+      const userButton = document.getElementById("user-button");
 
-      function openTeam(teamToOpen) {
-        window.location.href = `/teams/${teamToOpen}`;
-      }
+      fetch("/auth/user")
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw Error("Error getting user");
+          }
+        })
+        .then((data) => {
+          if (data.status !== 401) {
+            const user = data.user;
 
-      if (window.location.pathname === "/schedule") {
-        const scheduleButton = document.getElementById("schedule");
-        scheduleButton.classList.add("nav-link-active");
+            loginButton.style.display = "none";
+            registrationButton.style.display = "none";
 
-        scheduleButton.addEventListener("mouseenter", () => {
-          scheduleButton.classList.add("nav-link-hover");
+            userButton.style.display = "block";
+
+            userButton.addEventListener("click", () =>
+              toggleUserCard(user, userButton, userCard)
+            );
+
+            const logoutButton = document.getElementById("logout-button");
+            logoutButton.addEventListener("click", () => logout());
+          }
         });
-
-        scheduleButton.addEventListener("mouseleave", () => {
-          scheduleButton.classList.remove("nav-link-hover");
-        });
-      }
     })
     .catch((error) => console.error("Error loading page content:", error));
+}
+
+function openLoginOrRegistration(path) {
+  window.location.href = path;
+}
+
+function openDriver(driverToOpen) {
+  window.location.href = `/drivers/${driverToOpen}`;
+}
+
+function openTeam(teamToOpen) {
+  window.location.href = `/teams/${teamToOpen}`;
+}
+
+function openSchedule() {
+  if (window.location.pathname === "/schedule") {
+    const scheduleButton = document.getElementById("schedule");
+    scheduleButton.classList.add("nav-link-active");
+
+    scheduleButton.addEventListener("mouseenter", () => {
+      scheduleButton.classList.add("nav-link-hover");
+    });
+
+    scheduleButton.addEventListener("mouseleave", () => {
+      scheduleButton.classList.remove("nav-link-hover");
+    });
+  }
+}
+
+function loadTeamsAndDrivers() {
+  const drivers = [
+    { firstName: "Charles", lastName: "Leclerc", team: "ferrari" },
+    { firstName: "Carlos", lastName: "Sainz", team: "ferrari" },
+    { firstName: "Lewis", lastName: "Hamilton", team: "mercedes" },
+    { firstName: "Valtteri", lastName: "Bottas", team: "alfa-romeo" },
+    { firstName: "Max", lastName: "Verstappen", team: "red-bull" },
+    { firstName: "Sergio", lastName: "Perez", team: "red-bull" },
+    { firstName: "Lando", lastName: "Norris", team: "mclaren" },
+    { firstName: "Oscar", lastName: "Piastri", team: "mclaren" },
+    { firstName: "Daniel", lastName: "Ricciardo", team: "alphaTauri" },
+    { firstName: "Pierre", lastName: "Gasly", team: "alpine" },
+    { firstName: "Esteban", lastName: "Ocon", team: "alpine" },
+    { firstName: "Lance", lastName: "Stroll", team: "aston-martin" },
+    { firstName: "Fernando", lastName: "Alonso", team: "aston-martin" },
+    { firstName: "George", lastName: "Russell", team: "mercedes" },
+    { firstName: "Yuki", lastName: "Tsunoda", team: "alphaTauri" },
+    { firstName: "Guanyu", lastName: "Zhou", team: "alfa-romeo" },
+    { firstName: "Alexander", lastName: "Albon", team: "williams" },
+    { firstName: "Kevin", lastName: "Magnussen", team: "haas" },
+    { firstName: "Nico", lastName: "Hulkenberg", team: "haas" },
+    { firstName: "Logan", lastName: "Sargeant", team: "williams" },
+  ].sort((a, b) => a.lastName.localeCompare(b.lastName));
+
+  const teamsArray = drivers
+    .map((driver) => driver.team)
+    .sort((a, b) => a.localeCompare(b));
+
+  function createDriverListItem(driver) {
+    const listItem = document.createElement("button");
+
+    listItem.classList.add(
+      "dropdown-item",
+      "custom-dropdown-item",
+      `dropdown-item-${driver.team}`,
+      window.location.href.split("/").pop().replace(".html", "") ===
+        driver.lastName.toLowerCase() && `dropdown-item-${driver.team}-active`,
+      "btn-driver-name"
+    );
+    listItem.addEventListener("click", () =>
+      openDriver(driver.lastName.toLowerCase())
+    );
+
+    const formattedName = `<i class="fa-sharp fa-light fa-rectangle-wide driver-${
+      driver.team
+    }-color"></i>
+                            <div class="driver-name">
+                              <p style="font-family: F1 Regular">
+                                ${driver.firstName}
+                              </p>
+                              <p>${driver.lastName.toUpperCase()}</p>
+                            </div>`;
+
+    listItem.innerHTML = formattedName;
+    return listItem;
+  }
+  function createTeamListItem(team) {
+    const listItem = document.createElement("button");
+    listItem.classList.add(
+      "dropdown-item",
+      "custom-dropdown-item",
+      `dropdown-item-${team}`,
+      window.location.href.split("/").pop().replace(".html", "") === team &&
+        `dropdown-item-${team}-active`
+    );
+    listItem.addEventListener("click", () => openTeam(team));
+
+    const formattedTeamName = team
+      .replace("-", " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+
+    const formattedName = `<div class="team-name">
+                              <img alt="${team}-logo" src="/src/images/${team}-logo.png" class="teams-logo" style="width: ${
+      team === "red-bull"
+        ? "10rem"
+        : team === "alfa-romeo"
+        ? "10rem"
+        : team === "mercedes"
+        ? "6rem"
+        : team === "alphaTauri"
+        ? "10rem"
+        : team === "haas"
+        ? "9rem"
+        : "7rem"
+    }" />
+                              <p style="font-family: F1 Regular; margin-top: 1rem">
+                                ${formattedTeamName}
+                              </p>
+                            </div>`;
+
+    listItem.innerHTML = formattedName;
+
+    return listItem;
+  }
+
+  const driverListContainer = document.getElementById("drivers-dropdown");
+
+  drivers.forEach((driver) => {
+    const listItem = createDriverListItem(driver);
+    driverListContainer.appendChild(listItem);
+  });
+
+  const teamsListContainer = document.getElementById("teams");
+  const addedTeams = [];
+
+  teamsArray.forEach((team) => {
+    if (!addedTeams.includes(team)) {
+      const listItemTeam = createTeamListItem(team);
+      teamsListContainer.appendChild(listItemTeam);
+      addedTeams.push(team);
+    }
+  });
+}
+
+function toggleUserCard(user, userButton, userCard) {
+  userCard.style.display = userCard.style.display === "none" ? "block" : "none";
+
+  userButton.setAttribute("aria-expanded", userCard.style.display === "block");
+
+  const userFirstName = document.getElementById("user-firstName");
+  const userLastName = document.getElementById("user-lastName");
+  const userEmail = document.getElementById("user-email");
+  userFirstName.innerHTML = user.firstName;
+  userLastName.innerHTML = user.lastName;
+  userEmail.innerHTML = user.email;
+}
+
+function logout() {
+  fetch("/auth/logout", {
+    method: "POST",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw Error("Error logging out");
+      }
+
+      return response.json();
+    })
+    .then((data) => {
+      if (data.status === 200) {
+        window.location.href = "/";
+      }
+    });
 }

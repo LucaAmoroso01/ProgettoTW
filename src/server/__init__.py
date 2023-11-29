@@ -1,5 +1,4 @@
 import secrets
-import time
 from flask import Flask
 from server.auth import auth
 from server.homepage import homepage

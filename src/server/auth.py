@@ -1,6 +1,5 @@
-import datetime
 import sqlite3
-from flask import Blueprint, app, jsonify, make_response, render_template, request, g, session
+from flask import Blueprint, jsonify, make_response, render_template, request, g, session
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
 

@@ -88,6 +88,9 @@ def registration():
       cursor.execute("INSERT INTO users (title, firstName, lastName, country, birthDate, username, email, password, journalist) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                     (title, firstName, lastName, country, birthDate, username, email, hashed_password, journalist)
                     )
+      
+      session['user'] = existing_user
+
       connection.commit()
       connection.close()
       

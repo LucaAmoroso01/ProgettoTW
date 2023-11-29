@@ -5,83 +5,231 @@
   />
 
   <script src="{{ url_for('static', filename='navbar/js/main.js') }}"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () =>
+      loadTeamsAndDriversResponsive()
+    );
+  </script>
 </head>
-<nav
-  class="navbar navbar-expand-lg fixed-top"
-  style="
-    background-color: red !important;
-    height: 5rem !important;
-    padding-right: 1rem;
-    width: 100%;
-  "
->
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav" style="gap: 2rem" id="navbar-links">
-      <li class="nav-item dropdown">
-        <button class="nav-link" data-bs-toggle="dropdown">
-          Drivers <i class="bi bi-chevron-down"></i>
-        </button>
-        <div
-          class="dropdown-menu custom-dropdown-menu bg-black"
-          id="drivers-dropdown-container"
-        >
-          <div class="dropdown-list-layout" id="drivers-dropdown"></div>
+<nav class="navbar navbar-expand-lg fixed-top default-navbar w-100" id="navbar">
+  <div
+    id="responsive-navbar"
+    class="d-flex align-items-center justify-content-between min-vw-100"
+    style="
+      margin-left: -2rem !important;
+      padding: 0rem 0rem 0rem 0rem !important;
+    "
+  >
+    <div class="container-fluid w-100" style="padding: 0% !important">
+      <ul class="navbar-nav h-100">
+        <li class="nav-item dropdown h-100">
+          <button
+            class="menu-button h-100"
+            data-bs-toggle="dropdown"
+            id="menu-button"
+            aria-expanded="false"
+          >
+            <i class="bi bi-list text-white h-100"></i>
+          </button>
+          <ul
+            class="dropdown-menu custom-dropdown-menu bg-black"
+            style="
+              overflow: auto !important;
+              max-height: 70% !important;
+              z-index: 100 !important;
+            "
+            id="dropdown-responsive"
+          >
+            <li id="home-responsive">
+              <a class="dropdown-item" href="/"> Home </a>
+            </li>
+            <li class="dropdown-submenu">
+              <button
+                class="dropdown-item dropdown"
+                id="drivers-responsive-button"
+              >
+                Drivers
+              </button>
+              <div
+                class="d-flex align-items-center flex-column"
+                id="dropdown-drivers-submenu"
+                style="display: none !important"
+              >
+                <ul
+                  class="dropdown-menu bg-dark"
+                  id="drivers-list-responsive"
+                  style="
+                    max-height: 20rem !important;
+                    border-radius: 0% !important;
+                    border: none !important;
+                    width: 100% !important;
+                    overflow: auto !important;
+                  "
+                ></ul>
+              </div>
+            </li>
+            <li class="dropdown-submenu">
+              <button
+                class="dropdown-item dropdown"
+                id="teams-responsive-button"
+              >
+                Teams
+              </button>
+              <div
+                class="d-flex align-items-center flex-column"
+                id="dropdown-teams-submenu"
+                style="display: none !important; padding-inline: 10px"
+              >
+                <ul
+                  class="dropdown-menu bg-dark overflow-auto"
+                  id="teams-list-responsive"
+                  style="
+                    max-height: 20rem !important;
+                    border-radius: 0% !important;
+                    border: none !important;
+                    width: 100% !important;
+                  "
+                ></ul>
+              </div>
+            </li>
+            <li>
+              <button class="dropdown-item" id="schedule-responsive">
+                Schedule
+              </button>
+            </li>
+            <li><a class="dropdown-item" href="#"> Results </a></li>
+            <li
+              style="padding-inline: 5px !important"
+              id="dropdown-divider-responsive"
+            >
+              <hr
+                class="dropdown-divider"
+                style="background-color: white !important"
+              />
+            </li>
+            <li
+              class="d-flex align-items-center justify-content-evenly"
+              style="padding-bottom: 10px"
+              id="login-buttons-responsive"
+            >
+              <button class="btn btn-danger" id="login-button-responsive">
+                sign in
+              </button>
+              <button
+                class="btn btn-danger"
+                id="registration-button-responsive"
+              >
+                registration
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div style="margin-right: -16px !important">
+      <button class="user-button btn" id="user-button-responsive">
+        <i class="fa-regular fa-user text-white w-100" style="padding: 5px"></i>
+      </button>
+      <div class="user-card" id="user-card-responsive">
+        <div class="card" style="min-width: 13rem">
+          <div
+            class="card-body d-flex flex-column align-items-center"
+            id="user-card-body-responsive"
+            style="gap: 2px"
+          >
+            <div class="d-flex align-items-center gap-2">
+              <p>Hi</p>
+              <div class="d-flex align-items-center gap-1">
+                <p id="user-firstName-responsive"></p>
+                <p id="user-lastName-responsive"></p>
+              </div>
+            </div>
+            <p id="user-email-responsive" style="margin-top: -10px"></p>
+          </div>
+          <div class="card-footer" style="margin-top: -1rem">
+            <button
+              class="btn btn-danger w-100 bg-black border-black"
+              id="logout-button-responsive"
+            >
+              Logout
+            </button>
+          </div>
         </div>
-      </li>
-      <li class="nav-item dropdown">
-        <button
-          class="nav-link"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Teams
-          <i class="bi bi-chevron-down"></i>
-        </button>
-        <div
-          class="dropdown-menu custom-dropdown-menu bg-black"
-          id="teams-dropdown-container"
-        >
-          <div id="teams" class="dropdown-list-layout"></div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <button
-          class="nav-link"
-          onclick="window.location.href = '/schedule'"
-          id="schedule"
-        >
-          Schedule
-        </button>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" role="button"> Results </a>
-      </li>
-    </ul>
-  </div>
-  <div class="login-buttons"></div>
-  <button class="user-button btn" id="user-button">
-    <i class="fa-regular fa-user text-white w-100" style="padding: 5px"></i>
-  </button>
-  <div class="user-card" id="user-card">
-    <div class="card">
-      <div
-        class="card-body d-flex flex-column align-items-center"
-        id="user-card-body"
-        style="gap: 2px"
-      >
-        <div class="d-flex align-items-center gap-2">
-          <p id="user-firstName"></p>
-          <p id="user-lastName"></p>
-        </div>
-        <p id="user-email"></p>
       </div>
-      <div class="card-footer">
-        <button
-          class="btn btn-danger w-100 bg-black border-black"
-          id="logout-button"
-        >
-          Logout
-        </button>
+    </div>
+  </div>
+  <div
+    class="min-vw-100 d-flex align-items-center justify-content-between"
+    id="normal-navbar"
+    style="padding: 0rem 0rem 0rem 0rem !important"
+  >
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav" style="gap: 2rem" id="navbar-links">
+        <li class="nav-item dropdown">
+          <button class="nav-link" data-bs-toggle="dropdown">
+            Drivers <i class="bi bi-chevron-down"></i>
+          </button>
+          <div
+            class="dropdown-menu custom-dropdown-menu bg-black"
+            id="drivers-dropdown-container"
+          >
+            <div class="dropdown-list-layout" id="drivers-dropdown"></div>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <button
+            class="nav-link"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Teams
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <div
+            class="dropdown-menu custom-dropdown-menu bg-black"
+            id="teams-dropdown-container"
+          >
+            <div id="teams" class="dropdown-list-layout"></div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="schedule">Schedule</button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button"> Results </a>
+        </li>
+      </ul>
+    </div>
+    <div class="login-buttons" style="padding-right: 1rem"></div>
+    <div style="padding-right: 1rem">
+      <button class="user-button btn" id="user-button">
+        <i class="fa-regular fa-user text-white w-100" style="padding: 5px"></i>
+      </button>
+      <div class="user-card" id="user-card" style="min-width: 13rem">
+        <div class="card">
+          <div
+            class="card-body d-flex flex-column align-items-center"
+            id="user-card-body"
+            style="gap: 2px"
+          >
+            <div class="d-flex align-items-center gap-2">
+              <p>Hi</p>
+              <div class="d-flex align-items-center gap-1">
+                <p id="user-firstName"></p>
+                <p id="user-lastName"></p>
+              </div>
+            </div>
+            <p id="user-email" style="margin-top: -10px"></p>
+          </div>
+          <div class="card-footer" style="margin-top: -1rem">
+            <button
+              class="btn btn-danger w-100 bg-black border-black"
+              id="logout-button"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

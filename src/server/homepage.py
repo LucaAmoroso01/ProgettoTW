@@ -6,10 +6,6 @@ homepage = Blueprint('homepage', __name__)
 def home():
   return render_template('index.html')
 
-@homepage.route('/navbar')
-def navbar():
-  return render_template('navbar/index.html')
-
 @homepage.route('/drivers/<driverName>')
 def driver(driverName):
   return render_template(f'drivers/{driverName}.html', driverName=driverName)

@@ -144,19 +144,7 @@
         </div>
       </div>
     </div>
-    <footer>
-      <div class="footer-brand">
-        <p>F1Universe S.r.l</p>
-        <img
-          src="{{ url_for('static', filename='images/logo-removebg.png') }}"
-          alt="logo"
-          style="width: 20rem; height: 20rem"
-        />
-      </div>
-      <div class="copy">
-        <p>Copyright &copy; 2023 - All rights reserved.</p>
-      </div>
-    </footer>
+    <footer id="footer"></footer>
   </body>
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   <script
@@ -165,8 +153,10 @@
     crossorigin="anonymous"
   ></script>
   <script type="module">
-    import { loadPageContent } from "{{ url_for('static', filename='navbar/js/main.js') }}";
+    import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
+    import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
 
-    loadPageContent("/navbar", "navbar");
+    loadNavbar();
+    loadFooter();
   </script>
 </html>

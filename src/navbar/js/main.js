@@ -27,11 +27,11 @@ const teamsArray = drivers
   .map((driver) => driver.team)
   .sort((a, b) => a.localeCompare(b));
 
-export function loadPageContent(pageUrl, containerId) {
-  fetch(pageUrl)
+export function loadNavbar() {
+  fetch("/navbar")
     .then((response) => response.text())
     .then(async (html) => {
-      document.getElementById(containerId).innerHTML = html;
+      document.getElementById("navbar").innerHTML = html;
 
       loadTeamsAndDrivers();
 
@@ -137,15 +137,19 @@ export function loadPageContent(pageUrl, containerId) {
 
       const userCard = document.getElementById("user-card");
       userCard.style.display = "none";
+
       const userButton = document.getElementById("user-button");
+      userButton.style.display = "none";
 
       const userCardResponsive = document.getElementById(
         "user-card-responsive"
       );
       userCardResponsive.style.display = "none";
+
       const userButtonResponsive = document.getElementById(
         "user-button-responsive"
       );
+      userButtonResponsive.style.display = "none";
 
       fetch("/auth/user")
         .then((response) => {
@@ -174,7 +178,10 @@ export function loadPageContent(pageUrl, containerId) {
               "padding-bottom: 0 !important";
 
             userButton.style.display = "block";
+            userButton.style.cssText = "border-radius: 100% !important";
             userButtonResponsive.style.display = "block";
+            userButtonResponsive.style.cssText =
+              "border-radius: 100% !important";
 
             userButton.addEventListener("click", () =>
               toggleUserCard(user, userButton, userCard)

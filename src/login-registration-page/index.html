@@ -149,7 +149,7 @@
         currentTabButton.classList.add("active-tab");
       }
 
-      loadPageContent(`${tab}`, `${tab}Container`);
+      loadNavbar(`${tab}`, `${tab}Container`);
 
       var url = window.location.href.split("?")[0];
       var newUrl = `${url}?param=${tab}`;

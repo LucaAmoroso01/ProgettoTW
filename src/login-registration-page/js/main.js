@@ -3,7 +3,7 @@
  * @param pageUrl page to load
  * @param containerId container to put the page
  */
-function loadPageContent(pageUrl, containerId) {
+function loadNavbar(pageUrl, containerId) {
   fetch(pageUrl)
     .then((response) => response.text())
     .then((html) => {

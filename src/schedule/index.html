@@ -34,8 +34,10 @@
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
   <script src="{{ url_for('static', filename='schedule/js/main.js') }}"></script>
   <script type="module">
-    import { loadPageContent } from "{{ url_for('static', filename='navbar/js/main.js') }}";
+    import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
+    import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
 
-    loadPageContent("/navbar", "navbar");
+    loadNavbar();
+    loadFooter();
   </script>
 </html>

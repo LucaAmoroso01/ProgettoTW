@@ -277,27 +277,12 @@ h5 {
   align-items: stretch;
 }
 
-footer {
-  background-color: #2a2929;
-  color: white;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  min-height: 20rem;
-}
-
 .copy {
   text-align: right;
   font-size: 12px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-}
-
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 2rem;
 }
 
 .grid-news {

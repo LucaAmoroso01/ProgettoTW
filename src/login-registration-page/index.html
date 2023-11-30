@@ -29,34 +29,52 @@
   <body>
     <nav class="navbar navbar-expand-lg">
       <div
-        class="container-fluid d-flex justify-content-center align-items-center gap-4 position-relative"
+        class="container-fluid d-flex justify-content-center align-items-center gap-4 position-relative w-100"
       >
         <button
           class="btn btn-home position-absolute"
           id="homeButton"
-          style="left: 2rem"
+          style="left: 2rem; top: 0 !important"
         >
           Back Home
         </button>
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <button
-              class="btn btn-tab"
-              onclick="openTab('login')"
-              id="login-tab"
-            >
-              Sign in
-            </button>
-          </li>
-          <li class="nav-item">
-            <button
-              class="btn btn-tab"
-              onclick="openTab('registration')"
-              id="register-tab"
-            >
-              Registration
-            </button>
-          </li>
+        <div
+          class="d-flex align-items-center justify-content-between mt-1 w-100"
+          id="responsive-tabs"
+        >
+          <button class="btn btn-home" id="homeButtonResponsive">
+            Back Home
+          </button>
+          <select
+            class="form-select"
+            onchange="handleSelectChange(this)"
+            id="tab-select"
+          >
+            <option value="login">Sign In</option>
+            <option value="registration">Registration</option>
+          </select>
+        </div>
+        <ul class="navbar-nav" id="tabs">
+          <div class="d-flex align-items-center justify-content-center">
+            <li class="nav-item">
+              <button
+                class="btn btn-tab"
+                onclick="openTab('login')"
+                id="login-tab"
+              >
+                Sign in
+              </button>
+            </li>
+            <li class="nav-item">
+              <button
+                class="btn btn-tab"
+                onclick="openTab('registration')"
+                id="register-tab"
+              >
+                Registration
+              </button>
+            </li>
+          </div>
         </ul>
       </div>
     </nav>
@@ -83,6 +101,17 @@
 
     const homeButton = document.getElementById("homeButton");
     homeButton.addEventListener("click", () => (window.location.href = `/`));
+
+    const homeButtonResponsive = document.getElementById(
+      "homeButtonResponsive"
+    );
+
+    if (homeButtonResponsive) {
+      homeButtonResponsive.addEventListener(
+        "click",
+        () => (window.location.href = `/`)
+      );
+    }
 
     function getParameterByName(name, url) {
       if (!url) url = window.location.href;
@@ -126,5 +155,19 @@
       var newUrl = `${url}?param=${tab}`;
       history.pushState({ path: newUrl }, "", newUrl);
     }
+
+    function handleSelectChange(select) {
+      const selectedTab = getParameterByName("param");
+      openTab(selectedTab);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabToShow = getParameterByName("param");
+
+      if (tabToShow === "login" || tabToShow === "registration") {
+        const tabSelect = document.getElementById("tab-select");
+        tabSelect.value = tabToShow;
+      }
+    });
   </script>
 </html>

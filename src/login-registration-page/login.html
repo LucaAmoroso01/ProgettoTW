@@ -1,22 +1,22 @@
-<style>
-  .a-register {
-    text-decoration: none;
-    color: #626261;
-    transition: all 0.2s ease-in-out;
-    border-bottom: 3px solid red;
-  }
-
-  .a-register:hover {
-    color: red;
-    border-bottom: 6px solid red;
-  }
-</style>
-
 <head>
   <link
     rel="stylesheet"
     href="{{ url_for('static', filename='login-registration-page/css/main.css') }}"
   />
+
+  <style>
+    .a-register {
+      text-decoration: none;
+      color: #626261;
+      transition: all 0.2s ease-in-out;
+      border-bottom: 3px solid red;
+    }
+
+    .a-register:hover {
+      color: red;
+      border-bottom: 6px solid red;
+    }
+  </style>
 </head>
 <form id="login-form">
   <div class="form" id="login">
@@ -54,11 +54,14 @@
           Sign in
         </button>
       </div>
-      <div class="d-flex align-content-center gap-3 flex-row mt-4">
+      <div
+        class="d-flex align-content-center gap-3 flex-row mt-4"
+        id="registration-redirect"
+      >
         <p>Don't have an account yet?</p>
         <a
           href="/auth/login-registration?param=registration"
-          class="a-register"
+          class="a-register text-center"
         >
           Register with F1 Universe
         </a>

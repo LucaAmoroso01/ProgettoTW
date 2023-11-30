@@ -119,3 +119,67 @@ select {
   background-color: #991b1b !important;
   border-color: #991b1b !important;
 }
+
+#tab-select {
+  display: none;
+}
+
+#responsive-tabs {
+  display: none;
+}
+
+#homeButtonResponsive {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #homeButton {
+    display: none;
+  }
+
+  #homeButtonResponsive {
+    display: block;
+  }
+
+  #tab-select {
+    display: block;
+    width: 160px;
+  }
+
+  #tabs {
+    display: none;
+  }
+
+  #responsive-tabs {
+    display: flex;
+  }
+
+  .navbar-nav .btn-tab {
+    display: none; /* Hide the regular buttons */
+  }
+
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+
+  #login-form .form {
+    padding: 2rem !important;
+  }
+
+  #registration-form {
+    padding: 1rem !important;
+  }
+
+  #registration-form .form {
+    padding: 2rem !important;
+  }
+
+  #registration-redirect {
+    flex-direction: column !important;
+  }
+}

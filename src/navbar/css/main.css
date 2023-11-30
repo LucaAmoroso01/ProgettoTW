@@ -308,6 +308,7 @@
 
   #responsive-navbar {
     display: flex !important;
+    z-index: 1000 !important;
   }
 
   #responsive-navbar .nav-item {

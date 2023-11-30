@@ -21,3 +21,7 @@ def schedule():
 @homepage.route('/teams/<team>')
 def teams(team):
   return render_template(f'teams/{team}.html', team=team)
+
+@homepage.route('/news/<newsToOpen>')
+def news(newsToOpen):
+  return render_template(f'news/{newsToOpen}', newsToOpen=newsToOpen)

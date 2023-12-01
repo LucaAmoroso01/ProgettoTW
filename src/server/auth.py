@@ -88,7 +88,10 @@ def registration():
                     (title, firstName, lastName, country, birthDate, username, email, hashed_password, journalist)
                     )
       
-      session['user'] = existing_user
+      cursor.execute('SELECT * FROM users WHERE username=?', (username,))
+      user = cursor.fetchone()
+      
+      session['user'] = user
 
       connection.commit()
       connection.close()

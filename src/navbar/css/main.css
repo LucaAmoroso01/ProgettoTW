@@ -297,7 +297,7 @@
   background-color: black;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1200px) {
   #normal-navbar * {
     display: none;
   }
@@ -401,7 +401,7 @@
   }
 }
 
-@media (min-width: 1051px) {
+@media (min-width: 1201px) {
   #responsive-navbar * {
     display: none;
   }

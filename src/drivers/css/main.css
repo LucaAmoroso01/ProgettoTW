@@ -2,33 +2,40 @@
   display: flex;
   align-items: start;
   justify-content: start;
-  gap: 10px;
+  gap: 3rem;
+  padding: 5rem;
+  padding-top: 0;
 }
 
 .driver-img {
-  width: 48rem;
+  width: 100%;
   height: 45rem;
-  padding: 0rem 2.5rem 2.5rem 2.5rem;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .driver-strong {
   font-size: 30px;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .number-flag-container {
   display: flex;
+  align-items: center !important;
   gap: 10px;
 }
 
 .flag-img {
   width: 5rem;
   height: 3rem;
-  place-self: start start;
+  border-radius: 5px;
 }
 
 .number-table-container {
   display: flex;
   flex-direction: column;
+  gap: 10px !important;
 }
 
 table {
@@ -57,4 +64,50 @@ td a {
 
 td a:hover {
   border-bottom: 4px solid red;
+}
+
+@media (max-width: 500px) {
+  .driver-img {
+    height: 30rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .driver-img-table-container {
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100% !important;
+  }
+
+  .driver-strong {
+    font-size: 29px;
+  }
+
+  .driver-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .number-table-container {
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+  }
+
+  table {
+    display: flex;
+    flex-direction: column; /* Cambiato da row a column */
+    align-items: center;
+  }
+
+  th p {
+    width: 60% !important;
+  }
+
+  td p {
+    width: 5% !important;
+  }
 }

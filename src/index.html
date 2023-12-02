@@ -33,7 +33,9 @@
     import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
     import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
 
-    loadNavbar();
-    loadFooter();
+    document.addEventListener("DOMContentLoaded", () => {
+      loadNavbar();
+      loadFooter();
+    });
   </script>
 </html>

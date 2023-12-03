@@ -373,10 +373,14 @@ function loadTeamsAndDriversResponsive(drivers, teamsArray) {
       .replace("-", " ")
       .replace(/\b\w/g, (char) => char.toUpperCase());
 
-    const formattedName = `<div style="display: flex !important; align-content: center !important; margin-top: 2px; padding-inline: 2rem !important">
-                              <p style="font-family: F1 Regular; margin-top: 1rem">
-                                ${formattedTeamName}
-                              </p>
+    const formattedName = `
+                            <div style="display: flex !important; align-content: center !important; padding-inline: 2rem !important">
+                            <div class="d-flex align-items-center" style="gap: 10px">
+                                <i class="fa-sharp fa-light fa-rectangle-wide driver-${team}-color" style="margin-top: -3px"></i>
+                                <p style="font-family: F1 Regular; margin-top: 1rem">
+                                  ${formattedTeamName}
+                                </p>
+                              </div>
                             </div>`;
 
     listItem.innerHTML = formattedName;

@@ -42,14 +42,14 @@
 .nav-link-active {
   background-color: red;
   color: white;
-  border-bottom: 2px solid white;
-  border-right: 2px solid white;
+  border-bottom: 2px solid white !important;
+  border-right: 2px solid white !important;
   border-bottom-right-radius: 10px !important;
   padding: 1rem !important;
 }
 
 .nav-link-hover {
-  background-color: black;
+  background-color: black !important;
   padding: 1.5rem !important;
   border: none !important;
   border-bottom-right-radius: 0px !important;

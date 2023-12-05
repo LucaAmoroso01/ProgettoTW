@@ -97,6 +97,9 @@ export function loadNavbar() {
       const teamsDropdownContainer = document.getElementById(
         "teams-dropdown-container"
       );
+      const standingsDropdownContainer = document.getElementById(
+        "standings-dropdown-container"
+      );
 
       if (window.location.pathname !== root) {
         const navbarContainer = document.getElementById("navbar-links");
@@ -124,6 +127,7 @@ export function loadNavbar() {
 
         driversDropdownContainer.style.cssText = "left: -11em !important;";
         teamsDropdownContainer.style.cssText = "left: -23.5rem !important;";
+        standingsDropdownContainer.style.cssText = "left: -46rem !important;";
       } else {
         driversDropdownContainer.style.cssText = "left: -2.8rem !important";
       }
@@ -489,11 +493,20 @@ function handleNavbarClass() {
       "teams-responsive-button"
     );
 
+    const standingsResponsiveButton = document.getElementById(
+      "standings-responsive-button"
+    );
+
     const submenu = document.getElementById("dropdown-drivers-submenu");
     submenu.style.cssText = "display: none !important";
 
     const teamsSubmenu = document.getElementById("dropdown-teams-submenu");
-    submenu.style.cssText = "display: none !important";
+    teamsSubmenu.style.cssText = "display: none !important";
+
+    const standingsSubmenu = document.getElementById(
+      "dropdown-standings-submenu"
+    );
+    standingsSubmenu.style.cssText = "display: none !important";
 
     driversResponsiveButton.addEventListener("click", () => {
       if (submenu.style.display === "block") {
@@ -508,6 +521,14 @@ function handleNavbarClass() {
         teamsSubmenu.style.cssText = "display: none !important";
       } else {
         teamsSubmenu.style.cssText = "display: block !important";
+      }
+    });
+
+    standingsResponsiveButton.addEventListener("click", () => {
+      if (standingsSubmenu.style.display === "block") {
+        standingsSubmenu.style.cssText = "display: none !important";
+      } else {
+        standingsSubmenu.style.cssText = "display: block !important";
       }
     });
 

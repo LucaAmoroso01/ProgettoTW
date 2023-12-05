@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drivers Standings</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='standings/css/main.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css')}}"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.ico') }}"
+    />
+  </head>
+  <body style="background-color: #f6f4f0">
+    <nav id="navbar"></nav>
+    <div
+      class="container container-fluid"
+      style="background-color: white; margin-bottom: 4rem"
+    >
+      <div class="d-flex align-items-center flex-column"></div>
+      <div class="title-container">
+        <h1 class="title">F1 Drivers Standings</h1>
+      </div>
+      <div
+        class="d-flex align-items-center justify-content-center w-100"
+        style="overflow-x: auto; white-space: nowrap"
+      >
+        <table id="driversTable" class="w-100">
+          <thead
+            style="
+              background-color: red;
+              color: white;
+              font-family: F1 Bold;
+              font-size: 20px;
+            "
+          >
+            <tr>
+              <th>Number</th>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Team</th>
+              <th>Points</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <footer id="footer"></footer>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch("/standings/drivers-standings")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Error fetching drivers standings");
+          }
+
+          return response.json();
+        })
+        .then((data) => {
+          const tableBody = document
+            .getElementById("driversTable")
+            .getElementsByTagName("tbody")[0];
+
+          data.forEach((driver) => {
+            const row = tableBody.insertRow();
+
+            const numberCell = row.insertCell(0);
+            numberCell.textContent = driver.number;
+
+            const nameCell = row.insertCell(1);
+            nameCell.textContent = driver.name;
+
+            const surnameCell = row.insertCell(2);
+            surnameCell.textContent = driver.surname;
+
+            const teamCell = row.insertCell(3);
+            teamCell.textContent = driver.team;
+
+            const pointsCell = row.insertCell(4);
+            pointsCell.textContent = driver.points;
+
+            row.classList.add(row.rowIndex % 2 === 0 ? null : "odd-row");
+          });
+        });
+    });
+  </script>
+  <script type="module">
+    import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
+    import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadNavbar();
+      loadFooter();
+    });
+  </script>
+</html>

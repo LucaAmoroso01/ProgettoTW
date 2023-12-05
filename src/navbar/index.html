@@ -100,7 +100,56 @@
                 Schedule
               </button>
             </li>
-            <li><a class="dropdown-item" href="#"> Results </a></li>
+            <li class="dropdown-submenu">
+              <button
+                class="dropdown-item dropdown"
+                id="standings-responsive-button"
+              >
+                Standings
+              </button>
+              <div
+                class="d-flex align-items-center flex-column"
+                id="dropdown-standings-submenu"
+                style="display: none !important; padding-inline: 10px"
+              >
+                <ul
+                  class="dropdown-menu bg-dark overflow-auto"
+                  id="standings-list-responsive"
+                  style="
+                    border-radius: 0% !important;
+                    border: none !important;
+                    width: 100% !important;
+                    overflow: auto !important;
+                    z-index: 1000 !important;
+                  "
+                >
+                  <li>
+                    <button
+                      class="dropdown-item dropdown-item-responsive"
+                      style="
+                        padding: 1rem !important;
+                        padding-inline: 2rem !important;
+                      "
+                      onclick="window.location.href = '/standings/drivers-standings.html'"
+                    >
+                      Drivers Standings
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="dropdown-item dropdown-item-responsive"
+                      style="
+                        padding: 1rem !important;
+                        padding-inline: 2rem !important;
+                      "
+                      onclick="window.location.href = '/standings/constructors-standings.html'"
+                    >
+                      Constructors Standings
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </li>
             <li
               style="padding-inline: 5px !important"
               id="dropdown-divider-responsive"
@@ -198,8 +247,62 @@
         <li class="nav-item">
           <button class="nav-link" id="schedule">Schedule</button>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" role="button"> Results </a>
+        <li class="nav-item dropdown">
+          <button class="nav-link" data-bs-toggle="dropdown">
+            Standings <i class="bi bi-chevron-down"></i>
+          </button>
+          <div
+            class="dropdown-menu custom-dropdown-menu bg-black"
+            style="left: -37.5rem !important"
+            id="standings-dropdown-container"
+          >
+            <div class="d-flex align-items-center justify-content-evenly w-100">
+              <button
+                class="dropdown-item-responsive"
+                style="
+                  color: white !important;
+                  border-top: none !important;
+                  border-left: none !important;
+                  border-bottom: 1px solid white !important;
+                  border-right: 1px solid white !important;
+                  border-bottom-right-radius: 10px !important;
+                  font-size: large;
+                  font-weight: bolder;
+                  font-family: F1 Bold;
+                  transition: all 0.3s ease-in-out;
+                  background-color: transparent !important;
+                  color: white !important;
+                  padding-block: 5px;
+                  padding-inline: 1rem;
+                "
+                onclick="window.location.href = '/standings/drivers-standings.html'"
+              >
+                Drivers Standings
+              </button>
+              <button
+                class="dropdown-item-responsive"
+                style="
+                  color: white !important;
+                  border-top: none !important;
+                  border-left: none !important;
+                  border-bottom: 1px solid white !important;
+                  border-right: 1px solid white !important;
+                  border-bottom-right-radius: 10px !important;
+                  font-size: large;
+                  font-weight: bolder;
+                  font-family: F1 Bold;
+                  transition: all 0.3s ease-in-out;
+                  background-color: transparent !important;
+                  color: white !important;
+                  padding-block: 5px;
+                  padding-inline: 1rem;
+                "
+                onclick="window.location.href = '/standings/constructors-standings.html'"
+              >
+                Constructors Standings
+              </button>
+            </div>
+          </div>
         </li>
       </ul>
     </div>

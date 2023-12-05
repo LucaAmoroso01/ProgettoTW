@@ -3,6 +3,7 @@ from flask import Flask
 from server.auth import auth
 from server.homepage import homepage
 from server.components import components
+from server.standings import standings_routes
 import os
 
 SECRET_KEY_REGENERATION_INTERVAL = 3600
@@ -33,6 +34,7 @@ def create_app():
   app.register_blueprint(auth, url_prefix='/auth')
   app.register_blueprint(homepage)
   app.register_blueprint(components)
+  app.register_blueprint(standings_routes)
 
   app.secret_key = generate_secret_key()
 

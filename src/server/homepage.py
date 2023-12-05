@@ -14,6 +14,10 @@ def driver(driverName):
 def schedule():
   return render_template('schedule/index.html')
 
+@homepage.route('/standings/<standingToOpen>')
+def standings(standingToOpen):
+  return render_template(f'standings/{standingToOpen}', standingToOpen=standingToOpen)
+
 @homepage.route('/teams/<team>')
 def teams(team):
   return render_template(f'teams/{team}.html', team=team)

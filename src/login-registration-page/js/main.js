@@ -120,6 +120,8 @@ function handleRegistration() {
       confirmPassword: document.getElementById("confirmPassword").value,
     };
 
+    console.log(formData);
+
     fetch("/auth/registration", {
       method: "POST",
       headers: {
@@ -166,9 +168,6 @@ function handleCheckPassword() {
   function handlePasswordInput() {
     const passwordValue = passwordInput.value;
     const confirmPasswordValue = confirmPasswordInput.value;
-
-    console.log("passwordValue", passwordValue);
-    console.log("confirmPasswordValue", confirmPasswordValue);
 
     if (passwordValue !== "" && confirmPasswordValue !== "") {
       if (passwordValue === confirmPasswordValue) {

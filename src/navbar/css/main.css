@@ -291,7 +291,6 @@
   border-radius: 0% !important;
   border: none !important;
   transition: all 0.3s ease-in-out !important;
-  display: none !important;
 }
 
 .menu-button:hover {
@@ -299,10 +298,6 @@
 }
 
 @media (max-width: 1200px) {
-  .menu-button {
-    display: block !important;
-  }
-
   #normal-navbar * {
     display: none;
   }

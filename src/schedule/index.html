@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
     <title>F1 Schedule</title>
     <link
       rel="icon"
@@ -28,10 +28,8 @@
       import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
       import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
 
-      window.onload = () => {
-        loadNavbar();
-        loadFooter();
-      };
+      loadNavbar();
+      loadFooter();
     </script>
   </head>
   <body>

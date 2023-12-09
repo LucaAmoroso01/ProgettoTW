@@ -16,6 +16,50 @@
       rel="icon"
       href="{{ url_for('static', filename='images/logo.ico') }}"
     />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='manifest.json') }}"
+    />
+    <meta name="theme-color" content="white" />
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("/standings/constructors-standings")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Error fetching drivers standings");
+            }
+
+            return response.json();
+          })
+          .then((data) => {
+            const tableBody = document
+              .getElementById("constructorsTable")
+              .getElementsByTagName("tbody")[0];
+
+            data.forEach((team) => {
+              const row = tableBody.insertRow();
+
+              const nameCell = row.insertCell(0);
+              nameCell.textContent = team.name;
+
+              const pointsCell = row.insertCell(1);
+              pointsCell.textContent = team.points;
+
+              row.classList.add(row.rowIndex % 2 === 0 ? null : "odd-row");
+            });
+          });
+      });
+    </script>
+    <script type="module">
+      import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
+      import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        loadNavbar();
+        loadFooter();
+      });
+    </script>
   </head>
   <body style="background-color: #f6f4f0">
     <nav id="navbar"></nav>
@@ -48,42 +92,4 @@
     </div>
     <footer id="footer"></footer>
   </body>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      fetch("/standings/constructors-standings")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Error fetching drivers standings");
-          }
-
-          return response.json();
-        })
-        .then((data) => {
-          const tableBody = document
-            .getElementById("constructorsTable")
-            .getElementsByTagName("tbody")[0];
-
-          data.forEach((team) => {
-            const row = tableBody.insertRow();
-
-            const nameCell = row.insertCell(0);
-            nameCell.textContent = team.name;
-
-            const pointsCell = row.insertCell(1);
-            pointsCell.textContent = team.points;
-
-            row.classList.add(row.rowIndex % 2 === 0 ? null : "odd-row");
-          });
-        });
-    });
-  </script>
-  <script type="module">
-    import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
-    import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
-
-    document.addEventListener("DOMContentLoaded", () => {
-      loadNavbar();
-      loadFooter();
-    });
-  </script>
 </html>

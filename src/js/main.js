@@ -96,6 +96,26 @@ document.addEventListener("DOMContentLoaded", function () {
   createCardNews();
 });
 
+window.onload = () => {
+  "use strict";
+
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/sw").then(
+      function (registration) {
+        // Service worker registered correctly.
+        console.log(
+          "ServiceWorker registration successful with scope: ",
+          registration.scope
+        );
+      },
+      function (err) {
+        // Troubles in registering the service worker. :(
+        console.log("ServiceWorker registration failed: ", err);
+      }
+    );
+  }
+};
+
 function createCardNews() {
   news.forEach((element) => {
     const card = document.createElement("div");
@@ -136,7 +156,10 @@ function createCardNews() {
     card.appendChild(cardBody);
 
     const newsSection = document.getElementById("news-section");
-    newsSection.appendChild(card);
+
+    if (newsSection) {
+      newsSection.appendChild(card);
+    }
   });
 }
 

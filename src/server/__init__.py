@@ -8,6 +8,8 @@ import os
 
 SECRET_KEY_REGENERATION_INTERVAL = 3600
 
+src = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
 def generate_secret_key(length=32):
   """
   Generate a secure random key for use in Flask sessions.
@@ -25,8 +27,6 @@ def regenerate_secret_key(app):
   print("Secret key regenerated.")
 
 def create_app():
-  src = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-  
   app = Flask(__name__, template_folder=src, static_folder=src)
 
   app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -35,7 +35,10 @@ def create_app():
   app.register_blueprint(homepage)
   app.register_blueprint(components)
   app.register_blueprint(standings_routes)
+  app.register_blueprint(sw)
 
   app.secret_key = generate_secret_key()
 
   return app
+
+from server.service_worker import sw

@@ -29,6 +29,32 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='manifest.json') }}"
+    />
+    <meta name="theme-color" content="white" />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='manifest.json') }}"
+    />
+    <meta name="theme-color" content="white" />
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module">
+      import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
+      import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
+
+      window.onload(() => {
+        loadNavbar();
+        loadFooter();
+      });
+    </script>
   </head>
   <body>
     <nav id="navbar"></nav>
@@ -117,17 +143,4 @@
     </div>
     <footer id="footer"></footer>
   </body>
-  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"
-  ></script>
-  <script type="module">
-    import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
-    import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
-
-    loadNavbar();
-    loadFooter();
-  </script>
 </html>

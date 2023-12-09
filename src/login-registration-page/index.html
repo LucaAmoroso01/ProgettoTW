@@ -25,6 +25,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='manifest.json') }}"
+    />
+    <meta name="theme-color" content="white" />
 
     <script src="{{ url_for('static', filename='login-registration-page/js/main.js') }}"></script>
     <script

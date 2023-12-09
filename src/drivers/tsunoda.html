@@ -29,6 +29,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='manifest.json') }}"
+    />
+    <meta name="theme-color" content="white" />
   </head>
   <body>
     <nav id="navbar"></nav>
@@ -150,14 +155,18 @@
     import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
     import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
 
-    loadNavbar();
-    loadFooter();
+    document.addEventListener("DOMContentLoaded", () => {
+      loadNavbar();
+      loadFooter();
+    });
   </script>
   <script type="module">
     import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
     import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
 
-    loadNavbar();
-    loadFooter();
+    document.addEventListener("DOMContentLoaded", () => {
+      loadNavbar();
+      loadFooter();
+    });
   </script>
 </html>

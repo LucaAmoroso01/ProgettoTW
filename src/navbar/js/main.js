@@ -54,7 +54,7 @@ export function loadNavbar() {
         "
       >
         <i class="fa-regular fa-user"></i>
-        sign in
+        login
       </div>`;
       loginButton.addEventListener("click", () => {
         openLoginOrRegistration(`/auth/login-registration?param=login`);

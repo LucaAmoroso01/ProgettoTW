@@ -43,3 +43,33 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 990px) {
+  .img-news {
+    height: 27rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .news {
+    border: none !important;
+    width: 100%;
+    padding-inline: 2rem;
+  }
+
+  .img-container {
+    padding: 0 !important;
+  }
+
+  .img-news {
+    height: 22rem !important;
+  }
+
+  .news-title {
+    font-size: 1.5rem !important;
+  }
+
+  .card-subtitle-news {
+    font-size: 1.3rem !important;
+  }
+}

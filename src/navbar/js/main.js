@@ -27,6 +27,9 @@ const teamsArray = drivers
   .map((driver) => driver.team)
   .sort((a, b) => a.localeCompare(b));
 
+/**
+ * function to load navbar
+ */
 export function loadNavbar() {
   fetch("/navbar")
     .then((response) => response.text())
@@ -181,11 +184,11 @@ export function loadNavbar() {
             document.getElementById("login-buttons-responsive").style.cssText =
               "padding-bottom: 0 !important";
 
-            userButton.style.display = "block";
-            userButton.style.cssText = "border-radius: 100% !important";
-            userButtonResponsive.style.display = "block";
+            userButton.style.cssText =
+              "display: flex !important; border-radius: 100% !important;";
+
             userButtonResponsive.style.cssText =
-              "border-radius: 100% !important";
+              "display: flex !important; border-radius: 100% !important";
 
             userButton.addEventListener("click", () =>
               toggleUserCard(user, userButton, userCard)
@@ -428,6 +431,11 @@ function loadTeamsAndDriversResponsive(drivers, teamsArray) {
 
 function toggleUserCard(user, userButton, userCard) {
   userCard.style.display = userCard.style.display === "none" ? "block" : "none";
+
+  userButton.classList.toggle(
+    "user-button-open",
+    userCard.style.display === "block"
+  );
 
   userButton.setAttribute("aria-expanded", userCard.style.display === "block");
 

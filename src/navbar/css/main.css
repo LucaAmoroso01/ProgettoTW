@@ -242,10 +242,10 @@
 
 .user-button {
   display: none;
-  border-radius: 100%;
-  border: none;
-  background-color: black;
-  padding: 10px;
+  border-radius: 100% !important;
+  border: none !important;
+  background-color: transparent !important;
+  padding: 12px !important;
 }
 
 .user-card {
@@ -259,11 +259,15 @@
 }
 
 .user-button:hover {
-  background-color: black;
+  background-color: black !important;
 }
 
 .user-button:active {
   background-color: rgba(31, 41, 55, 1) !important;
+}
+
+.user-button-open {
+  background-color: black !important;
 }
 
 .btn-danger:active {

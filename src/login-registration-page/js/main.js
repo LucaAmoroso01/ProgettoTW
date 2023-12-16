@@ -120,8 +120,6 @@ function handleRegistration() {
       confirmPassword: document.getElementById("confirmPassword").value,
     };
 
-    console.log(formData);
-
     fetch("/auth/registration", {
       method: "POST",
       headers: {

@@ -6,15 +6,26 @@ comments = Blueprint('comments', __name__)
 
 # comments tuple indexes
 COMMENT_ID = 0
-COMMENT_AUTHOR = 1
-COMMENT_NEWS_ID = 2
-COMMENT_TITLE = 3
-COMMENT_TEXT = 4
-COMMENT_DATE_INSERT = 5
+""" id index in comments table """
 
-# route to get all comments
+COMMENT_AUTHOR = 1
+""" author index in comments table """
+
+COMMENT_NEWS_ID = 2
+""" news_id index in comments table """
+
+COMMENT_TITLE = 3
+""" title index in comments table """
+
+COMMENT_TEXT = 4
+""" text index in comments table """
+
+COMMENT_DATE_INSERT = 5
+""" date_insert index in comments table """
+
 @comments.route('/comments')
 def get_comments():
+  """ route to get all comments """
   connection = connect_db()
   cursor = connection.cursor()
 
@@ -37,12 +48,12 @@ def get_comments():
 
   return jsonify(comments_list)
 
-'''
-  method GET: route to get all comments by news id
-  method POST: route to add a comment to a news by news id
-'''
 @comments.route('/comments/<newsId>', methods=['GET', 'POST'])
 def get_comments_by_news_id(newsId):
+  """
+    method GET: route to get all comments by news id
+    method POST: route to add a comment to a news by news id
+  """
   connection = connect_db()
   cursor = connection.cursor()
 

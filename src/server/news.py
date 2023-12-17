@@ -5,17 +5,26 @@ news = Blueprint('news', __name__)
 
 # news table indexes
 NEWS_ID = 0
-NEWS_TITLE = 1
-NEWS_SUBTITLE = 2
-NEWS_TEXT = 3
-NEWS_IMG_SRC = 4
-NEWS_IMG_ALT = 5
+""" id index in news table """
 
-'''
-  route to get all news
-'''
+NEWS_TITLE = 1
+""" title index in news table """
+
+NEWS_SUBTITLE = 2
+""" subtitle index in news table """
+
+NEWS_TEXT = 3
+""" text index in news table """
+
+NEWS_IMG_SRC = 4
+""" image src index in news table """
+
+NEWS_IMG_ALT = 5
+""" image alt index in news table """
+
 @news.route('/news')
 def get_news():
+  """ route to get all news """
   connection = connect_db()
   cursor = connection.cursor()
 
@@ -40,9 +49,9 @@ def get_news():
 
   return jsonify(news_list)
 
-
 @news.route('/news/<newsId>')
 def get_news_by_id(newsId):
+  """ route to get news by news id """
   connection = connect_db()
   cursor = connection.cursor()
 
@@ -66,6 +75,12 @@ def get_news_by_id(newsId):
 
 @news.route('/news/<newsId>/page')
 def get_news_by_id_page(newsId):
+  """ 
+  route to get news by news id
+  
+  Parameters:
+  - newsId: The news id
+  """
   return render_template('news/index.html')
 
 @news.teardown_request

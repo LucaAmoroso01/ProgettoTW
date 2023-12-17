@@ -5,17 +5,29 @@ standings_routes = Blueprint('standings', __name__)
 
 # drivers view tuple indexes
 DRIVER_NUMBER = 0
+""" driver number index in Vista_Punteggio view """
+
 DRIVER_NAME = 1
+""" driver name index in Vista_Punteggio view """
+
 DRIVER_SURNAME = 2
+""" driver surname index in Vista_Punteggio view """
 DRIVER_TEAM = 3
+""" driver team index in Vista_Punteggio view """
+
 DRIVER_POINTS = 4
+""" driver points index in Vista_Punteggio view """
 
 # constructors view tuple indexes
 TEAM_NAME = 0
+""" team name index in Vista_Punteggio view """
+
 TEAM_POINTS = 1
+""" team points index in Vista_Punteggio view """
 
 @standings_routes.route('/standings/drivers-standings')
 def drivers_standings():
+  """ route to get drivers standings """
   connection = connect_db()
   cursor = connection.cursor()
 
@@ -40,6 +52,7 @@ def drivers_standings():
 
 @standings_routes.route('/standings/constructors-standings')
 def constructors_standings():
+  """ route to get constructors standings """
   connection = connect_db()
   cursor = connection.cursor()
 

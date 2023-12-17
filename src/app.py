@@ -3,7 +3,6 @@ from server import SECRET_KEY_REGENERATION_INTERVAL, create_app, regenerate_secr
 
 app = create_app()
 
-
 @app.before_request
 def before_request():
   last_regeneration_time = time.time()

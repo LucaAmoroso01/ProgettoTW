@@ -54,24 +54,43 @@ async function getNewsById(newsId) {
 }
 
 /**
- * @typedef {Object} User
- * @property {string} username The username of the logged user
- * @property {string} email The email address of the logged user
- * @property {number} userId The unique identifier of the logged user
+ * @typedef {'t' | 'T' | 'f' | 'F'} JournalistEnum
  */
 
 /**
- * function to get the logged user
- * @returns {User} The logged user
+ * @typedef {Object} User
+ * @property {string} title The title of the logged-in user (possible values: 'Mr', 'Mrs', 'Ms', 'Miss')
+ * @property {string} firstName The firstName of the logged-in user
+ * @property {string} lastName The last name of the logged-in user
+ * @property {string} country The country of the logged-in user
+ * @property {date} birthDate The birth date of the logged-in user
+ * @property {string} username The username of the logged-in user
+ * @property {string} email The email address of the logged-in user
+ * @property {date} dateIns The date when logged-in user is inserted into database
+ * @property {JournalistEnum} journalist Value to check if the logged-in user is a journalsit
+ */
+
+/**
+ * @typedef {Object} UserResponse
+ * @property {User} user The logged-in user
+ * @property {string} status The response status
+ */
+
+/**
+ * Function to retrieve the logged-in user
+ * @returns {Promise<User | undefined>} A Promise containing the logged-in user or undefined in case of an error
  */
 async function getLoggedUser() {
   try {
     const response = await fetch("/auth/user");
 
     if (!response.ok) {
-      throw new Error(`Errore nella richiesta: ${response.statusText}`);
+      throw new Error(`Error in request: ${response.statusText}`);
     }
 
+    /**
+     * @type {UserResponse}
+     */
     const user = await response.json();
 
     if (user.status === 401) {
@@ -85,8 +104,23 @@ async function getLoggedUser() {
 }
 
 /**
- * function to create the news page with a news
- * @param {object} news The news to load into page
+ * @typedef {Object} NewsImg
+ * @property {string} src The news image src
+ * @property {string} alt The news image alt
+ */
+
+/**
+ * @typedef {Object} News
+ * @property {number} id The news id
+ * @property {string} title The news title
+ * @property {string} subtitle The news subtitle
+ * @property {string} text The news text
+ * @property {NewsImg} img The news image
+ */
+
+/**
+ * Function to create the news page with a news
+ * @param {News[]} news The news to load into page
  */
 function createNewsPage(news) {
   document.title = `F1 Universe - ${news.title}`;
@@ -137,6 +171,22 @@ function createNewsPage(news) {
 }
 
 /**
+ * @typedef {Object} CommentType
+ * @property {number} id The comment id
+ * @property {string} author The comment author
+ * @property {number} newsId The news to which the comment refers
+ * @property {string} title The comment title
+ * @property {string} text The comment text
+ * @property {date} dateInsert The date when comment was added
+ */
+
+/**
+ * @typedef {Object} AddCommentResponse
+ * @property {string} message The message returned by server
+ * @property {number} status The response status
+ */
+
+/**
  * function to add a comment to a news
  * @param {string} newsId The news to add a comment
  */
@@ -146,7 +196,6 @@ function handleAddComment(newsId) {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    // Verifica se l'evento di submit è già in corso
     if (commentForm.getAttribute("data-submitting") === "true") {
       return;
     }
@@ -174,6 +223,9 @@ function handleAddComment(newsId) {
         throw new Error(`Error: ${response.statusText}`);
       }
 
+      /**
+       * @type {AddCommentResponse}
+       */
       const data = await response.json();
 
       if (data.status === 200) {
@@ -193,9 +245,9 @@ function handleAddComment(newsId) {
 }
 
 /**
- * function to get comments of a news
- * @param {string} newsId The news id to get comments
- * @return {Array} The news comments
+ * Function to get comments of a news
+ * @param {number} newsId The news id to get comments
+ * @return {CommentType[]} The news comments
  */
 async function getNewsComments(newsId) {
   try {
@@ -205,6 +257,9 @@ async function getNewsComments(newsId) {
       throw new Error(`Error: ${response.statusText}`);
     }
 
+    /**
+     * @type {CommentType[]}
+     */
     const comments = await response.json();
 
     return comments;
@@ -214,13 +269,13 @@ async function getNewsComments(newsId) {
 }
 
 /**
- * function to create comments cards
- * @param {Array} comments comments to create cards
+ * Function to create comments cards
+ * @param {CommentType[]} comments comments to create cards
  */
 function createCommentsCards(comments) {
   const commentsContainer = document.getElementById("comments-container");
 
-  // Rimuovi tutti i commenti esistenti
+  // delete all comments
   while (commentsContainer.firstChild) {
     commentsContainer.removeChild(commentsContainer.firstChild);
   }
@@ -293,10 +348,10 @@ function createCommentsCards(comments) {
 
 /**
  * function to get time elapsed from a comment date
- * @param {Date} commentDate The date when the comment has been inserted
+ * @param {Date} commentDate The date when the comment was inserted
  * @returns {string} The string with time elapsed
  */
-const differenceBetweenDates = (commentDate) => {
+function differenceBetweenDates(commentDate) {
   if (commentDate) {
     const today = new Date();
 
@@ -326,4 +381,4 @@ const differenceBetweenDates = (commentDate) => {
 
     return `now`;
   }
-};
+}

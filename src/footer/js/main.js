@@ -1,3 +1,6 @@
+/**
+ * Function to load footer
+ */
 export function loadFooter() {
   fetch("/footer")
     .then((response) => response.text())

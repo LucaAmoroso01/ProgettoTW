@@ -34,7 +34,7 @@ window.onload = () => {
 };
 
 /**
- * function to get news from server
+ * Function to get news from server
  * @return news loaded with json
  * returned by endpoint /news
  */
@@ -55,7 +55,7 @@ async function getNews() {
 }
 
 /**
- * function to create card news
+ * Function to create card news
  * for each news into news array
  * @param news news array
  */

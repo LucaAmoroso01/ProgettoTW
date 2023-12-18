@@ -56,7 +56,7 @@ def constructors_standings():
   connection = connect_db()
   cursor = connection.cursor()
 
-  cursor.execute("SELECT team_name, SUM(punteggio_totale) AS punteggio_totale FROM drivers_teams_standings GROUP BY team_name ORDER BY punteggio_totale DESC;")
+  cursor.execute("SELECT team_name, SUM(total_points) AS total_points FROM drivers_teams_standings GROUP BY team_name ORDER BY total_points DESC;")
 
   result = cursor.fetchall()
 

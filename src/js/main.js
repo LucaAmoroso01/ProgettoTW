@@ -4,8 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   cardTextElements.forEach(function (element) {
     const text = element.textContent;
 
-    const truncatedText =
-      text.length > 180 ? text.substring(0, 180) + "..." : text;
+    const truncatedText = truncateText(text);
 
     element.textContent = truncatedText;
   });
@@ -13,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
   getNews();
 });
 
+/**
+ * load service worker on page load
+ */
 window.onload = () => {
   "use strict";
 
@@ -34,8 +36,8 @@ window.onload = () => {
 };
 
 /**
- * Function to get news from server
- * @return news loaded with json
+ * Function to get news from server.
+ * This function create news card loaded with json
  * returned by endpoint /news
  */
 async function getNews() {
@@ -57,7 +59,7 @@ async function getNews() {
 /**
  * Function to create card news
  * for each news into news array
- * @param news news array
+ * @param {News[]} news news array
  */
 function createCardNews(news) {
   news.forEach((element) => {
@@ -106,6 +108,11 @@ function createCardNews(news) {
   });
 }
 
+/**
+ * Function to truncate text
+ * @param {string} text
+ * @returns The truncated text
+ */
 function truncateText(text) {
   return text.length > 180 ? text.substring(0, 180) + "..." : text;
 }

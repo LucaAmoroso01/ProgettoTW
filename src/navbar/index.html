@@ -14,11 +14,8 @@
 <nav class="navbar navbar-expand-lg fixed-top default-navbar w-100" id="navbar">
   <div
     id="responsive-navbar"
-    class="d-flex align-items-center justify-content-between min-vw-100"
-    style="
-      margin-left: -2rem !important;
-      padding: 0rem 0rem 0rem 0rem !important;
-    "
+    class="align-items-center justify-content-between"
+    style="padding: 0 !important"
   >
     <div class="container-fluid w-100" style="padding: 0 !important">
       <ul class="navbar-nav h-100">
@@ -28,6 +25,7 @@
             data-bs-toggle="dropdown"
             id="menu-button"
             aria-expanded="false"
+            style="margin-left: -1rem !important"
           >
             <i
               class="bi bi-list text-white"
@@ -38,8 +36,8 @@
             class="dropdown-menu custom-dropdown-menu bg-black"
             style="
               overflow: auto !important;
-              max-height: 100% !important;
-              z-index: 1100 !important;
+              max-height: 35rem !important;
+              overflow: auto !important;
             "
             id="dropdown-responsive"
           >
@@ -56,18 +54,16 @@
               <div
                 class="d-flex align-items-center flex-column"
                 id="dropdown-drivers-submenu"
-                style="display: none !important; z-index: 11000 !important"
               >
                 <ul
                   class="dropdown-menu bg-dark"
                   id="drivers-list-responsive"
                   style="
                     max-height: 20rem !important;
-                    border-radius: 0% !important;
+                    border-radius: 0 !important;
                     border: none !important;
                     width: 100% !important;
                     overflow: auto !important;
-                    z-index: 1000 !important;
                   "
                 ></ul>
               </div>
@@ -82,7 +78,7 @@
               <div
                 class="d-flex align-items-center flex-column"
                 id="dropdown-teams-submenu"
-                style="display: none !important; padding-inline: 10px"
+                style="padding-inline: 10px"
               >
                 <ul
                   class="dropdown-menu bg-dark overflow-auto"
@@ -93,7 +89,6 @@
                     border: none !important;
                     width: 100% !important;
                     overflow: auto !important;
-                    z-index: 1000 !important;
                   "
                 ></ul>
               </div>
@@ -113,7 +108,7 @@
               <div
                 class="d-flex align-items-center flex-column"
                 id="dropdown-standings-submenu"
-                style="display: none !important; padding-inline: 10px"
+                style="padding-inline: 10px"
               >
                 <ul
                   class="dropdown-menu bg-dark overflow-auto"
@@ -181,7 +176,7 @@
         </li>
       </ul>
     </div>
-    <div style="margin-right: -16px !important; z-index: 100000 !important">
+    <div style="z-index: 100000 !important">
       <button
         class="user-button btn align-items-center"
         id="user-button-responsive"

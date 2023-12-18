@@ -176,6 +176,7 @@ th p {
     margin: 0 !important;
     border-left: none !important;
     transform: none !important;
+    color: black !important;
   }
 
   .driver-info {

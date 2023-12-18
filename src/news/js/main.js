@@ -325,8 +325,9 @@ function createCommentsCards(comments) {
       "align-items-center",
       "gap-3"
     );
-    commentCardFooterText.style.cssText =
-      "font-size: 1.3rem !important; justify-content: space-between !important;";
+    commentCardFooterText.style.cssText = `font-size: ${
+      window.innerWidth < 1201 ? "1rem" : "1.3rem"
+    } !important; justify-content: space-between !important;`;
     commentCardFooterText.innerHTML = `
       <div class='d-flex align-items-center gap-2'>
         <span><i class="bi bi-calendar3"></i></span> ${differenceBetweenDates(

@@ -312,11 +312,10 @@
 
   #responsive-navbar {
     display: flex !important;
-    z-index: 1000 !important;
   }
 
   #responsive-navbar .nav-item {
-    padding: 0% !important;
+    padding: 0 !important;
   }
 
   #responsive-navbar .nav-link {
@@ -354,6 +353,38 @@
   .menu-button {
     font-size: bold !important;
     padding: 1.5rem !important;
+  }
+
+  #dropdown-responsive {
+    display: none;
+  }
+
+  #dropdown-responsive.active {
+    display: block !important;
+  }
+
+  #dropdown-drivers-submenu {
+    display: none !important;
+  }
+
+  #dropdown-drivers-submenu.active {
+    display: block !important;
+  }
+
+  #dropdown-teams-submenu {
+    display: none !important;
+  }
+
+  #dropdown-teams-submenu.active {
+    display: block !important;
+  }
+
+  #dropdown-standings-submenu {
+    display: none !important;
+  }
+
+  #dropdown-standings-submenu.active {
+    display: block !important;
   }
 
   #responsive-navbar .nav-link {

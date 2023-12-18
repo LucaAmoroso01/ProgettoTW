@@ -49,11 +49,13 @@ export function loadNavbar() {
     .then(async (html) => {
       document.getElementById("navbar").innerHTML = html;
 
+      handleNavbarClass();
+
       loadTeamsAndDrivers();
 
-      window.addEventListener("resize", handleNavbarClass);
+      document.addEventListener("resize", handleNavbarClass);
 
-      handleNavbarClass();
+      toggleResponsiveNavbar();
 
       loadTeamsAndDriversResponsive(drivers, teamsArray);
 
@@ -583,10 +585,10 @@ function handleNavbarClass() {
 
   if (window.innerWidth <= 1050) {
     navbar.classList.remove("navbar-expand-lg");
-    responsiveNavbar.style.display = "flex";
+    responsiveNavbar.style.cssText = "display: flex !important";
   } else {
     navbar.classList.add("navbar-expand-lg");
-    responsiveNavbar.style.display = "none";
+    responsiveNavbar.style.cssText = "display: none !important";
   }
 
   if (responsiveNavbar.style.display === "flex") {
@@ -605,48 +607,45 @@ function handleNavbarClass() {
     );
 
     const submenu = document.getElementById("dropdown-drivers-submenu");
-    submenu.style.cssText = "display: none !important";
 
     const teamsSubmenu = document.getElementById("dropdown-teams-submenu");
-    teamsSubmenu.style.cssText = "display: none !important";
 
     const standingsSubmenu = document.getElementById(
       "dropdown-standings-submenu"
     );
-    standingsSubmenu.style.cssText = "display: none !important";
 
-    driversResponsiveButton.addEventListener("click", () => {
-      if (submenu.style.display === "block") {
-        submenu.style.cssText = "display: none !important";
-      } else {
-        submenu.style.cssText = "display: block !important";
-      }
+    driversResponsiveButton.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      submenu.classList.toggle("active");
     });
 
-    teamsResponsiveButton.addEventListener("click", () => {
-      if (teamsSubmenu.style.display === "block") {
-        teamsSubmenu.style.cssText = "display: none !important";
-      } else {
-        teamsSubmenu.style.cssText = "display: block !important";
-      }
+    teamsResponsiveButton.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      teamsSubmenu.classList.toggle("active");
     });
 
-    standingsResponsiveButton.addEventListener("click", () => {
-      if (standingsSubmenu.style.display === "block") {
-        standingsSubmenu.style.cssText = "display: none !important";
-      } else {
-        standingsSubmenu.style.cssText = "display: block !important";
-      }
-    });
+    standingsResponsiveButton.addEventListener("click", (e) => {
+      e.preventDefault();
 
-    const menuButton = document.getElementById("menu-button");
-    const menu = document.getElementById("dropdown-responsive");
-    menu.style.display = "none";
-
-    menuButton.addEventListener("click", (e) => {
-      menu.style.display = menu.style.display === "none" ? "block" : "none";
+      standingsSubmenu.classList.toggle("active");
     });
   }
+}
+
+/**
+ * Function to toggle responsive navbar
+ */
+function toggleResponsiveNavbar() {
+  const menuButton = document.getElementById("menu-button");
+  const menu = document.getElementById("dropdown-responsive");
+
+  menuButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    menu.classList.toggle("active");
+  });
 }
 
 /**

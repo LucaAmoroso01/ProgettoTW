@@ -242,10 +242,10 @@
 
 .user-button {
   display: none;
-  border-radius: 100%;
-  border: none;
-  background-color: black;
-  padding: 10px;
+  border-radius: 100% !important;
+  border: none !important;
+  background-color: transparent !important;
+  padding: 12px !important;
 }
 
 .user-card {
@@ -259,11 +259,15 @@
 }
 
 .user-button:hover {
-  background-color: black;
+  background-color: black !important;
 }
 
 .user-button:active {
   background-color: rgba(31, 41, 55, 1) !important;
+}
+
+.user-button-open {
+  background-color: black !important;
 }
 
 .btn-danger:active {
@@ -308,11 +312,10 @@
 
   #responsive-navbar {
     display: flex !important;
-    z-index: 1000 !important;
   }
 
   #responsive-navbar .nav-item {
-    padding: 0% !important;
+    padding: 0 !important;
   }
 
   #responsive-navbar .nav-link {
@@ -350,6 +353,38 @@
   .menu-button {
     font-size: bold !important;
     padding: 1.5rem !important;
+  }
+
+  #dropdown-responsive {
+    display: none;
+  }
+
+  #dropdown-responsive.active {
+    display: block !important;
+  }
+
+  #dropdown-drivers-submenu {
+    display: none !important;
+  }
+
+  #dropdown-drivers-submenu.active {
+    display: block !important;
+  }
+
+  #dropdown-teams-submenu {
+    display: none !important;
+  }
+
+  #dropdown-teams-submenu.active {
+    display: block !important;
+  }
+
+  #dropdown-standings-submenu {
+    display: none !important;
+  }
+
+  #dropdown-standings-submenu.active {
+    display: block !important;
   }
 
   #responsive-navbar .nav-link {
@@ -397,7 +432,7 @@
   }
 
   #responsive-navbar .btn-danger:active {
-    background-color: rgb(248, 77, 77) !important;
+    background-color: rgba(31, 41, 55, 1) !important;
   }
 }
 

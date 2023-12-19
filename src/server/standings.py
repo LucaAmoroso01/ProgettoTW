@@ -5,21 +5,33 @@ standings_routes = Blueprint('standings', __name__)
 
 # drivers view tuple indexes
 DRIVER_NUMBER = 0
+""" driver number index in drivers_teams_standings view """
+
 DRIVER_NAME = 1
+""" driver name index in drivers_teams_standings view """
+
 DRIVER_SURNAME = 2
+""" driver surname index in drivers_teams_standings view """
 DRIVER_TEAM = 3
+""" driver team index in drivers_teams_standings view """
+
 DRIVER_POINTS = 4
+""" driver points index in drivers_teams_standings view """
 
 # constructors view tuple indexes
 TEAM_NAME = 0
+""" team name index in drivers_teams_standings view """
+
 TEAM_POINTS = 1
+""" team points index in drivers_teams_standings view """
 
 @standings_routes.route('/standings/drivers-standings')
 def drivers_standings():
+  """ route to get drivers standings """
   connection = connect_db()
   cursor = connection.cursor()
 
-  cursor.execute("SELECT * FROM Vista_Punteggio;")
+  cursor.execute("SELECT * FROM drivers_teams_standings;")
 
   result = cursor.fetchall()
 
@@ -40,10 +52,11 @@ def drivers_standings():
 
 @standings_routes.route('/standings/constructors-standings')
 def constructors_standings():
+  """ route to get constructors standings """
   connection = connect_db()
   cursor = connection.cursor()
 
-  cursor.execute("SELECT nome_scuderia, SUM(punteggio_totale) AS punteggio_totale FROM Vista_Punteggio GROUP BY nome_scuderia ORDER BY punteggio_totale DESC;")
+  cursor.execute("SELECT team_name, SUM(total_points) AS total_points FROM drivers_teams_standings GROUP BY team_name ORDER BY total_points DESC;")
 
   result = cursor.fetchall()
 

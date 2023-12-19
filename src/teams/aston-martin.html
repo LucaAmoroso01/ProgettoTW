@@ -49,8 +49,12 @@
       import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
       import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
 
-      loadNavbar();
-      loadFooter();
+      document.addEventListener("DOMContentLoaded", (e) => {
+        e.preventDefault();
+
+        loadNavbar();
+        loadFooter();
+      });
     </script>
   </head>
   <body>
@@ -207,7 +211,7 @@
         <div class="button-group">
           <button
             class="driver-button"
-            onclick="window.location.href = '/ProgettoTW/src/drivers/alonso.html'"
+            onclick="window.location.href = '/drivers/alonso'"
           >
             <div class="driver-img-container">
               <img
@@ -222,7 +226,7 @@
           </button>
           <button
             class="driver-button"
-            onclick="window.location.href = '/ProgettoTW/src/drivers/stroll.html'"
+            onclick="window.location.href = '/drivers/stroll'"
           >
             <div class="driver-img-container">
               <img

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/logo.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='news/css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', filename='manifest.json') }}"
+    />
+    <meta name="theme-color" content="white" />
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='news/js/main.js') }}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module">
+      import { loadNavbar } from "{{ url_for('static', filename='navbar/js/main.js') }}";
+      import { loadFooter } from "{{ url_for('static', filename='footer/js/main.js') }}";
+
+      document.addEventListener("DOMContentLoaded", (e) => {
+        e.preventDefault();
+
+        loadNavbar();
+        loadFooter();
+      });
+    </script>
+  </head>
+  <body>
+    <nav id="navbar"></nav>
+    <div class="container-fluid d-flex flex-column gap-5">
+      <div class="news-container">
+        <div class="news" id="news"></div>
+      </div>
+      <div
+        class="w-100 flex-column gap-3"
+        id="add-comment-container"
+        style="padding-inline: 2rem !important; padding-bottom: 1rem !important"
+      >
+        <form id="comment-form">
+          <div class="d-flex flex-column gap-3">
+            <h5 for="comment" style="font-size: 2rem; font-weight: bold">
+              Add a comment
+            </h5>
+            <div class="form-group d-flex flex-column gap-2">
+              <input
+                type="text"
+                id="comment-title"
+                name="comment-title"
+                class="form-control text-area"
+                placeholder="Write your comment title here..."
+                style="box-shadow: none !important"
+              />
+              <textarea
+                class="form-control text-area"
+                id="comment-text"
+                name="comment-text"
+                rows="5"
+                placeholder="Write your comment here..."
+                style="box-shadow: none !important"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              id="add-comment-button"
+              class="btn btn-dark"
+              style="width: max-content; place-self: end; cursor: pointer"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+      <div
+        class="d-flex align-items-start flex-column w-100"
+        style="padding-inline: 2rem"
+        id="comments-container"
+      ></div>
+    </div>
+    <footer id="footer"></footer>
+  </body>
+</html>

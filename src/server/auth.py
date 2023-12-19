@@ -6,16 +6,35 @@ import os
 auth = Blueprint('auth', __name__)
 
 # user tuple indexes
-TITLE = 0         # title index in the user tuple
-FIRST_NAME = 1    # first name index in the user tuple
-LAST_NAME = 2     # last name index in the user tuple
-COUNTRY = 3       # country index in the user tuple
-BIRTH_DATE = 4    # birth date index in the user tuple
-USERNAME = 5      # username index in the user tuple
-EMAIL = 6         # email index in the user tuple
-PASSWORD = 7      # password index in the user tuple
-DATE_INS = 8      # date inserted index in the user tuple
-JOURNALIST = 9    # journalist index in the user tuple
+TITLE = 0
+""" title index in the user tuple """
+
+FIRST_NAME = 1
+""" first name index in the user tuple """
+
+LAST_NAME = 2
+""" last name index in the user tuple """
+
+COUNTRY = 3
+""" country index in the user tuple """
+
+BIRTH_DATE = 4
+""" birth date index in the user tuple """
+
+USERNAME = 5
+""" username index in the user tuple """
+
+EMAIL = 6
+""" email index in the user tuple """
+
+PASSWORD = 7
+""" password index in the user tuple """
+
+DATE_INS = 8
+""" date_insert index in the user tuple """
+
+JOURNALIST = 9
+""" journalist index in the user tuple """
 
 @auth.before_request
 def before_request():
@@ -23,6 +42,7 @@ def before_request():
     g.pop('user', None)
 
 def connect_db():
+    """ function to connect to database """
     if 'db' not in g:
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
         DB_PATH = os.path.join(BASE_DIR, "db", "database.db")
@@ -31,10 +51,15 @@ def connect_db():
 
 @auth.route('/login-registration')
 def loginRegistration():
+  """ route to get login/registration home page """
   return render_template('login-registration-page/index.html')
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
+  """
+    method GET: route to get login page
+    method POST: route to login a user
+  """
   if request.method == 'POST':
     payload = request.get_json()
     
@@ -60,6 +85,10 @@ def login():
 
 @auth.route('/registration', methods=['GET', 'POST'])
 def registration():
+  """
+    method GET: route to get registration page
+    method POST: route to register a user
+  """
   if request.method == 'POST':
     payload = request.get_json()
 
@@ -102,6 +131,7 @@ def registration():
 
 @auth.route('/user', methods=['GET'])
 def user():
+  """ route to get logged-in user """
   if 'user' not in session:
     return make_response(jsonify({'message': 'User not logged in', 'status': 401}))
 
@@ -121,9 +151,9 @@ def user():
 
   return make_response(jsonify({'user': user_data, 'status': 200}))
 
-
 @auth.route('/logout', methods=['POST'])
 def logout():
+  """ route to do logout """
   if 'user' in session:
     session.pop('user', None)
     return make_response(jsonify({'message': 'User logged out successfully', 'status': 200}))

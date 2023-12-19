@@ -1,5 +1,15 @@
 const root = "/";
 
+/**
+ * @typedef {Object} Driver
+ * @property {string} firstName The driver first name
+ * @property {string} lastName The driver last name
+ * @property {string} team The driver team
+ */
+
+/**
+ * @type {Driver[]}
+ */
 const drivers = [
   { firstName: "Charles", lastName: "Leclerc", team: "ferrari" },
   { firstName: "Carlos", lastName: "Sainz", team: "ferrari" },
@@ -23,21 +33,29 @@ const drivers = [
   { firstName: "Logan", lastName: "Sargeant", team: "williams" },
 ].sort((a, b) => a.lastName.localeCompare(b.lastName));
 
+/**
+ * teams array sorted alphabetically
+ */
 const teamsArray = drivers
   .map((driver) => driver.team)
   .sort((a, b) => a.localeCompare(b));
 
+/**
+ * Function to load navbar
+ */
 export function loadNavbar() {
   fetch("/navbar")
     .then((response) => response.text())
     .then(async (html) => {
       document.getElementById("navbar").innerHTML = html;
 
+      handleNavbarClass();
+
       loadTeamsAndDrivers();
 
-      window.addEventListener("resize", handleNavbarClass);
+      document.addEventListener("resize", handleNavbarClass);
 
-      handleNavbarClass();
+      toggleResponsiveNavbar();
 
       loadTeamsAndDriversResponsive(drivers, teamsArray);
 
@@ -163,42 +181,53 @@ export function loadNavbar() {
             throw Error("Error getting user");
           }
         })
-        .then((data) => {
-          if (data.status !== 401) {
-            const user = data.user;
+        .then(
+          /**
+           * @param {UserResponse} data The data response returned by server
+           */
+          (data) => {
+            if (data.status !== 401) {
+              const user = data.user;
 
-            const dividerResponsive = document.getElementById(
-              "dropdown-divider-responsive"
-            );
+              const dividerResponsive = document.getElementById(
+                "dropdown-divider-responsive"
+              );
 
-            loginButton.style.display = "none";
-            registrationButton.style.display = "none";
+              loginButton.style.display = "none";
+              registrationButton.style.display = "none";
 
-            loginButtonResponsive.remove();
-            registrationButtonResponsive.remove();
-            dividerResponsive.remove();
+              loginButtonResponsive.remove();
+              registrationButtonResponsive.remove();
+              dividerResponsive.remove();
 
-            document.getElementById("login-buttons-responsive").style.cssText =
-              "padding-bottom: 0 !important";
+              document.getElementById(
+                "login-buttons-responsive"
+              ).style.cssText = "padding-bottom: 0 !important";
 
-            userButton.style.display = "block";
-            userButton.style.cssText = "border-radius: 100% !important";
-            userButtonResponsive.style.display = "block";
-            userButtonResponsive.style.cssText =
-              "border-radius: 100% !important";
+              userButton.style.cssText =
+                "display: flex !important; border-radius: 100% !important;";
 
-            userButton.addEventListener("click", () =>
-              toggleUserCard(user, userButton, userCard)
-            );
+              userButtonResponsive.style.cssText =
+                "display: flex !important; border-radius: 100% !important";
 
-            userButtonResponsive.addEventListener("click", () => {
-              toggleUserCard(user, userButtonResponsive, userCardResponsive);
-            });
+              userButton.addEventListener("click", () =>
+                toggleUserCard(user, userButton, userCard)
+              );
 
-            const logoutButton = document.getElementById("logout-button");
-            logoutButton.addEventListener("click", () => logout());
+              userButtonResponsive.addEventListener("click", () => {
+                toggleUserCard(user, userButtonResponsive, userCardResponsive);
+              });
+
+              const logoutButton = document.getElementById("logout-button");
+              logoutButton.addEventListener("click", logout);
+
+              const logoutButtonResponsive = document.getElementById(
+                "logout-button-responsive"
+              );
+              logoutButtonResponsive.addEventListener("click", logout);
+            }
           }
-        });
+        );
 
       const homeResponsiveButton = document.getElementById("home-responsive");
 
@@ -209,23 +238,44 @@ export function loadNavbar() {
     .catch((error) => console.error("Error loading page content:", error));
 }
 
+/**
+ * Function to open login/registration page
+ * @param {string} path The page path
+ */
 function openLoginOrRegistration(path) {
   window.location.href = path;
 }
 
+/**
+ * Function to open a driver page
+ * @param {string} driverToOpen The driver page to open
+ */
 function openDriver(driverToOpen) {
   window.location.href = `/drivers/${driverToOpen}`;
 }
 
+/**
+ * Function to open a team page
+ * @param {string} teamToOpen The team page to open
+ */
 function openTeam(teamToOpen) {
   window.location.href = `/teams/${teamToOpen}`;
 }
 
+/**
+ * Function to open the schedule page
+ */
 function openSchedule() {
   window.location.href = `/schedule`;
 }
 
+/**
+ * Function to load teams and drivers into navbar dropdowns
+ */
 function loadTeamsAndDrivers() {
+  /**
+   * @type {Driver[]}
+   */
   const drivers = [
     { firstName: "Charles", lastName: "Leclerc", team: "ferrari" },
     { firstName: "Carlos", lastName: "Sainz", team: "ferrari" },
@@ -249,10 +299,18 @@ function loadTeamsAndDrivers() {
     { firstName: "Logan", lastName: "Sargeant", team: "williams" },
   ].sort((a, b) => a.lastName.localeCompare(b.lastName));
 
+  /**
+   * teams array sorted alphabetically
+   */
   const teamsArray = drivers
     .map((driver) => driver.team)
     .sort((a, b) => a.localeCompare(b));
 
+  /**
+   * Function to create a driver list item
+   * @param {Driver} driver The driver to which create the list item
+   * @returns The list item created
+   */
   function createDriverListItem(driver) {
     const listItem = document.createElement("button");
 
@@ -281,6 +339,12 @@ function loadTeamsAndDrivers() {
     listItem.innerHTML = formattedName;
     return listItem;
   }
+
+  /**
+   * Function to create a team list item
+   * @param {string} team The team to which create the list item
+   * @returns The list item created
+   */
   function createTeamListItem(team) {
     const listItem = document.createElement("button");
     listItem.classList.add(
@@ -339,7 +403,17 @@ function loadTeamsAndDrivers() {
   });
 }
 
+/**
+ * Function to load teams and drivers into responsive navbar dropdowns
+ * @param {Driver[]} drivers The drivers to load into responsive drivers dropdown
+ * @param {string[]} teamsArray The teams to load into responsive teams dropdown
+ */
 function loadTeamsAndDriversResponsive(drivers, teamsArray) {
+  /**
+   * Function to create a driver list item
+   * @param {Driver} driver The driver to which create the list item
+   * @returns The list item created
+   */
   function createDriverListItem(driver) {
     const listItem = document.createElement("button");
     listItem.id = driver.lastName.toLowerCase();
@@ -368,6 +442,11 @@ function loadTeamsAndDriversResponsive(drivers, teamsArray) {
     return listItem;
   }
 
+  /**
+   * Function to create a team list item
+   * @param {string} team The team to which create the list item
+   * @returns The list item created
+   */
   function createTeamListItem(team) {
     const listItem = document.createElement("button");
     listItem.classList.add("dropdown-item", "dropdown-item-responsive");
@@ -426,8 +505,19 @@ function loadTeamsAndDriversResponsive(drivers, teamsArray) {
   });
 }
 
+/**
+ * Function to toggle the user card when user button has clicked
+ * @param {User} user The logged-in user
+ * @param {HTMLButtonElement} userButton The user button to click to toggle the user card
+ * @param {HTMLDivElement} userCard The user card to toggle
+ */
 function toggleUserCard(user, userButton, userCard) {
   userCard.style.display = userCard.style.display === "none" ? "block" : "none";
+
+  userButton.classList.toggle(
+    "user-button-open",
+    userCard.style.display === "block"
+  );
 
   userButton.setAttribute("aria-expanded", userCard.style.display === "block");
 
@@ -452,6 +542,16 @@ function toggleUserCard(user, userButton, userCard) {
   userEmailResponsive.innerHTML = user.email;
 }
 
+/**
+ * @typedef {Object} LogoutResponse
+ * @property {string} message The message returned by server
+ * @property {string} status The response status
+ */
+
+/**
+ * Function to do logout
+ * If logout goes well, there'll be the redirect to homepage
+ */
 function logout() {
   fetch("/auth/logout", {
     method: "POST",
@@ -463,23 +563,32 @@ function logout() {
 
       return response.json();
     })
-    .then((data) => {
-      if (data.status === 200) {
-        window.location.href = "/";
+    .then(
+      /**
+       * Function called after response get
+       * @param {LogoutResponse} data The data contained into response
+       */
+      (data) => {
+        if (data.status === 200) {
+          window.location.href = "/";
+        }
       }
-    });
+    );
 }
 
+/**
+ * Function to manage responsive navbar
+ */
 function handleNavbarClass() {
   const navbar = document.getElementById("navbar");
   const responsiveNavbar = document.getElementById("responsive-navbar");
 
   if (window.innerWidth <= 1050) {
     navbar.classList.remove("navbar-expand-lg");
-    responsiveNavbar.style.display = "flex";
+    responsiveNavbar.style.cssText = "display: flex !important";
   } else {
     navbar.classList.add("navbar-expand-lg");
-    responsiveNavbar.style.display = "none";
+    responsiveNavbar.style.cssText = "display: none !important";
   }
 
   if (responsiveNavbar.style.display === "flex") {
@@ -498,50 +607,51 @@ function handleNavbarClass() {
     );
 
     const submenu = document.getElementById("dropdown-drivers-submenu");
-    submenu.style.cssText = "display: none !important";
 
     const teamsSubmenu = document.getElementById("dropdown-teams-submenu");
-    teamsSubmenu.style.cssText = "display: none !important";
 
     const standingsSubmenu = document.getElementById(
       "dropdown-standings-submenu"
     );
-    standingsSubmenu.style.cssText = "display: none !important";
 
-    driversResponsiveButton.addEventListener("click", () => {
-      if (submenu.style.display === "block") {
-        submenu.style.cssText = "display: none !important";
-      } else {
-        submenu.style.cssText = "display: block !important";
-      }
+    driversResponsiveButton.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      submenu.classList.toggle("active");
     });
 
-    teamsResponsiveButton.addEventListener("click", () => {
-      if (teamsSubmenu.style.display === "block") {
-        teamsSubmenu.style.cssText = "display: none !important";
-      } else {
-        teamsSubmenu.style.cssText = "display: block !important";
-      }
+    teamsResponsiveButton.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      teamsSubmenu.classList.toggle("active");
     });
 
-    standingsResponsiveButton.addEventListener("click", () => {
-      if (standingsSubmenu.style.display === "block") {
-        standingsSubmenu.style.cssText = "display: none !important";
-      } else {
-        standingsSubmenu.style.cssText = "display: block !important";
-      }
-    });
+    standingsResponsiveButton.addEventListener("click", (e) => {
+      e.preventDefault();
 
-    const menuButton = document.getElementById("menu-button");
-    const menu = document.getElementById("dropdown-responsive");
-    menu.style.display = "none";
-
-    menuButton.addEventListener("click", (e) => {
-      menu.style.display = menu.style.display === "none" ? "block" : "none";
+      standingsSubmenu.classList.toggle("active");
     });
   }
 }
 
+/**
+ * Function to toggle responsive navbar
+ */
+function toggleResponsiveNavbar() {
+  const menuButton = document.getElementById("menu-button");
+  const menu = document.getElementById("dropdown-responsive");
+
+  menuButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    menu.classList.toggle("active");
+  });
+}
+
+/**
+ * Function to style schedule button into normal navbar
+ * @param {HTMLButtonElement} scheduleButton
+ */
 function handleStyleScheduleButton(scheduleButton) {
   scheduleButton.addEventListener("click", openSchedule);
 
@@ -558,6 +668,10 @@ function handleStyleScheduleButton(scheduleButton) {
   }
 }
 
+/**
+ * Function to style schedule button into responsive navbar
+ * @param {HTMLButtonElement} scheduleButton
+ */
 function handleStyleScheduleResponsiveButton(scheduleButton) {
   scheduleButton.addEventListener("click", openSchedule);
 

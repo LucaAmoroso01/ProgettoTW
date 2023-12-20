@@ -355,6 +355,19 @@
     padding: 1.5rem !important;
   }
 
+  .menu-button.active {
+    font-size: bold !important;
+    padding: 1.5rem !important;
+  }
+
+  #menu-button {
+    background-color: transparent !important;
+  }
+
+  #menu-button.active {
+    background-color: black !important;
+  }
+
   #dropdown-responsive {
     display: none;
   }

@@ -645,6 +645,7 @@ function toggleResponsiveNavbar() {
     e.preventDefault();
 
     menu.classList.toggle("active");
+    menuButton.classList.toggle("active");
   });
 }
 

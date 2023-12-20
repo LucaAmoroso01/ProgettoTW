@@ -301,6 +301,21 @@
   background-color: black !important;
 }
 
+.menu-button {
+  font-size: bold !important;
+  padding: 1.5rem !important;
+}
+
+.menu-button.active {
+  font-size: bold !important;
+  padding: 1.5rem !important;
+  background-color: black !important;
+}
+
+.menu-button:hover {
+  background-color: black !important;
+}
+
 @media (max-width: 1200px) {
   #normal-navbar * {
     display: none;
@@ -348,24 +363,6 @@
     width: 100%;
     border: none !important;
     border-radius: 0% !important;
-  }
-
-  .menu-button {
-    font-size: bold !important;
-    padding: 1.5rem !important;
-  }
-
-  .menu-button.active {
-    font-size: bold !important;
-    padding: 1.5rem !important;
-  }
-
-  #menu-button {
-    background-color: transparent !important;
-  }
-
-  #menu-button.active {
-    background-color: black !important;
   }
 
   #dropdown-responsive {

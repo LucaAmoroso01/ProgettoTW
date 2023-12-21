@@ -583,6 +583,14 @@ function handleNavbarClass() {
   const navbar = document.getElementById("navbar");
   const responsiveNavbar = document.getElementById("responsive-navbar");
 
+  if (window.innerWidth <= 1050) {
+    navbar.classList.remove("navbar-expand-lg");
+    responsiveNavbar.style.cssText = "display: flex !important";
+  } else {
+    navbar.classList.add("navbar-expand-lg");
+    responsiveNavbar.style.cssText = "display: none !important";
+  }
+
   if (responsiveNavbar.style.display === "flex") {
     navbar.style.cssText = "padding: 0 !important; margin: 0 !important";
 

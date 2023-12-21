@@ -53,7 +53,7 @@ export function loadNavbar() {
 
       loadTeamsAndDrivers();
 
-      document.addEventListener("resize", handleNavbarClass);
+      window.addEventListener("resize", handleNavbarClass);
 
       toggleResponsiveNavbar();
 
@@ -583,11 +583,9 @@ function handleNavbarClass() {
   const navbar = document.getElementById("navbar");
   const responsiveNavbar = document.getElementById("responsive-navbar");
 
-  if (window.innerWidth <= 1050) {
-    navbar.classList.remove("navbar-expand-lg");
+  if (window.innerWidth <= 1200) {
     responsiveNavbar.style.cssText = "display: flex !important";
   } else {
-    navbar.classList.add("navbar-expand-lg");
     responsiveNavbar.style.cssText = "display: none !important";
   }
 
